@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var websiteGenerator = require('../lib/index.js');
+websiteGenerator.generate();
