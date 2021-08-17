@@ -1,19 +1,19 @@
 import fs from 'fs';
 import postcss from 'postcss';
 
+import { DIRECTORIES } from './config/constants';
 import { MarkdownParser } from './MarkdownParser';
 import { Renderer } from './Renderer';
-import { DIRECTORIES } from './config/constants';
 import { copyFiles } from './utils/copyFiles';
 import { findFiles } from './utils/findFiles';
-import { getPartialTemplates } from './utils/getPartialTemplates';
 import { formatOutputFilePath } from './utils/formatOutputFilePath';
-import { readFile } from './utils/readFile';
+import { getPartialTemplates } from './utils/getPartialTemplates';
 import { getShortcodeTemplates } from './utils/getShortcodeTemplates';
-import { saveContentToFile } from './utils/saveContentToFile';
 import { parseContent } from './parseContent';
 import { prepareContent } from './prepareContent';
+import { readFile } from './utils/readFile';
 import { renderContent } from './renderContent';
+import { saveContentToFile } from './utils/saveContentToFile';
 
 async function generateContent(props: {
   markdownParser: MarkdownParser;
