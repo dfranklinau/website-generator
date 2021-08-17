@@ -52,6 +52,7 @@ export class Renderer {
       content: string;
       data?: Record<string, unknown>;
       global?: Record<string, unknown>;
+      head?: Record<string, unknown>;
       page?: Record<string, unknown>;
       params?: Record<string, unknown>;
       section?: Record<string, unknown>;

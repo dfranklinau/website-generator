@@ -65,15 +65,23 @@ function generateStatic() {
   copyFiles(staticFiles, DIRECTORIES.BUILD);
 }
 
-async function generate404(props: { renderer: Renderer }) {
-  const { renderer } = props;
+async function generate404(props: {
+  config: Record<string, unknown>;
+  renderer: Renderer;
+}) {
+  const { config, renderer } = props;
 
   const templateFile = `${DIRECTORIES.TEMPLATES}_404.hbs`;
   const content = (await readFile(templateFile)) as string;
 
   fs.writeFileSync(
     `${DIRECTORIES.BUILD}404.html`,
-    renderer.render({ content })
+    renderer.render({
+      content,
+      head: {
+        title: config.errorDocumentTitle || '404',
+      },
+    })
   );
 }
 
@@ -109,7 +117,7 @@ export const generate = async (): Promise<void> => {
   const markdownParser = new MarkdownParser(renderer, shortcodes);
 
   await generateContent({ markdownParser, renderer });
-  await generate404({ renderer });
+  await generate404({ config, renderer });
   await generateStatic();
   await generateAssets();
 };
