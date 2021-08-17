@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { config } from './config';
+import { DIRECTORIES } from './config/constants';
 import { copyFiles } from './utils/copyFiles';
 import { getContentTemplate } from './utils/getContentTemplate';
 import { getPageTitle } from './utils/getPageTitle';
@@ -179,7 +179,7 @@ export const renderContent = (props: RenderContentProps): void => {
   if (assets) {
     copyFiles(
       assets.map((asset: PreparedFileType) => asset.filePath),
-      config.DIRECTORIES.BUILD,
+      DIRECTORIES.BUILD,
       (filePath: string) => {
         const asset: PreparedFileType | undefined = assets.find(
           (asset) => asset.filePath === filePath

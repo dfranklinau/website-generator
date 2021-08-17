@@ -1,7 +1,7 @@
 import { findFiles } from './findFiles';
 import { readFile } from './readFile';
 
-import { config } from '../config';
+import { DIRECTORIES } from '../config/constants';
 
 type PartialTemplateType = {
   data: string;
@@ -14,7 +14,7 @@ type PartialsType = {
 
 export const getPartialTemplates = async (): Promise<PartialsType> => {
   const partialTemplates: string[] = findFiles(
-    `${config.DIRECTORIES.TEMPLATES}_partials/`,
+    `${DIRECTORIES.TEMPLATES}_partials/`,
     {
       match: /\.hbs/,
       recursive: true,

@@ -3,7 +3,7 @@ import path from 'path';
 import { findFiles } from './findFiles';
 import { readFile } from './readFile';
 
-import { config } from '../config';
+import { DIRECTORIES } from '../config/constants';
 
 export type ShortcodeTemplateType = {
   name: string;
@@ -13,7 +13,7 @@ export type ShortcodeTemplateType = {
 export const getShortcodeTemplates = async (): Promise<
   ShortcodeTemplateType[]
 > => {
-  const shortcodeTemplates = findFiles(config.DIRECTORIES.SHORTCODES, {
+  const shortcodeTemplates = findFiles(DIRECTORIES.SHORTCODES, {
     match: /^.*\.hbs/,
   });
 
@@ -21,7 +21,7 @@ export const getShortcodeTemplates = async (): Promise<
     shortcodeTemplates.map(
       async (file): Promise<ShortcodeTemplateType> => {
         const name = path.parse(file).name;
-        const template = `${config.DIRECTORIES.SHORTCODES}${name}.hbs`;
+        const template = `${DIRECTORIES.SHORTCODES}${name}.hbs`;
 
         try {
           return {

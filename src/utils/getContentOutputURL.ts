@@ -1,4 +1,4 @@
-import { config } from '../config';
+import { DIRECTORIES } from '../config/constants';
 import { getContentOutputPath } from './getContentOutputPath';
 
 import type { PreparedContentType } from '../prepareContent';
@@ -9,6 +9,6 @@ export const getContentOutputURL = (
 ): string => {
   const contentOutputPath = getContentOutputPath(filePath, section);
   return contentOutputPath
-    .replace(config.DIRECTORIES.BUILD, '/')
+    .replace(DIRECTORIES.BUILD, '/')
     .replace('index.html', '');
 };

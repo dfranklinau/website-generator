@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { config } from '../config';
+import { DIRECTORIES } from '../config/constants';
 
 export const getContentTemplate = (
   template: string,
@@ -10,8 +10,8 @@ export const getContentTemplate = (
   const section = directories.join(path.sep);
   const templatePath =
     section.length > 0
-      ? `${config.DIRECTORIES.TEMPLATES}${section}${path.sep}${template}.hbs`
-      : `${config.DIRECTORIES.TEMPLATES}${template}.hbs`;
+      ? `${DIRECTORIES.TEMPLATES}${section}${path.sep}${template}.hbs`
+      : `${DIRECTORIES.TEMPLATES}${template}.hbs`;
 
   try {
     return fs.readFileSync(templatePath, 'utf8');

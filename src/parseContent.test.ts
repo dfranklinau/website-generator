@@ -4,9 +4,9 @@ import test from 'tape';
 
 import { mockParsedMarkdown } from './_fixtures';
 
+import { DIRECTORIES } from './config/constants';
 import { MarkdownParser } from './MarkdownParser';
 import { Renderer } from './Renderer';
-import { config } from './config';
 import { parseContent } from './parseContent';
 
 import type { ParsedContentType } from './parseContent';
@@ -80,7 +80,7 @@ test('`parseContent`', async (t: test.Test) => {
   const markdownParser = new MarkdownParser(renderer, []);
 
   const content = await parseContent({
-    directory: config.DIRECTORIES.CONTENT,
+    directory: DIRECTORIES.CONTENT,
     markdownParser,
     renderer,
   });
