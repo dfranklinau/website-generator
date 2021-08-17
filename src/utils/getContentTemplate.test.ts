@@ -2,7 +2,7 @@ import fs from 'fs';
 import sinon from 'sinon';
 import test from 'tape';
 
-import { config } from '../config';
+import { DIRECTORIES } from '../config/constants';
 import { getContentTemplate } from './getContentTemplate';
 
 test('`getContentTemplate`', (t: test.Test) => {
@@ -10,20 +10,20 @@ test('`getContentTemplate`', (t: test.Test) => {
   const readFileSync = sinon.stub(fs, 'readFileSync');
 
   readFileSync
-    .withArgs(`${config.DIRECTORIES.TEMPLATES}index.hbs`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}index.hbs`)
     .returns('index template');
 
   readFileSync
-    .withArgs(`${config.DIRECTORIES.TEMPLATES}directory/index.hbs`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}directory/index.hbs`)
     .returns('directory index template');
 
   readFileSync
-    .withArgs(`${config.DIRECTORIES.TEMPLATES}non-existant/index.hbs`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}non-existant/index.hbs`)
     .throws();
   readFileSync
-    .withArgs(`${config.DIRECTORIES.TEMPLATES}directory/other.hbs`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}directory/other.hbs`)
     .throws();
-  readFileSync.withArgs(`${config.DIRECTORIES.TEMPLATES}other.hbs`).throws();
+  readFileSync.withArgs(`${DIRECTORIES.TEMPLATES}other.hbs`).throws();
 
   contentTemplate = getContentTemplate('index', []);
 

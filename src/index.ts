@@ -3,7 +3,7 @@ import postcss from 'postcss';
 
 import { MarkdownParser } from './MarkdownParser';
 import { Renderer } from './Renderer';
-import { config } from './config';
+import { DIRECTORIES } from './config/constants';
 import { copyFiles } from './utils/copyFiles';
 import { findFiles } from './utils/findFiles';
 import { getPartialTemplates } from './utils/getPartialTemplates';
@@ -22,7 +22,7 @@ async function generateContent(props: {
   const { markdownParser, renderer } = props;
 
   const parsedContent = await parseContent({
-    directory: config.DIRECTORIES.CONTENT,
+    directory: DIRECTORIES.CONTENT,
     markdownParser,
     renderer,
   });
@@ -37,16 +37,13 @@ async function generateContent(props: {
 }
 
 async function generateAssets() {
-  const cssFiles = findFiles(config.DIRECTORIES.ASSETS, {
+  const cssFiles = findFiles(DIRECTORIES.ASSETS, {
     match: /\.css$/,
     recursive: true,
   });
 
   cssFiles.forEach(async (cssFile: string) => {
-    const outputCssFile = formatOutputFilePath(
-      cssFile,
-      config.DIRECTORIES.BUILD
-    );
+    const outputCssFile = formatOutputFilePath(cssFile, DIRECTORIES.BUILD);
 
     const data = (await readFile(cssFile)) as string;
 
@@ -62,27 +59,27 @@ async function generateAssets() {
 }
 
 function generateStatic() {
-  const staticFiles = findFiles(config.DIRECTORIES.STATIC, { recursive: true });
-  copyFiles(staticFiles, config.DIRECTORIES.BUILD);
+  const staticFiles = findFiles(DIRECTORIES.STATIC, {
+    recursive: true,
+  });
+  copyFiles(staticFiles, DIRECTORIES.BUILD);
 }
 
 async function generate404(props: { renderer: Renderer }) {
   const { renderer } = props;
 
-  const templateFile = `${config.DIRECTORIES.TEMPLATES}_404.hbs`;
+  const templateFile = `${DIRECTORIES.TEMPLATES}_404.hbs`;
   const content = (await readFile(templateFile)) as string;
 
   fs.writeFileSync(
-    `${config.DIRECTORIES.BUILD}404.html`,
-    renderer.render({
-      content,
-    })
+    `${DIRECTORIES.BUILD}404.html`,
+    renderer.render({ content })
   );
 }
 
 function clean() {
-  fs.rmdirSync(config.DIRECTORIES.BUILD, { recursive: true });
-  fs.mkdirSync(config.DIRECTORIES.BUILD);
+  fs.rmdirSync(DIRECTORIES.BUILD, { recursive: true });
+  fs.mkdirSync(DIRECTORIES.BUILD);
 }
 
 export const generate = async (): Promise<void> => {

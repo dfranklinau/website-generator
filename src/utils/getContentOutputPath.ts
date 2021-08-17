@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { config } from '../config';
+import { DIRECTORIES } from '../config/constants';
 
 import type { PreparedContentType } from '../prepareContent';
 
@@ -32,7 +32,7 @@ export const getContentOutputPath = (
   }
 
   rewritePath = rewritePath
-    .replace(config.DIRECTORIES.CONTENT, config.DIRECTORIES.BUILD)
+    .replace(DIRECTORIES.CONTENT, DIRECTORIES.BUILD)
     .replace(/_index\.md$/, 'index.md')
     .replace(/\.md$/, '.html');
 
