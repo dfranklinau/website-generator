@@ -65,7 +65,7 @@ function generateStatic() {
   copyFiles(staticFiles, DIRECTORIES.BUILD);
 }
 
-async function generate404(props: {
+async function generateErrorDocuments(props: {
   config: Record<string, unknown>;
   renderer: Renderer;
 }) {
@@ -79,7 +79,7 @@ async function generate404(props: {
     renderer.render({
       content,
       head: {
-        title: config.errorDocumentTitle || '404',
+        title: config.errorDocument404Title || '404',
       },
     })
   );
@@ -117,7 +117,7 @@ export const generate = async (): Promise<void> => {
   const markdownParser = new MarkdownParser(renderer, shortcodes);
 
   await generateContent({ markdownParser, renderer });
-  await generate404({ config, renderer });
+  await generateErrorDocuments({ config, renderer });
   await generateStatic();
   await generateAssets();
 };
