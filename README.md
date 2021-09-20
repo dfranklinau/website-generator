@@ -29,6 +29,7 @@ A static-site generator written in Node.js, designed for personal use only.
     - [Shortcode attributes](#shortcode-attributes)
 - [Assets](#assets)
 - [Static](#static)
+- [Configuration](#configuration)
 
 ## Overview
 
@@ -584,3 +585,27 @@ Any files within `./static/` will be copied across to `./build/` without any
 transformation.
 
 The `./static/` directory supports nesting with folders.
+
+## Configuration
+
+Create a `website-generator.config.json` file in the root of the directory to
+adjust certain behaviours of website-generator and pass global configuration
+that is accessible to all rendered templates.
+
+Below is a table of all supported configuration keys and an example
+`website-generator.config.json` file:
+
+| Variable                | Description                                                |
+| ----------------------- | ---------------------------------------------------------  |
+| `custom`                | User-defined configuration.                                |
+| `errorDocument404Title` | The value for the `<title>` tag of the 404 error document. |
+
+```json
+{
+  "custom": {
+    "a": "1",
+    "b": "2"
+  },
+  "errorDocument404Title": "404",
+}
+```
