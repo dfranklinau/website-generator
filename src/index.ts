@@ -93,6 +93,7 @@ function clean() {
 export const generate = async (): Promise<void> => {
   clean();
 
+  // @TODO how to differentiate from user-defined and reserved keywords?
   const config: Record<string, unknown> = (await readFile(
     './website-generator.config.json',
     {},
