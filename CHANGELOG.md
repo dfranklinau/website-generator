@@ -10,7 +10,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-- Nothing in development.
+### Added
+
+- Added improvements to project documentation in the README.
 
 --------------------------------------------------------------------------------
 
