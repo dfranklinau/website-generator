@@ -44,11 +44,11 @@ const formatSectionUrl = (url: string): string => {
 export class MarkdownParser {
   private _DOMPurify: DOMPurify.DOMPurifyI;
   private _md: Remarkable;
-  private _renderer: Renderer;
+  private _renderer: Renderer | null;
   private _shortcodes: ShortcodeTemplateType[];
   private _window: jsdom.DOMWindow;
 
-  constructor(renderer: Renderer, shortcodes: ShortcodeTemplateType[]) {
+  constructor(renderer: Renderer | null, shortcodes: ShortcodeTemplateType[]) {
     const { JSDOM } = jsdom;
 
     this._md = new Remarkable({ html: true });
@@ -151,6 +151,10 @@ export class MarkdownParser {
   }
 
   public prepare(content: string): string {
+    if (!this._renderer) {
+      return content;
+    }
+
     let prepared: string = content;
 
     prepared = parseShortcodes({
