@@ -1,26 +1,41 @@
 import Handlebars from 'handlebars';
 
+const getPrimitive = (value: unknown): string => {
+  if (value !== Object(value)) {
+    // @ts-expect-error: `value` is a primitive type, which will have `toString()`.
+    return value.toString();
+  }
+
+  return '';
+};
+
 export const sortHelper: Handlebars.HelperDelegate = (
-  list,
-  property,
+  list: unknown[],
+  property: string,
   options: Handlebars.HelperOptions
-) => {
+): string => {
   const sorted = list.sort((a: unknown, b: unknown) => {
-    const aDate = property
+    const aItem: string  = getPrimitive(property
       .split('.')
-      .reduce((p: Record<string, unknown>, prop: string) => {
-        return p[prop];
-      }, a);
+      .reduce((object: unknown, prop: string) => {
+        if (Object.prototype.toString.call(object) === '[object Object]') {
+          return (object as Record<string, unknown>)[prop];
+        }
+      }, a));
 
-    const bDate = property
+    const bItem: string = getPrimitive(property
       .split('.')
-      .reduce((p: Record<string, unknown>, prop: string) => {
-        return p[prop];
-      }, b);
+      .reduce((object: unknown, prop: string) => {
+        if (Object.prototype.toString.call(object) === '[object Object]') {
+          return (object as Record<string, unknown>)[prop];
+        }
 
-    if (aDate > bDate) {
+        return ''
+      }, b));
+
+    if (aItem > bItem) {
       return -1;
-    } else if (aDate < bDate) {
+    } else if (aItem < bItem) {
       return 1;
     }
 
