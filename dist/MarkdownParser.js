@@ -108,6 +108,9 @@ class MarkdownParser {
             .trim();
     }
     prepare(content) {
+        if (!this._renderer) {
+            return content;
+        }
         let prepared = content;
         prepared = parseShortcodes_1.parseShortcodes({
             content: prepared,
