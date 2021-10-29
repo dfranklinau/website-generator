@@ -8,6 +8,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
+## [Unreleased]
+
+### Fixed
+
+- Fixed footnote linking by including a `fnref` id on inline footnote links.
+
+--------------------------------------------------------------------------------
+
 ## [1.0.0-alpha.3] - 2022-01-30
 
 ### Added
