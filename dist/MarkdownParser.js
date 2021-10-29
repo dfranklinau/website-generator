@@ -30,15 +30,15 @@ class MarkdownParser {
         this._md = new remarkable_1.Remarkable({ html: true });
         this._md.use(linkify_1.linkify);
         this._md.block.ruler.enable(['deflist']); // Enable the rendering of description lists in Markdown.
-        /**
-         * Override remarkable's `heading_open` rule to add an `id` attribute to
-         * headings.
-         */
         this._md.use((remarkable) => {
             remarkable.renderer.rules.footnote_ref = (tokens, idx) => {
                 const level = tokens[idx].level + 1;
-                return `<sup><a href="#fn${level}">${level}</a></sup>`;
+                return `<sup><a id="fnref${level} href="#fn${level}">${level}</a></sup>`;
             };
+            /**
+             * Override remarkable's `heading_open` rule to add an `id` attribute to
+             * headings.
+             */
             remarkable.renderer.rules.heading_open = (tokens, idx) => `<h${tokens[idx].hLevel} id="${markdown_toc_1.default.slugify(
             // @ts-expect-error the idx + 1 isn't a heading_open token.
             tokens[idx + 1].content)}">`;
