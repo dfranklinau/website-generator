@@ -2,6 +2,7 @@ import Handlebars from 'handlebars';
 
 import { dateformatHelper } from './helpers/dateformatHelper';
 import { equalHelper } from './helpers/equalHelper';
+import { markdownifyHelper } from './helpers/markdownifyHelper';
 import { isarrayHelper } from './helpers/isarrayHelper';
 import { sortHelper } from './helpers/sortHelper';
 import { stripnewlinesHelper } from './helpers/stripnewlinesHelper';
@@ -42,6 +43,7 @@ export class Renderer {
 
     Handlebars.registerHelper('dateformat', dateformatHelper);
     Handlebars.registerHelper('equal', equalHelper);
+    Handlebars.registerHelper('markdownify', markdownifyHelper);
     Handlebars.registerHelper('isarray', isarrayHelper);
     Handlebars.registerHelper('sort', sortHelper);
     Handlebars.registerHelper('stripnewlines', stripnewlinesHelper);
