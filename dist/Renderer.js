@@ -7,6 +7,7 @@ exports.Renderer = void 0;
 const handlebars_1 = __importDefault(require("handlebars"));
 const dateformatHelper_1 = require("./helpers/dateformatHelper");
 const equalHelper_1 = require("./helpers/equalHelper");
+const markdownifyHelper_1 = require("./helpers/markdownifyHelper");
 const isarrayHelper_1 = require("./helpers/isarrayHelper");
 const sortHelper_1 = require("./helpers/sortHelper");
 const stripnewlinesHelper_1 = require("./helpers/stripnewlinesHelper");
@@ -28,6 +29,7 @@ class Renderer {
         });
         handlebars_1.default.registerHelper('dateformat', dateformatHelper_1.dateformatHelper);
         handlebars_1.default.registerHelper('equal', equalHelper_1.equalHelper);
+        handlebars_1.default.registerHelper('markdownify', markdownifyHelper_1.markdownifyHelper);
         handlebars_1.default.registerHelper('isarray', isarrayHelper_1.isarrayHelper);
         handlebars_1.default.registerHelper('sort', sortHelper_1.sortHelper);
         handlebars_1.default.registerHelper('stripnewlines', stripnewlinesHelper_1.stripnewlinesHelper);

@@ -10,6 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Added a `markdownify` Handlebars.js helper.
+
 ### Fixed
 
 - Fixed footnote linking by including a `fnref` id on inline footnote links.
