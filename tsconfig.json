@@ -3,7 +3,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "outDir": "./lib",
+    "outDir": "./dist",
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2020",

@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/dfranklinau/website-generator/",
   "license": "ISC",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "name": "website-generator",
   "private": "true",
   "repository": {
@@ -52,7 +52,7 @@
   },
   "scripts": {
     "build": "npm run clean && tsc",
-    "clean": "rm -rf ./lib",
+    "clean": "rm -rf ./dist",
     "test": "npm run build && node test.js"
   },
   "version": "1.0.0-alpha.3"

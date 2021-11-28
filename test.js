@@ -8,7 +8,7 @@ var test = require('tape');
 test.createStream().pipe(faucet()).pipe(process.stdout);
 
 const args = process.argv.slice(2);
-const patterns = args.length > 0 ? args : ['./lib/**/*.test.js'];
+const patterns = args.length > 0 ? args : ['./dist/**/*.test.js'];
 
 patterns.forEach((pattern) => {
   const files = glob.sync(pattern);
