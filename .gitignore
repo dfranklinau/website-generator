@@ -50,8 +50,8 @@ node_modules/
 ################################################################################
 assets/
 content/
-lib/**/*.test.js
-lib/_fixtures/
+dist/**/*.test.js
+dist/_fixtures/
 shortcodes/
 static/
 templates/
