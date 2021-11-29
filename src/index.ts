@@ -7,6 +7,7 @@ import { Renderer } from './Renderer';
 import { copyFiles } from './utils/copyFiles';
 import { findFiles } from './utils/findFiles';
 import { formatOutputFilePath } from './utils/formatOutputFilePath';
+import { getHelpers } from './utils/getHelpers';
 import { getPartialTemplates } from './utils/getPartialTemplates';
 import { getShortcodeTemplates } from './utils/getShortcodeTemplates';
 import { parseContent } from './parseContent';
@@ -111,10 +112,11 @@ export const generate = async (): Promise<void> => {
     '',
   )) as string;
 
+  const helpers = getHelpers();
   const partials = await getPartialTemplates();
   const shortcodes = await getShortcodeTemplates();
 
-  const renderer = new Renderer({ baseTemplate, config, partials });
+  const renderer = new Renderer({ baseTemplate, config, helpers, partials });
   const markdownParser = new MarkdownParser(renderer, shortcodes);
 
   await generateContent({ markdownParser, renderer });
