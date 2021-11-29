@@ -13,6 +13,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - Added a `markdownify` Handlebars.js helper.
+- Added support for custom Handlebars.js helpers to be loaded from the
+  `./helpers/` directory.
 
 ### Fixed
 

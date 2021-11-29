@@ -12,6 +12,7 @@ const Renderer_1 = require("./Renderer");
 const copyFiles_1 = require("./utils/copyFiles");
 const findFiles_1 = require("./utils/findFiles");
 const formatOutputFilePath_1 = require("./utils/formatOutputFilePath");
+const getHelpers_1 = require("./utils/getHelpers");
 const getPartialTemplates_1 = require("./utils/getPartialTemplates");
 const getShortcodeTemplates_1 = require("./utils/getShortcodeTemplates");
 const parseContent_1 = require("./parseContent");
@@ -85,9 +86,10 @@ const generate = async () => {
         }
     }));
     const baseTemplate = (await readFile_1.readFile('./templates/_base.hbs', ''));
+    const helpers = getHelpers_1.getHelpers();
     const partials = await getPartialTemplates_1.getPartialTemplates();
     const shortcodes = await getShortcodeTemplates_1.getShortcodeTemplates();
-    const renderer = new Renderer_1.Renderer({ baseTemplate, config, partials });
+    const renderer = new Renderer_1.Renderer({ baseTemplate, config, helpers, partials });
     const markdownParser = new MarkdownParser_1.MarkdownParser(renderer, shortcodes);
     await generateContent({ markdownParser, renderer });
     await generateErrorDocuments({ config, renderer });

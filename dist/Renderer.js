@@ -15,6 +15,7 @@ class Renderer {
     constructor(props) {
         this._baseTemplate = props.baseTemplate;
         this._config = props.config;
+        this._helpers = props.helpers || {};
         this._partials = props.partials;
         this._runtime = {
             date: {
@@ -33,6 +34,15 @@ class Renderer {
         handlebars_1.default.registerHelper('isarray', isarrayHelper_1.isarrayHelper);
         handlebars_1.default.registerHelper('sort', sortHelper_1.sortHelper);
         handlebars_1.default.registerHelper('stripnewlines', stripnewlinesHelper_1.stripnewlinesHelper);
+        /**
+         * Register custom helpers to Handlebars.
+         */
+        Object.keys(this._helpers).forEach((helper) => {
+            handlebars_1.default.registerHelper(helper, (...args) => {
+                const value = this._helpers[helper].apply(null, args);
+                return new handlebars_1.default.SafeString(value);
+            });
+        });
     }
     render(view, options) {
         let templateString = typeof options?.baseTemplate === 'undefined'

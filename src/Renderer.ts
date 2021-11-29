@@ -7,6 +7,8 @@ import { isarrayHelper } from './helpers/isarrayHelper';
 import { sortHelper } from './helpers/sortHelper';
 import { stripnewlinesHelper } from './helpers/stripnewlinesHelper';
 
+import type { HelpersType } from './utils/getHelpers';
+
 type RuntimeType = {
   date: {
     year: string;
@@ -16,16 +18,19 @@ type RuntimeType = {
 export class Renderer {
   private _baseTemplate: string;
   private _config: Record<string, unknown>;
+  private _helpers: HelpersType;
   private _partials: Record<string, string>;
   private _runtime: RuntimeType;
 
   constructor(props: {
     baseTemplate: string;
     config: Record<string, unknown>;
+    helpers?: HelpersType;
     partials: Record<string, string>;
   }) {
     this._baseTemplate = props.baseTemplate;
     this._config = props.config;
+    this._helpers = props.helpers || {};
     this._partials = props.partials;
 
     this._runtime = {
@@ -47,6 +52,19 @@ export class Renderer {
     Handlebars.registerHelper('isarray', isarrayHelper);
     Handlebars.registerHelper('sort', sortHelper);
     Handlebars.registerHelper('stripnewlines', stripnewlinesHelper);
+
+    /**
+     * Register custom helpers to Handlebars.
+     */
+    Object.keys(this._helpers).forEach((helper: string) => {
+      Handlebars.registerHelper(
+        helper,
+        (...args: unknown[]): Handlebars.SafeString => {
+          const value = this._helpers[helper].apply(null, args);
+          return new Handlebars.SafeString(value);
+        },
+      );
+    });
   }
 
   public render(
