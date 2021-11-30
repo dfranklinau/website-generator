@@ -1,18 +1,15 @@
 import Handlebars from 'handlebars';
 
 const getPrimitive = (value: unknown): string => {
-  if (value !== Object(value)) {
-    // @ts-expect-error: `value` is a primitive type, which will have `toString()`.
-    return value.toString();
-  }
-
-  return '';
+  // @ts-expect-error: `value` is a primitive type, which will have `toString()`.
+  return value?.toString() || '';
 };
 
 export const sortHelper: Handlebars.HelperDelegate = (
   list: unknown[],
   property: string,
-  options: Handlebars.HelperOptions
+  options: Handlebars.HelperOptions,
+  ascending = false
 ): string => {
   const sorted = list.sort((a: unknown, b: unknown) => {
     const aItem: string  = getPrimitive(property
@@ -21,6 +18,8 @@ export const sortHelper: Handlebars.HelperDelegate = (
         if (Object.prototype.toString.call(object) === '[object Object]') {
           return (object as Record<string, unknown>)[prop];
         }
+
+        return '';
       }, a));
 
     const bItem: string = getPrimitive(property
@@ -30,13 +29,13 @@ export const sortHelper: Handlebars.HelperDelegate = (
           return (object as Record<string, unknown>)[prop];
         }
 
-        return ''
+        return '';
       }, b));
 
     if (aItem > bItem) {
-      return -1;
+      return ascending ? 1 : -1;
     } else if (aItem < bItem) {
-      return 1;
+      return ascending ? -1 : 1;
     }
 
     return 0;
