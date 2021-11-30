@@ -12,25 +12,25 @@ export const sortHelper: Handlebars.HelperDelegate = (
   ascending = false
 ): string => {
   const sorted = list.sort((a: unknown, b: unknown) => {
-    const aItem: string  = getPrimitive(property
-      .split('.')
-      .reduce((object: unknown, prop: string) => {
+    const aItem: string = getPrimitive(
+      property.split('.').reduce((object: unknown, prop: string) => {
         if (Object.prototype.toString.call(object) === '[object Object]') {
           return (object as Record<string, unknown>)[prop];
         }
 
         return '';
-      }, a));
+      }, a)
+    );
 
-    const bItem: string = getPrimitive(property
-      .split('.')
-      .reduce((object: unknown, prop: string) => {
+    const bItem: string = getPrimitive(
+      property.split('.').reduce((object: unknown, prop: string) => {
         if (Object.prototype.toString.call(object) === '[object Object]') {
           return (object as Record<string, unknown>)[prop];
         }
 
         return '';
-      }, b));
+      }, b)
+    );
 
     if (aItem > bItem) {
       return ascending ? 1 : -1;
