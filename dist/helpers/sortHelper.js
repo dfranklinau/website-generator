@@ -7,17 +7,13 @@ const getPrimitive = (value) => {
 };
 const sortHelper = (list, property, options, ascending = false) => {
     const sorted = list.sort((a, b) => {
-        const aItem = getPrimitive(property
-            .split('.')
-            .reduce((object, prop) => {
+        const aItem = getPrimitive(property.split('.').reduce((object, prop) => {
             if (Object.prototype.toString.call(object) === '[object Object]') {
                 return object[prop];
             }
             return '';
         }, a));
-        const bItem = getPrimitive(property
-            .split('.')
-            .reduce((object, prop) => {
+        const bItem = getPrimitive(property.split('.').reduce((object, prop) => {
             if (Object.prototype.toString.call(object) === '[object Object]') {
                 return object[prop];
             }

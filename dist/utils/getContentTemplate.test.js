@@ -20,9 +20,7 @@ tape_1.default('`getContentTemplate`', (t) => {
     readFileSync
         .withArgs(`${constants_1.DIRECTORIES.TEMPLATES}non-existant/index.hbs`)
         .throws();
-    readFileSync
-        .withArgs(`${constants_1.DIRECTORIES.TEMPLATES}directory/other.hbs`)
-        .throws();
+    readFileSync.withArgs(`${constants_1.DIRECTORIES.TEMPLATES}directory/other.hbs`).throws();
     readFileSync.withArgs(`${constants_1.DIRECTORIES.TEMPLATES}other.hbs`).throws();
     contentTemplate = getContentTemplate_1.getContentTemplate('index', []);
     t.ok(readFileSync.calledOnce, 'should call `fs.readFileSync` once when no directories are passed');

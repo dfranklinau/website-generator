@@ -20,9 +20,7 @@ test('`getContentTemplate`', (t: test.Test) => {
   readFileSync
     .withArgs(`${DIRECTORIES.TEMPLATES}non-existant/index.hbs`)
     .throws();
-  readFileSync
-    .withArgs(`${DIRECTORIES.TEMPLATES}directory/other.hbs`)
-    .throws();
+  readFileSync.withArgs(`${DIRECTORIES.TEMPLATES}directory/other.hbs`).throws();
   readFileSync.withArgs(`${DIRECTORIES.TEMPLATES}other.hbs`).throws();
 
   contentTemplate = getContentTemplate('index', []);
