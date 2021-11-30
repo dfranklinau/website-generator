@@ -2,13 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortHelper = void 0;
 const getPrimitive = (value) => {
-    if (value !== Object(value)) {
-        // @ts-expect-error: `value` is a primitive type, which will have `toString()`.
-        return value.toString();
-    }
-    return '';
+    // @ts-expect-error: `value` is a primitive type, which will have `toString()`.
+    return value?.toString() || '';
 };
-const sortHelper = (list, property, options) => {
+const sortHelper = (list, property, options, ascending = false) => {
     const sorted = list.sort((a, b) => {
         const aItem = getPrimitive(property
             .split('.')
@@ -16,6 +13,7 @@ const sortHelper = (list, property, options) => {
             if (Object.prototype.toString.call(object) === '[object Object]') {
                 return object[prop];
             }
+            return '';
         }, a));
         const bItem = getPrimitive(property
             .split('.')
@@ -26,10 +24,10 @@ const sortHelper = (list, property, options) => {
             return '';
         }, b));
         if (aItem > bItem) {
-            return -1;
+            return ascending ? 1 : -1;
         }
         else if (aItem < bItem) {
-            return 1;
+            return ascending ? -1 : 1;
         }
         return 0;
     });
