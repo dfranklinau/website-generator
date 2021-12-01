@@ -31,7 +31,7 @@ export const getShortcodeTemplates = async (): Promise<
         } catch (error) {
           throw new Error('Shortcode template file does not exist.');
         }
-      }
-    )
+      },
+    ),
   );
 };

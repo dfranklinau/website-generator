@@ -73,7 +73,7 @@ const getContentOutput = (props: GetContentOutputProps): string => {
     },
     {
       baseTemplate: contentTemplate,
-    }
+    },
   );
 
   return renderer.render({
@@ -120,7 +120,7 @@ export const renderContent = (props: RenderContentProps): void => {
           sectionChildren.push(child.section);
         } else {
           const childIndexPage = child.pages.find(
-            (page: PreparedContentType) => page.name === 'index.md'
+            (page: PreparedContentType) => page.name === 'index.md',
           );
 
           if (childIndexPage) {
@@ -182,17 +182,17 @@ export const renderContent = (props: RenderContentProps): void => {
       DIRECTORIES.BUILD,
       (filePath: string) => {
         const asset: PreparedFileType | undefined = assets.find(
-          (asset) => asset.filePath === filePath
+          (asset) => asset.filePath === filePath,
         );
 
         if (!asset) {
           throw new Error(
-            `Asset at "${filePath}" does not have an output path.`
+            `Asset at "${filePath}" does not have an output path.`,
           );
         }
 
         return asset.outputPath;
-      }
+      },
     );
   }
 };

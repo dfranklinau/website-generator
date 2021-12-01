@@ -18,7 +18,7 @@ export const getPartialTemplates = async (): Promise<PartialsType> => {
     {
       match: /\.hbs/,
       recursive: true,
-    }
+    },
   );
 
   const partials: Promise<PartialTemplateType | null>[] = await partialTemplates.map(
@@ -33,7 +33,7 @@ export const getPartialTemplates = async (): Promise<PartialsType> => {
       }
 
       return null;
-    }
+    },
   );
 
   /**
@@ -54,8 +54,8 @@ export const getPartialTemplates = async (): Promise<PartialsType> => {
 
           return acc;
         },
-        {}
+        {},
       );
-    }
+    },
   );
 };

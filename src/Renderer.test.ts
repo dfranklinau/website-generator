@@ -17,7 +17,7 @@ test('`Renderer`', (t: test.Test) => {
         content: 'hello world',
       }),
       'hello world',
-      'renders content using the base template'
+      'renders content using the base template',
     );
 
     t.equal(
@@ -27,10 +27,10 @@ test('`Renderer`', (t: test.Test) => {
         },
         {
           baseTemplate: 'custom template: {{&content}}',
-        }
+        },
       ),
       'custom template: hello world',
-      'renders content using a custom base template'
+      'renders content using a custom base template',
     );
 
     t.equal(
@@ -43,10 +43,10 @@ test('`Renderer`', (t: test.Test) => {
         },
         {
           baseTemplate: '{{&content}} + page content: {{&page.content}}',
-        }
+        },
       ),
       'hello world + page content: goodbye world',
-      'renders content with page variables '
+      'renders content with page variables ',
     );
 
     t.equal(
@@ -56,10 +56,10 @@ test('`Renderer`', (t: test.Test) => {
         },
         {
           baseTemplate: '{{&content}} + partial: {{> partial}}',
-        }
+        },
       ),
       'hello world + partial: (partial)',
-      'renders content with partials '
+      'renders content with partials ',
     );
 
     t.match(
@@ -69,10 +69,10 @@ test('`Renderer`', (t: test.Test) => {
         },
         {
           baseTemplate: '{{runtime.date.year}}',
-        }
+        },
       ),
       /\d{4}/,
-      'renders content with a runtime variable of the current year'
+      'renders content with a runtime variable of the current year',
     );
 
     t.end();

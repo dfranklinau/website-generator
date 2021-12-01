@@ -36,7 +36,7 @@ test('`getPageTitle`', (t: test.Test) => {
   t.equal(
     getPageTitle(content, section),
     'Page / Section',
-    'gets a page title'
+    'gets a page title',
   );
 
   t.equal(getPageTitle(section, section), 'Section', 'gets a page title');

@@ -18,19 +18,19 @@ test('`copyFiles`', (t: test.Test) => {
 
   t.ok(
     mkdirSync.calledWith('./build', { recursive: true }),
-    'creates the provided destination folder'
+    'creates the provided destination folder',
   );
   t.ok(
     mkdirSync.calledWith('./build/js', { recursive: true }),
-    'creates the provided destination folder, with nesting'
+    'creates the provided destination folder, with nesting',
   );
   t.ok(
     copyFileSync.calledWith('./static/image.jpg', './build/image.jpg'),
-    'copies the supplied file to the destination folder'
+    'copies the supplied file to the destination folder',
   );
   t.ok(
     copyFileSync.calledWith('./static/js/main.js', './build/js/main.js'),
-    'copies the supplied file to the destination folder, with nesting'
+    'copies the supplied file to the destination folder, with nesting',
   );
 
   mkdirSync.restore();

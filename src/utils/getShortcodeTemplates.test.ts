@@ -34,7 +34,7 @@ test('`getShortcodeTemplates`', async (t: test.Test) => {
         template: '<p>Shortcode with attribute</p>',
       },
     ],
-    'returns an array of shortcode names and templates'
+    'returns an array of shortcode names and templates',
   );
 
   findFilesStub.restore();

@@ -9,14 +9,14 @@ test('`formatOutputFilePath`', (t: test.Test) => {
     t.equal(
       formatOutputFilePath('./content/blog-post.md', outputDir),
       './build/blog-post.md',
-      `replaces the root directory with the supplied output directory "${outputDir}"`
+      `replaces the root directory with the supplied output directory "${outputDir}"`,
     );
   });
 
   t.equal(
     formatOutputFilePath('./content/directory/blog-post.md', './build/'),
     './build/directory/blog-post.md',
-    `replaces the root directory with the supplied output directory for a nested file`
+    `replaces the root directory with the supplied output directory for a nested file`,
   );
 
   t.end();

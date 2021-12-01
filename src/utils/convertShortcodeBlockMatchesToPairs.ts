@@ -6,13 +6,13 @@ export type ShortcodeBlockPairsType = ShortcodeBlockPairType[];
 const sortNumbersAscending = (a: number, b: number) => a - b;
 
 export const convertShortcodeBlockMatchesToPairs = (
-  blockMatches: ShortcodeBlockMatchesType
+  blockMatches: ShortcodeBlockMatchesType,
 ): ShortcodeBlockPairsType => {
   let pairs: ShortcodeBlockPairsType = [];
 
   if (blockMatches.closingTags.length !== blockMatches.openTags.length) {
     throw new Error(
-      'There is a mismatch between the number of open and closing tags'
+      'There is a mismatch between the number of open and closing tags',
     );
   }
 
@@ -21,7 +21,7 @@ export const convertShortcodeBlockMatchesToPairs = (
 
   while (closingTags.length > 0) {
     const openTagIndex = openTags.findIndex(
-      (tag) => tag > closingTags[closingTags.length - 1]
+      (tag) => tag > closingTags[closingTags.length - 1],
     );
 
     const openTag =
@@ -49,7 +49,7 @@ export const convertShortcodeBlockMatchesToPairs = (
     const open = pair[0];
     const close = pair[1];
     const isNested = pairs.some(
-      (nestedPair) => open > nestedPair[0] && close < nestedPair[1]
+      (nestedPair) => open > nestedPair[0] && close < nestedPair[1],
     );
     return !isNested;
   });
@@ -57,7 +57,7 @@ export const convertShortcodeBlockMatchesToPairs = (
   if (openTags.length > 0) {
     openTags.forEach((tag) => {
       const isNested = pairs.some(
-        (pair) => pair.length === 2 && tag > pair[0] && tag < pair[1]
+        (pair) => pair.length === 2 && tag > pair[0] && tag < pair[1],
       );
 
       if (!isNested) {

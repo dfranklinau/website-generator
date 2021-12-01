@@ -17,17 +17,17 @@ test('`readFile`', async (t: test.Test) => {
 
   t.ok(
     (await readFile('./file.txt')) === 'file',
-    'returns the contents of a given file'
+    'returns the contents of a given file',
   );
 
   t.ok(
     (await readFile('./error.txt')) === null,
-    'returns `null` for a file that does not exist'
+    'returns `null` for a file that does not exist',
   );
 
   t.ok(
     (await readFile('./error.txt', 'default')) === 'default',
-    'returns a supplied default value for a file that does not exist'
+    'returns a supplied default value for a file that does not exist',
   );
 
   t.deepEqual(
@@ -35,7 +35,7 @@ test('`readFile`', async (t: test.Test) => {
     {
       key: 'value',
     },
-    'runs a supplied callback on a file'
+    'runs a supplied callback on a file',
   );
 
   readFileStub.restore();

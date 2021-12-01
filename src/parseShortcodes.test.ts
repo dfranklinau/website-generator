@@ -20,7 +20,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '<div></div>',
-    'parses an inline shortcode'
+    'parses an inline shortcode',
   );
 
   t.equal(
@@ -31,7 +31,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '<div id="value"></div>',
-    'parses an inline shortcode with an attribute'
+    'parses an inline shortcode with an attribute',
   );
 
   t.equal(
@@ -43,7 +43,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '<div id="value" class="css"></div>',
-    'parses an inline shortcode with multiple attributes'
+    'parses an inline shortcode with multiple attributes',
   );
 
   t.equal(
@@ -55,7 +55,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '<div><ul><li>one</li><li>two</li><li>three</li></ul></div>',
-    'parses an inline shortcode with an array attribute'
+    'parses an inline shortcode with an array attribute',
   );
 
   /**
@@ -72,7 +72,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div>**content**</div>',
-    'parses a block shortcode with content'
+    'parses a block shortcode with content',
   );
 
   t.equal(
@@ -86,7 +86,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div id="value">**content**</div>',
-    'parses a block shortcode with content and an attribute'
+    'parses a block shortcode with content and an attribute',
   );
 
   t.equal(
@@ -100,7 +100,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div id="value" class="css">**content**</div>',
-    'parses a block shortcode with content and multiple attributes'
+    'parses a block shortcode with content and multiple attributes',
   );
 
   t.equal(
@@ -114,7 +114,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div>**content**<ul><li>one</li><li>two</li><li>three</li></ul></div>',
-    'parses a block shortcode with content and an array attribute'
+    'parses a block shortcode with content and an array attribute',
   );
 
   /**
@@ -131,7 +131,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div><p><strong>content</strong></p></div>',
-    'parses a block shortcode with content as Markdown'
+    'parses a block shortcode with content as Markdown',
   );
 
   t.equal(
@@ -145,7 +145,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div id="value"><p><strong>content</strong></p></div>',
-    'parses a block shortcode with content and an attribute as Markdown'
+    'parses a block shortcode with content and an attribute as Markdown',
   );
 
   t.equal(
@@ -159,7 +159,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div id="value" class="css"><p><strong>content</strong></p></div>',
-    'parses a block shortcode with content and multiple attributes as Markdown'
+    'parses a block shortcode with content and multiple attributes as Markdown',
   );
 
   t.equal(
@@ -173,7 +173,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div><p><strong>content</strong></p><ul><li>one</li><li>two</li><li>three</li></ul></div>',
-    'parses a block shortcode with content and an array attribute as Markdown'
+    'parses a block shortcode with content and an array attribute as Markdown',
   );
 
   /**
@@ -187,7 +187,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '<div></div> content <div></div>',
-    'parses two inline shortcodes on the same line, preserving other content as well'
+    'parses two inline shortcodes on the same line, preserving other content as well',
   );
 
   t.equal(
@@ -199,7 +199,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '<div id="value"></div> content <div id="value"></div>',
-    'parses two inline shortcodes with attributes on the same line, preserving other content as well'
+    'parses two inline shortcodes with attributes on the same line, preserving other content as well',
   );
 
   t.equal(
@@ -215,7 +215,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div><div><p>content</p></div></div>',
-    'parses a nested group of block shortcodes'
+    'parses a nested group of block shortcodes',
   );
 
   t.equal(
@@ -231,7 +231,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div id="value"><div><p>content</p></div></div>',
-    'parses a nested group of different block shortcodes'
+    'parses a nested group of different block shortcodes',
   );
 
   t.equal(
@@ -247,7 +247,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div id="value"><div id="one"></div>\n  <div id="two"></div>\n  <div id="three"></div></div>',
-    'parses a nested group of inline shortcodes in a block shortcode'
+    'parses a nested group of inline shortcodes in a block shortcode',
   );
 
   t.equal(
@@ -263,7 +263,7 @@ test('`parseShortcodes`', (t: test.Test) => {
       shortcodes: mockShortcodes,
     }),
     '\n<div id="value"><div id="one"></div>\n  <div id="two"></div>\n  <div id="three"></div></div>',
-    'parses a nested group of inline shortcodes in a block shortcode as Markdown'
+    'parses a nested group of inline shortcodes in a block shortcode as Markdown',
   );
 
   t.end();

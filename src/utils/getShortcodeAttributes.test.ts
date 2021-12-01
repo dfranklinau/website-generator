@@ -12,49 +12,49 @@ test('`getShortcodeAttributes`', (t: test.Test) => {
     getShortcodeAttributes(
       'shortcode',
       '{{%shortcode id="value"%}}',
-      markdownParser
+      markdownParser,
     ),
     {
       id: 'value',
     },
-    `should return a named attribute's value`
+    `should return a named attribute's value`,
   );
 
   t.deepEqual(
     getShortcodeAttributes(
       'shortcode',
       '{{%shortcode id="value"/%}}',
-      markdownParser
+      markdownParser,
     ),
     {
       id: 'value',
     },
-    `should return a named attribute's value for a self-closing shortcode`
+    `should return a named attribute's value for a self-closing shortcode`,
   );
 
   t.deepEqual(
     getShortcodeAttributes(
       'shortcode',
       '{{%shortcode id="value" class="css"/%}}',
-      markdownParser
+      markdownParser,
     ),
     {
       class: 'css',
       id: 'value',
     },
-    'should return the values of multiple named attributes'
+    'should return the values of multiple named attributes',
   );
 
   t.deepEqual(
     getShortcodeAttributes(
       'shortcode',
       '{{%shortcode key="one" key="two"/%}}',
-      markdownParser
+      markdownParser,
     ),
     {
       key: ['one', 'two'],
     },
-    'should return an array of values for an attribute name used multiple times'
+    'should return an array of values for an attribute name used multiple times',
   );
 
   t.end();

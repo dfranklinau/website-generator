@@ -28,7 +28,7 @@ test('`MarkdownParser`', (t: test.Test) => {
           '<ol>\n<li><a href="#heading">Heading</a>\n<ol>\n<li><a href="#heading-1">Heading</a></li>\n</ol></li>\n</ol>',
         url: 'url',
       },
-      'parses front-matter containing all supported options'
+      'parses front-matter containing all supported options',
     );
 
     t.deepEqual(
@@ -45,7 +45,7 @@ test('`MarkdownParser`', (t: test.Test) => {
         toc: false,
         url: false,
       },
-      'parses front-matter containing an incomplete menu declaration'
+      'parses front-matter containing an incomplete menu declaration',
     );
 
     t.deepEqual(
@@ -57,7 +57,7 @@ test('`MarkdownParser`', (t: test.Test) => {
         toc: false,
         url: '/',
       },
-      'parses front-matter containing a URL removal'
+      'parses front-matter containing a URL removal',
     );
 
     t.deepEqual(
@@ -69,7 +69,7 @@ test('`MarkdownParser`', (t: test.Test) => {
         toc: false,
         url: 'replacement',
       },
-      'parses front-matter containing a URL replacement, removing any slashes'
+      'parses front-matter containing a URL replacement, removing any slashes',
     );
 
     t.deepEqual(
@@ -79,7 +79,7 @@ test('`MarkdownParser`', (t: test.Test) => {
         toc: false,
         url: false,
       },
-      'parses front-matter containing no supported options'
+      'parses front-matter containing no supported options',
     );
 
     t.end();
@@ -96,25 +96,25 @@ test('`MarkdownParser`', (t: test.Test) => {
     t.equal(
       parsed.content,
       `<h2 id="heading">Heading</h2>\n<p>This is some Markdown content.</p>\n<h3 id="heading">Heading</h3>\n<p>There are a few Markdown elements in here:</p>\n<ul>\n<li>such</li>\n<li>as</li>\n<li>lists</li>\n</ul>`,
-      'parses the contents of a Markdown file'
+      'parses the contents of a Markdown file',
     );
 
     t.equal(
       parsed.matter.title,
       'Markdown Title',
-      'parses a string from a file with front-matter'
+      'parses a string from a file with front-matter',
     );
 
     t.equal(
       parsed.matter.date,
       '1979-05-27',
-      'parses a date from a file with front-matter'
+      'parses a date from a file with front-matter',
     );
 
     t.equal(
       parsed.matter.toc,
       true,
-      'parses a boolean from a file with front-matter'
+      'parses a boolean from a file with front-matter',
     );
 
     t.deepEqual(
@@ -125,7 +125,7 @@ test('`MarkdownParser`', (t: test.Test) => {
           '<ol>\n<li><a href="#heading">Heading</a>\n<ol>\n<li><a href="#heading-1">Heading</a></li>\n</ol></li>\n</ol>',
         url: false,
       },
-      'generates an `options` object containing data for special properties'
+      'generates an `options` object containing data for special properties',
     );
 
     t.end();
