@@ -3,12 +3,12 @@ import path from 'path';
 
 type SaveContentToFileProps = (
   outputContent: string,
-  contentPath: string
+  contentPath: string,
 ) => void;
 
 export const saveContentToFile: SaveContentToFileProps = (
   content,
-  filePath
+  filePath,
 ) => {
   const directory = path.parse(filePath).dir;
 

@@ -2,7 +2,7 @@ import Handlebars from 'handlebars';
 
 export const dateformatHelper: Handlebars.HelperDelegate = (
   value: string,
-  format: string
+  format: string,
 ): Handlebars.SafeString => {
   const months = [
     'January',

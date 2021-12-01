@@ -22,7 +22,7 @@ test('`getPartialTemplates`', async (t: test.Test) => {
     {
       partial: '<p>Partial</p>',
     },
-    'returns a formatted object of partial names and templates'
+    'returns a formatted object of partial names and templates',
   );
 
   findFilesStub.restore();

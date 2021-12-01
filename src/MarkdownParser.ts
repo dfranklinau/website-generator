@@ -68,7 +68,7 @@ export class MarkdownParser {
       remarkable.renderer.rules.heading_open = (tokens, idx) =>
         `<h${tokens[idx].hLevel} id="${toc.slugify(
           // @ts-expect-error the idx + 1 isn't a heading_open token.
-          tokens[idx + 1].content
+          tokens[idx + 1].content,
         )}">`;
     });
 
@@ -81,7 +81,7 @@ export class MarkdownParser {
   public getOptions(
     content: string,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    data: { [key: string]: any }
+    data: { [key: string]: any },
   ): ParsedMarkdownOptionsType {
     const options = {
       menu: false,
@@ -105,7 +105,7 @@ export class MarkdownParser {
         toc(content, {
           bullets: ['1.'],
           maxdepth: 3,
-        }).content.replace(/ {2}/g, '    ')
+        }).content.replace(/ {2}/g, '    '),
       ).content;
     }
 

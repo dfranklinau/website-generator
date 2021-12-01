@@ -5,7 +5,7 @@ import type { PreparedContentType } from '../prepareContent';
 
 export const getContentOutputURL = (
   filePath: string,
-  section?: PreparedContentType | null
+  section?: PreparedContentType | null,
 ): string => {
   const contentOutputPath = getContentOutputPath(filePath, section);
   return contentOutputPath

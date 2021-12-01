@@ -54,7 +54,7 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
       const line: string = lines[i];
 
       const isInlineTag = inlineTagPatterns.some((pattern: string) =>
-        line.match(new RegExp(pattern))
+        line.match(new RegExp(pattern)),
       );
 
       if (isInlineTag) {
@@ -63,7 +63,7 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
       }
 
       const isOpenBlock = openBlockTagPatterns.some((pattern: string) =>
-        line.match(new RegExp(pattern))
+        line.match(new RegExp(pattern)),
       );
 
       if (isOpenBlock) {
@@ -72,7 +72,7 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
       }
 
       const isCloseBlock = closeBlockTagPatterns.some((pattern: string) =>
-        line.match(new RegExp(pattern))
+        line.match(new RegExp(pattern)),
       );
 
       if (isCloseBlock) {
@@ -81,7 +81,7 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
     }
 
     const blockPairs: ShortcodeBlockPairsType = convertShortcodeBlockMatchesToPairs(
-      blockMatches
+      blockMatches,
     );
 
     inlineMatches.forEach((match: number) => {
@@ -100,14 +100,14 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
             const params = getShortcodeAttributes(
               shortcode.name,
               lines[match].substr(index, inlineShortcode[0].length),
-              markdownParser
+              markdownParser,
             );
             const content = renderer.render(
               { content: '', params },
               {
                 baseTemplate: shortcode.template,
                 stripNewlines: true,
-              }
+              },
             );
 
             inlineShift -= inlineShortcode[0].length - content.length;
@@ -115,7 +115,7 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
             lines[match] = `${lines[match].substr(0, index)}${content}${lines[
               match
             ].substr(lastIndex, lines[match].length)}`;
-          }
+          },
         );
       });
     });
@@ -143,7 +143,7 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
       const params = getShortcodeAttributes(
         shortcode.name,
         lines[pair[0] + blockShift],
-        markdownParser
+        markdownParser,
       );
 
       const renderedContent = renderer
@@ -152,7 +152,7 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
           {
             baseTemplate: shortcode.template,
             stripNewlines: true,
-          }
+          },
         )
         .trim();
 

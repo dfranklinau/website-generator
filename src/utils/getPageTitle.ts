@@ -2,7 +2,7 @@ import type { PreparedContentType } from '../prepareContent';
 
 export const getPageTitle = (
   content: PreparedContentType,
-  section: PreparedContentType | null
+  section: PreparedContentType | null,
 ): string => {
   const pageTitle: string | unknown = content.markdown.matter?.title;
   const sectionTitle: string | unknown | undefined =

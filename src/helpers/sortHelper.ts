@@ -9,7 +9,7 @@ export const sortHelper: Handlebars.HelperDelegate = (
   list: unknown[],
   property: string,
   options: Handlebars.HelperOptions,
-  ascending = false
+  ascending = false,
 ): string => {
   const sorted = list.sort((a: unknown, b: unknown) => {
     const aItem: string = getPrimitive(
@@ -19,7 +19,7 @@ export const sortHelper: Handlebars.HelperDelegate = (
         }
 
         return '';
-      }, a)
+      }, a),
     );
 
     const bItem: string = getPrimitive(
@@ -29,7 +29,7 @@ export const sortHelper: Handlebars.HelperDelegate = (
         }
 
         return '';
-      }, b)
+      }, b),
     );
 
     if (aItem > bItem) {
