@@ -62,7 +62,7 @@ export class Renderer {
     options?: {
       baseTemplate?: string;
       stripNewlines?: boolean;
-    }
+    },
   ): string {
     let templateString =
       typeof options?.baseTemplate === 'undefined'

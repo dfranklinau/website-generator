@@ -6,37 +6,37 @@ test('`getContentOutputURL`', (t: test.Test) => {
   t.equal(
     getContentOutputURL('./content/_index.md', null),
     '/',
-    'gets the content output URL for a section'
+    'gets the content output URL for a section',
   );
 
   t.equal(
     getContentOutputURL('./content/index.md', null),
     '/',
-    'gets the content output URL for an index page'
+    'gets the content output URL for an index page',
   );
 
   t.equal(
     getContentOutputURL('./content/page.md', null),
     '/page/',
-    'gets the content output URL for a page'
+    'gets the content output URL for a page',
   );
 
   t.equal(
     getContentOutputURL('./content/section/_index.md', null),
     '/section/',
-    'gets the content output URL for a nested section'
+    'gets the content output URL for a nested section',
   );
 
   t.equal(
     getContentOutputURL('./content/section/index.md', null),
     '/section/',
-    'gets the content output URL for a nested index page'
+    'gets the content output URL for a nested index page',
   );
 
   t.equal(
     getContentOutputURL('./content/section/page.md', null),
     '/section/page/',
-    'gets the content output URL for a nested page'
+    'gets the content output URL for a nested page',
   );
 
   t.equal(
@@ -56,7 +56,7 @@ test('`getContentOutputURL`', (t: test.Test) => {
       outputURL: '/build/',
     }),
     '/section/page/',
-    'gets the content output URL for a nested page with a section whose url is empty'
+    'gets the content output URL for a nested page with a section whose url is empty',
   );
 
   t.equal(
@@ -76,7 +76,7 @@ test('`getContentOutputURL`', (t: test.Test) => {
       outputURL: '/build/',
     }),
     '/page/',
-    'gets the content output URL for a nested page in a section whose url is a trailing slash'
+    'gets the content output URL for a nested page in a section whose url is a trailing slash',
   );
 
   t.equal(
@@ -96,7 +96,7 @@ test('`getContentOutputURL`', (t: test.Test) => {
       outputURL: '/build/',
     }),
     '/override/page/',
-    'gets the content output URL for a nested page in a section whose url is a replacement string'
+    'gets the content output URL for a nested page in a section whose url is a replacement string',
   );
 
   t.end();

@@ -3,7 +3,7 @@ import type { MarkdownParser } from '../MarkdownParser';
 export const getShortcodeAttributes = (
   name: string,
   match: string,
-  markdownParser: MarkdownParser
+  markdownParser: MarkdownParser,
 ): Record<string, unknown> => {
   const pattern = new RegExp(`${name}((?=\\s).+)[%>]}}`);
   const attributes = match.match(pattern);

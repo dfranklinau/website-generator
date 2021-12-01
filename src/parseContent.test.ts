@@ -148,7 +148,7 @@ test('`parseContent`', async (t: test.Test) => {
       ],
       section: null,
     } as ParsedContentType,
-    'parses all files within the given directory and returns a formatted object'
+    'parses all files within the given directory and returns a formatted object',
   );
 
   readdirStub.restore();

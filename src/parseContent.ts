@@ -35,7 +35,7 @@ type ParseContentProps = {
 };
 
 export const parseContent = async (
-  props: ParseContentProps
+  props: ParseContentProps,
 ): Promise<ParsedContentType> => {
   const { directory, markdownParser, renderer, shortcodes } = props;
 
@@ -59,7 +59,7 @@ export const parseContent = async (
         if (item.name.match(/\.md$/)) {
           const data = (await readFile(
             `${directory}/${item.name}`,
-            ''
+            '',
           )) as string;
 
           const markdown = markdownParser.parse(data);
@@ -82,7 +82,7 @@ export const parseContent = async (
           const data = (await readFile(
             `${directory}/${item.name}`,
             {},
-            (data: string) => JSON.parse(data)
+            (data: string) => JSON.parse(data),
           )) as Record<string, unknown>;
 
           try {
@@ -110,7 +110,7 @@ export const parseContent = async (
 
         parsedContent.children[item.name] = parsedChildContent;
       }
-    })
+    }),
   );
 
   return parsedContent;

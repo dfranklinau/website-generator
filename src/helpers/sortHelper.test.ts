@@ -17,29 +17,29 @@ test('`sortHelper`', (t: test.Test) => {
       [{ property: 'c' }, { property: 'a' }, { property: 'b' }],
       'property',
       options,
-      true
+      true,
     ),
     '<li>a</li><li>b</li><li>c</li>',
-    'returns a Handlebars.js string in ascending order'
+    'returns a Handlebars.js string in ascending order',
   );
   t.equal(
     sortHelper(
       [{ property: 'c' }, { property: 'a' }, { property: 'b' }],
       'property',
       options,
-      false
+      false,
     ),
     '<li>c</li><li>b</li><li>a</li>',
-    'returns a Handlebars.js string in descending order'
+    'returns a Handlebars.js string in descending order',
   );
   t.equal(
     sortHelper(
       [{ property: 'c' }, { property: 'a' }, { property: 'b' }],
       'unknown',
-      options
+      options,
     ),
     '<li>c</li><li>a</li><li>b</li>',
-    'returns a Handlebars.js string in the order if the sort property does not exist'
+    'returns a Handlebars.js string in the order if the sort property does not exist',
   );
   t.equal(
     sortHelper(
@@ -50,10 +50,10 @@ test('`sortHelper`', (t: test.Test) => {
       ],
       'property.nested',
       nestedOptions,
-      true
+      true,
     ),
     '<li>a</li><li>b</li><li>c</li>',
-    'returns a Handlebars.js string in ascending order for nested properties'
+    'returns a Handlebars.js string in ascending order for nested properties',
   );
   t.equal(
     sortHelper(
@@ -64,10 +64,10 @@ test('`sortHelper`', (t: test.Test) => {
       ],
       'property.nested',
       nestedOptions,
-      false
+      false,
     ),
     '<li>c</li><li>b</li><li>a</li>',
-    'returns a Handlebars.js string in descending order for nested properties'
+    'returns a Handlebars.js string in descending order for nested properties',
   );
   t.equal(
     sortHelper(
@@ -77,10 +77,10 @@ test('`sortHelper`', (t: test.Test) => {
         { property: { nested: 'b' } },
       ],
       'property.unknown',
-      nestedOptions
+      nestedOptions,
     ),
     '<li>c</li><li>a</li><li>b</li>',
-    'returns a Handlebars.js string in the order if the nested sort property does not exist'
+    'returns a Handlebars.js string in the order if the nested sort property does not exist',
   );
   t.end();
 });

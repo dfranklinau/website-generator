@@ -3,7 +3,7 @@ import fs from 'fs';
 export const readFile = async (
   file: string,
   defaultValue?: unknown,
-  callback?: (data: string) => void
+  callback?: (data: string) => void,
 ): Promise<unknown | null> => {
   try {
     const data = await fs.promises.readFile(file, 'utf8');

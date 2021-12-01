@@ -5,7 +5,7 @@ import { DIRECTORIES } from '../config/constants';
 
 export const getContentTemplate = (
   template: string,
-  directories: string[]
+  directories: string[],
 ): string => {
   const section = directories.join(path.sep);
   const templatePath =
@@ -19,7 +19,7 @@ export const getContentTemplate = (
     if (directories.length > 0) {
       return getContentTemplate(
         template,
-        directories.slice(0, directories.length - 1)
+        directories.slice(0, directories.length - 1),
       );
     }
 

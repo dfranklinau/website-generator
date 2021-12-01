@@ -6,7 +6,7 @@ import type { PreparedContentType } from '../prepareContent';
 
 export const getContentOutputPath = (
   filePath: string,
-  section?: PreparedContentType | null
+  section?: PreparedContentType | null,
 ): string => {
   let rewritePath = filePath;
 
@@ -26,7 +26,7 @@ export const getContentOutputPath = (
     } else {
       rewritePath = filePath.replace(
         `/${sectionPath}/`,
-        `/${section.markdown.options.url}/`
+        `/${section.markdown.options.url}/`,
       );
     }
   }

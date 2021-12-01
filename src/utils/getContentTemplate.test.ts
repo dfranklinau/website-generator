@@ -27,12 +27,12 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   t.ok(
     readFileSync.calledOnce,
-    'should call `fs.readFileSync` once when no directories are passed'
+    'should call `fs.readFileSync` once when no directories are passed',
   );
   t.equal(
     contentTemplate,
     'index template',
-    'returns the template when no directories are passed'
+    'returns the template when no directories are passed',
   );
 
   readFileSync.resetHistory();
@@ -40,12 +40,12 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   t.ok(
     readFileSync.calledOnce,
-    'should call `fs.readFileSync` once when a directory is passed'
+    'should call `fs.readFileSync` once when a directory is passed',
   );
   t.equal(
     contentTemplate,
     'directory index template',
-    'return the directory template when a directory is passed'
+    'return the directory template when a directory is passed',
   );
 
   readFileSync.resetHistory();
@@ -53,12 +53,12 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   t.ok(
     readFileSync.calledTwice,
-    'should call `fs.readFileSync` twice when a non-existant directory is passed'
+    'should call `fs.readFileSync` twice when a non-existant directory is passed',
   );
   t.equal(
     contentTemplate,
     'index template',
-    'return the template when a non-existant directory is passed'
+    'return the template when a non-existant directory is passed',
   );
 
   readFileSync.resetHistory();
@@ -66,12 +66,12 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   t.ok(
     readFileSync.calledTwice,
-    'should call `fs.readFileSync` twice when a non-existant template type is passed'
+    'should call `fs.readFileSync` twice when a non-existant template type is passed',
   );
   t.equal(
     contentTemplate,
     '',
-    'return an empty string when no matching template exists'
+    'return an empty string when no matching template exists',
   );
 
   readFileSync.restore();

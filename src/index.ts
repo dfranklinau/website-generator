@@ -81,7 +81,7 @@ async function generateErrorDocuments(props: {
       head: {
         title: config.errorDocument404Title || '404',
       },
-    })
+    }),
   );
 }
 
@@ -103,12 +103,12 @@ export const generate = async (): Promise<void> => {
       } catch {
         return {};
       }
-    }
+    },
   )) as Record<string, unknown>;
 
   const baseTemplate: string = (await readFile(
     './templates/_base.hbs',
-    ''
+    '',
   )) as string;
 
   const partials = await getPartialTemplates();

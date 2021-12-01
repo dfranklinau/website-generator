@@ -16,13 +16,13 @@ test('`prepareContent`', (t: test.Test) => {
   t.deepEqual(
     prepared.list,
     mockPreparedContent.list,
-    'prepares a list of all content'
+    'prepares a list of all content',
   );
 
   t.deepEqual(
     prepared.tree,
     mockPreparedContent.tree,
-    'prepares a content tree'
+    'prepares a content tree',
   );
 
   t.deepEqual(
@@ -82,7 +82,7 @@ test('`prepareContent`', (t: test.Test) => {
         outputURL: '/nested/page/',
       },
     ],
-    'prepares a list of all content where a section has a URL removal'
+    'prepares a list of all content where a section has a URL removal',
   );
 
   t.deepEqual(
@@ -142,7 +142,7 @@ test('`prepareContent`', (t: test.Test) => {
         outputURL: '/override/nested/page/',
       },
     ],
-    'prepares a list of all content where a section has a URL replacement'
+    'prepares a list of all content where a section has a URL replacement',
   );
 
   t.end();

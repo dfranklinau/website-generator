@@ -12,11 +12,11 @@ test('`saveContentToFile`', (t: test.Test) => {
 
   t.ok(
     mkdirSync.calledWith('./build', { recursive: true }),
-    'makes the `./build/` directory'
+    'makes the `./build/` directory',
   );
   t.ok(
     writeFileSync.calledWith('./build/index.html', 'content'),
-    'creates a new file called `./build/index.html`'
+    'creates a new file called `./build/index.html`',
   );
 
   mkdirSync.resetHistory();
@@ -26,11 +26,11 @@ test('`saveContentToFile`', (t: test.Test) => {
 
   t.ok(
     mkdirSync.calledWith('./build/directory', { recursive: true }),
-    'recursively makes the `./build/directory/` directory'
+    'recursively makes the `./build/directory/` directory',
   );
   t.ok(
     writeFileSync.calledWith('./build/directory/index.html', 'content'),
-    'creates a new file called `./build/directory/index.html`'
+    'creates a new file called `./build/directory/index.html`',
   );
 
   mkdirSync.resetHistory();
@@ -40,11 +40,11 @@ test('`saveContentToFile`', (t: test.Test) => {
 
   t.ok(
     mkdirSync.calledWith('./build/directory/content', { recursive: true }),
-    'recursively makes the `./build/directory/content/` directory'
+    'recursively makes the `./build/directory/content/` directory',
   );
   t.ok(
     writeFileSync.calledWith('./build/directory/content/index.html', 'content'),
-    'creates a new file called `./build/directory/context/index.html`'
+    'creates a new file called `./build/directory/context/index.html`',
   );
 
   mkdirSync.restore();

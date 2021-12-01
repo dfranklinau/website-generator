@@ -6,12 +6,12 @@ import { formatOutputFilePath } from './formatOutputFilePath';
 export const copyFiles = (
   files: string[],
   dest: string,
-  callback?: (file: string) => string
+  callback?: (file: string) => string,
 ): void => {
   files.forEach((file: string) => {
     const fileOutputPath = formatOutputFilePath(
       callback ? callback(file) : file,
-      dest
+      dest,
     );
 
     const fileOutputDir = path.parse(fileOutputPath).dir;

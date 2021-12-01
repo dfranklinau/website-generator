@@ -31,7 +31,7 @@ type PrepareContentProps = {
 };
 
 export const prepareContent = (
-  props: PrepareContentProps
+  props: PrepareContentProps,
 ): { list: PreparedContentType[]; tree: PreparedContentTreeType } => {
   const { content, sectionParent } = props;
 
@@ -86,7 +86,7 @@ export const prepareContent = (
         ...page,
         outputPath: getContentOutputPath(page.filePath, sectionOverride),
         outputURL: getContentOutputURL(page.filePath, sectionOverride),
-      })
+      }),
     );
 
     preparedContentList = preparedContentList.concat(preparedContentTree.pages);
@@ -106,7 +106,7 @@ export const prepareContent = (
       });
 
       preparedContentList = preparedContentList.concat(
-        preparedChildrenContent.list
+        preparedChildrenContent.list,
       );
       preparedContentTreeChildren[key] = preparedChildrenContent.tree;
     });
@@ -119,7 +119,7 @@ export const prepareContent = (
       (asset: FileType): PreparedFileType => ({
         ...asset,
         outputPath: getContentOutputPath(asset.filePath, sectionOverride),
-      })
+      }),
     );
   }
 

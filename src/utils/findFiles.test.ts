@@ -74,7 +74,7 @@ test('`findFiles`', (t: test.Test) => {
   t.deepEqual(
     content,
     ['./content/index.md', './content/image.jpg'],
-    'returns an array of files'
+    'returns an array of files',
   );
 
   readdirSync.resetHistory();
@@ -83,7 +83,7 @@ test('`findFiles`', (t: test.Test) => {
   t.deepEqual(
     content,
     ['./content/index.md'],
-    'returns an array of files that match the given string'
+    'returns an array of files that match the given string',
   );
 
   readdirSync.resetHistory();
@@ -92,7 +92,7 @@ test('`findFiles`', (t: test.Test) => {
   t.deepEqual(
     content,
     ['./content/index.md'],
-    'returns an array of files that match the given RegExp'
+    'returns an array of files that match the given RegExp',
   );
 
   readdirSync.resetHistory();
@@ -108,7 +108,7 @@ test('`findFiles`', (t: test.Test) => {
       './content/blog/blog-post-two/index.md',
       './content/blog/blog-post-two/image.jpg',
     ],
-    'returns an array of all files when `recursive` is specified'
+    'returns an array of all files when `recursive` is specified',
   );
 
   readdirSync.resetHistory();
@@ -121,7 +121,7 @@ test('`findFiles`', (t: test.Test) => {
       './content/blog/index.md',
       './content/blog/blog-post-two/index.md',
     ],
-    'returns an array of all files that match the given string when `recursive` is specified'
+    'returns an array of all files that match the given string when `recursive` is specified',
   );
 
   readdirSync.resetHistory();
@@ -135,7 +135,7 @@ test('`findFiles`', (t: test.Test) => {
       './content/blog/blog-post-one.md',
       './content/blog/blog-post-two/index.md',
     ],
-    'returns an array of all files that match the given RegExp when `recursive` is specified'
+    'returns an array of all files that match the given RegExp when `recursive` is specified',
   );
 
   readdirSync.restore();

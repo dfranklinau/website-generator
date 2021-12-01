@@ -2,7 +2,7 @@ import fs from 'fs';
 
 export const findFiles = (
   directory: string,
-  options?: { match?: string | RegExp; recursive?: boolean }
+  options?: { match?: string | RegExp; recursive?: boolean },
 ): string[] => {
   let results: string[] = [];
 

@@ -34,7 +34,7 @@ test('`convertShortcodeBlockMatchesToPairs`', (t: test.Test) => {
       [3, 4],
       [5, 6],
     ],
-    'converts a series of open and close tags to pairs'
+    'converts a series of open and close tags to pairs',
   );
 
   t.deepEqual(
@@ -43,7 +43,7 @@ test('`convertShortcodeBlockMatchesToPairs`', (t: test.Test) => {
       openTags: [1, 5, 10],
     }),
     [[1, 15]],
-    'converts a series of open and closing tags to pairs, flattening any nested pairs'
+    'converts a series of open and closing tags to pairs, flattening any nested pairs',
   );
 
   t.end();
