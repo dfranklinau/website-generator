@@ -8,7 +8,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
-## [Unreleased]
+## [1.0.0-alpha.3] - 2022-01-30
 
 ### Added
 
@@ -35,6 +35,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Everything.
 
-[Unreleased]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.2...HEAD
+[Unreleased]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.3...HEAD
+[1.0.0-alpha.3]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.2...v1.0.0-alpha.3
 [1.0.0-alpha.2]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha...v1.0.0-alpha.2
 [1.0.0-alpha]: https://github.com/dfranklinau/website-generator/releases/tag/v1.0.0-alpha
