@@ -7,7 +7,7 @@ const tape_1 = __importDefault(require("tape"));
 const getPageTitle_1 = require("./getPageTitle");
 const _fixtures_1 = require("../_fixtures");
 tape_1.default('`getPageTitle`', (t) => {
-    const content = {
+    const page = {
         filePath: '/section/page.md',
         markdown: {
             ..._fixtures_1.mockParsedMarkdown,
@@ -31,8 +31,8 @@ tape_1.default('`getPageTitle`', (t) => {
         outputPath: '/section/index.html',
         outputURL: '/section/',
     };
-    // @TODO: write more tests here to cover more cases.
-    t.equal(getPageTitle_1.getPageTitle(content, section), 'Page / Section', 'gets a page title');
-    t.equal(getPageTitle_1.getPageTitle(section, section), 'Section', 'gets a page title');
+    t.equal(getPageTitle_1.getPageTitle(page, section), 'Page / Section', "builds a page title using a page's section data");
+    t.equal(getPageTitle_1.getPageTitle(section, section), 'Section', 'builds a page title even if the content and section are identical');
+    t.equal(getPageTitle_1.getPageTitle(page, null), 'Page', 'builds a page title if no section is specified');
     t.end();
 });
