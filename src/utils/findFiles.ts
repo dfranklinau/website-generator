@@ -6,6 +6,10 @@ export const findFiles = (
 ): string[] => {
   let results: string[] = [];
 
+  if (!fs.existsSync(directory)) {
+    return results;
+  }
+
   const files: fs.Dirent[] = fs.readdirSync(directory, { withFileTypes: true });
 
   files.forEach((item: fs.Dirent) => {

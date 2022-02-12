@@ -7,6 +7,9 @@ exports.findFiles = void 0;
 const fs_1 = __importDefault(require("fs"));
 const findFiles = (directory, options) => {
     let results = [];
+    if (!fs_1.default.existsSync(directory)) {
+        return results;
+    }
     const files = fs_1.default.readdirSync(directory, { withFileTypes: true });
     files.forEach((item) => {
         if (item.isFile()) {

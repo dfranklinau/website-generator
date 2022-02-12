@@ -17,6 +17,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - Fixed a missing dependency to `postcss` by adding it in `package.json`
+- Fixed an error in `findFiles` that is caused by certain directories not
+  existing, e.g. `./helpers/`
 
 --------------------------------------------------------------------------------
 

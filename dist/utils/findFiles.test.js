@@ -59,10 +59,14 @@ const stubReaddirSync = () => {
             name: 'image.jpg',
         },
     ]);
+    readdirSync.withArgs('./does-not-exist/', { withFileTypes: true }).throws();
     return readdirSync;
 };
 tape_1.default('`findFiles`', (t) => {
     const readdirSync = stubReaddirSync();
+    const existsSync = sinon_1.default.stub(fs_1.default, 'existsSync');
+    existsSync.returns(true);
+    existsSync.withArgs('./does-not-exist/').returns(false);
     let content;
     content = findFiles_1.findFiles('./content/');
     t.equal(readdirSync.callCount, 1, '`readdirSync` should not be called');
@@ -98,6 +102,9 @@ tape_1.default('`findFiles`', (t) => {
         './content/blog/blog-post-one.md',
         './content/blog/blog-post-two/index.md',
     ], 'returns an array of all files that match the given RegExp when `recursive` is specified');
+    readdirSync.resetHistory();
+    content = findFiles_1.findFiles('./does-not-exist/');
+    t.equal(content.length, 0, 'returns an empty array when a directory does not exist');
     readdirSync.restore();
     t.end();
 });
