@@ -8,6 +8,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
+## [Unreleased]
+
+### Fixed
+
+- Fixed a missing dependency to `postcss` by adding it in `package.json`
+
+--------------------------------------------------------------------------------
+
 ## [1.0.0-alpha.4] - 2022-02-12
 
 ### Added
