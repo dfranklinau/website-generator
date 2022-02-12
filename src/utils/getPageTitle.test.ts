@@ -6,7 +6,7 @@ import { mockParsedMarkdown } from '../_fixtures';
 import type { PreparedContentType } from '../prepareContent';
 
 test('`getPageTitle`', (t: test.Test) => {
-  const content: PreparedContentType = {
+  const page: PreparedContentType = {
     filePath: '/section/page.md',
     markdown: {
       ...mockParsedMarkdown,
@@ -19,7 +19,7 @@ test('`getPageTitle`', (t: test.Test) => {
     outputURL: '/section/page/',
   };
 
-  const section = {
+  const section: PreparedContentType = {
     filePath: '/section/_index.md',
     markdown: {
       ...mockParsedMarkdown,
@@ -32,14 +32,23 @@ test('`getPageTitle`', (t: test.Test) => {
     outputURL: '/section/',
   };
 
-  // @TODO: write more tests here to cover more cases.
   t.equal(
-    getPageTitle(content, section),
+    getPageTitle(page, section),
     'Page / Section',
-    'gets a page title',
+    "builds a page title using a page's section data",
   );
 
-  t.equal(getPageTitle(section, section), 'Section', 'gets a page title');
+  t.equal(
+    getPageTitle(section, section),
+    'Section',
+    'builds a page title even if the content and section are identical',
+  );
+
+  t.equal(
+    getPageTitle(page, null),
+    'Page',
+    'builds a page title if no section is specified',
+  );
 
   t.end();
 });
