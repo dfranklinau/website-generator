@@ -375,6 +375,7 @@ that does exist.
 Sections and pages have access to the following variables in their templates:
 
 - `config`;
+- `head`;
 - `page`; and
 - `runtime`.
 
@@ -382,6 +383,12 @@ Sections also have access to a `section` variable.
 
 The `config` variable contains the JSON contents of the
 `website-generator.config.json` file at the root of the directory.
+
+The `head` variable contains convenience information that's commonly referenced
+in the `<head>` tag of HTML:
+
+- `head.title`: the title of the current page, formatted to include parent
+  section titles.
 
 The `runtime` variable contains various information relating to the time of
 generation:
