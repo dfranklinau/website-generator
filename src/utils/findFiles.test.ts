@@ -60,11 +60,16 @@ const stubReaddirSync = () => {
       },
     ]);
 
+  readdirSync.withArgs('./does-not-exist/', { withFileTypes: true }).throws();
+
   return readdirSync;
 };
 
 test('`findFiles`', (t: test.Test) => {
   const readdirSync = stubReaddirSync();
+  const existsSync = sinon.stub(fs, 'existsSync');
+  existsSync.returns(true);
+  existsSync.withArgs('./does-not-exist/').returns(false);
 
   let content;
   content = findFiles('./content/');
@@ -136,6 +141,14 @@ test('`findFiles`', (t: test.Test) => {
       './content/blog/blog-post-two/index.md',
     ],
     'returns an array of all files that match the given RegExp when `recursive` is specified',
+  );
+
+  readdirSync.resetHistory();
+  content = findFiles('./does-not-exist/');
+  t.equal(
+    content.length,
+    0,
+    'returns an empty array when a directory does not exist',
   );
 
   readdirSync.restore();
