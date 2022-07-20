@@ -8,6 +8,15 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
+## [Unreleased]
+
+### Fixed
+
+- Fixed the `ascending` argument for the `sort` Handlebars.js helper to use hash
+  arguments, e.g. `{{#sort object 'property' ascending=true}}`.
+
+--------------------------------------------------------------------------------
+
 ## [1.0.0-alpha.5] - 2022-02-12
 
 ### Added
