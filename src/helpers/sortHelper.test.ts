@@ -16,8 +16,12 @@ test('`sortHelper`', (t: test.Test) => {
     sortHelper(
       [{ property: 'c' }, { property: 'a' }, { property: 'b' }],
       'property',
-      options,
-      true,
+      {
+        ...options,
+        hash: {
+          ascending: true,
+        },
+      },
     ),
     '<li>a</li><li>b</li><li>c</li>',
     'returns a Handlebars.js string in ascending order',
@@ -27,7 +31,6 @@ test('`sortHelper`', (t: test.Test) => {
       [{ property: 'c' }, { property: 'a' }, { property: 'b' }],
       'property',
       options,
-      false,
     ),
     '<li>c</li><li>b</li><li>a</li>',
     'returns a Handlebars.js string in descending order',
@@ -49,8 +52,12 @@ test('`sortHelper`', (t: test.Test) => {
         { property: { nested: 'b' } },
       ],
       'property.nested',
-      nestedOptions,
-      true,
+      {
+        ...nestedOptions,
+        hash: {
+          ascending: true,
+        },
+      },
     ),
     '<li>a</li><li>b</li><li>c</li>',
     'returns a Handlebars.js string in ascending order for nested properties',
@@ -64,7 +71,6 @@ test('`sortHelper`', (t: test.Test) => {
       ],
       'property.nested',
       nestedOptions,
-      false,
     ),
     '<li>c</li><li>b</li><li>a</li>',
     'returns a Handlebars.js string in descending order for nested properties',

@@ -9,8 +9,8 @@ export const sortHelper: Handlebars.HelperDelegate = (
   list: unknown[],
   property: string,
   options: Handlebars.HelperOptions,
-  ascending = false,
 ): string => {
+  const ascending = options.hash?.ascending || false;
   const sorted = list.sort((a: unknown, b: unknown) => {
     const aItem: string = getPrimitive(
       property.split('.').reduce((object: unknown, prop: string) => {
