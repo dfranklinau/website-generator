@@ -7,3 +7,7 @@ export const DIRECTORIES = {
   SHORTCODES: './shortcodes/',
   STATIC: './static/',
 };
+
+export const EXTENSIONS = {
+  TEMPLATES: 'hbs',
+};

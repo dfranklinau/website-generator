@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DIRECTORIES = void 0;
+exports.EXTENSIONS = exports.DIRECTORIES = void 0;
 exports.DIRECTORIES = {
     ASSETS: './assets/',
     BUILD: './build/',
@@ -9,4 +9,7 @@ exports.DIRECTORIES = {
     TEMPLATES: './templates/',
     SHORTCODES: './shortcodes/',
     STATIC: './static/',
+};
+exports.EXTENSIONS = {
+    TEMPLATES: 'hbs',
 };
