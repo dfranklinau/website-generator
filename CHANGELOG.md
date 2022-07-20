@@ -10,6 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Added support for named pages and a home page in the template lookup.
+
 ### Fixed
 
 - Fixed the `ascending` argument for the `sort` Handlebars.js helper to use hash

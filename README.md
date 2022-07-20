@@ -360,8 +360,11 @@ For example, a Markdown file at `./content/section/nested-section/_index.md`
 will have the following template lookup:
 
 ```
+./templates/section/nested-section/_index.hbs
 ./templates/section/nested-section/section.hbs
+./templates/section/_index.hbs
 ./templates/section/section.hbs
+./templates/_index.hbs
 ./templates/section.hbs
 ./templates/_base.hbs
 ```

@@ -28,7 +28,7 @@ type GetContentOutputProps = {
   renderer: Renderer;
   parentSection: PreparedContentType | null;
   sectionMatter?: Record<string, unknown>;
-  template: string;
+  template: 'index' | 'page' | 'section';
 };
 
 const getContentOutput = (props: GetContentOutputProps): string => {
@@ -47,7 +47,11 @@ const getContentOutput = (props: GetContentOutputProps): string => {
     .parse(content.filePath)
     .dir.split(path.sep)
     .slice(2);
-  const contentTemplate = getContentTemplate(template, contentDirectories);
+
+  const filename = typeof content.markdown.matter.title === "string" ?
+      content.markdown.matter.title : null;
+
+  const contentTemplate = getContentTemplate(template, contentDirectories, filename);
 
   const variables = {
     data: data?.json,
@@ -141,7 +145,7 @@ export const renderContent = (props: RenderContentProps): void => {
       renderer,
       sectionMatter,
       parentSection: sectionOverride,
-      template: 'section',
+      template: parentSection ? 'section' : 'index',
     });
 
     saveContentToFile(output, section.outputPath);
