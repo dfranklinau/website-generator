@@ -5,7 +5,8 @@ const getPrimitive = (value) => {
     // @ts-expect-error: `value` is a primitive type, which will have `toString()`.
     return value?.toString() || '';
 };
-const sortHelper = (list, property, options, ascending = false) => {
+const sortHelper = (list, property, options) => {
+    const ascending = options.hash?.ascending || false;
     const sorted = list.sort((a, b) => {
         const aItem = getPrimitive(property.split('.').reduce((object, prop) => {
             if (Object.prototype.toString.call(object) === '[object Object]') {
