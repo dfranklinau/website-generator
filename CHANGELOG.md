@@ -8,7 +8,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
-## [Unreleased]
+## [1.0.0-alpha.7] - 2022-09-18
 
 ### Fixed
 
@@ -86,7 +86,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Everything.
 
-[Unreleased]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.6...HEAD
+[Unreleased]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.7...HEAD
+[1.0.0-alpha.7]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.6...v1.0.0-alpha.7
 [1.0.0-alpha.6]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.5...v1.0.0-alpha.6
 [1.0.0-alpha.5]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.4...v1.0.0-alpha.5
 [1.0.0-alpha.4]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.3...v1.0.0-alpha.4
