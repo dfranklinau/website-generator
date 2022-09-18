@@ -8,6 +8,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
+## [Unreleased]
+
+### Fixed
+
+- Fixed an unclosed `id` HTML attribute on footnote refs so that the `href`
+  attribute will now work.
+
+
+--------------------------------------------------------------------------------
+
 ## [1.0.0-alpha.6] - 2022-07-23
 
 ### Added

@@ -58,7 +58,7 @@ export class MarkdownParser {
     this._md.use((remarkable) => {
       remarkable.renderer.rules.footnote_ref = (tokens, idx) => {
         const level = tokens[idx].level + 1;
-        return `<sup><a id="fnref${level} href="#fn${level}">${level}</a></sup>`;
+        return `<sup><a id="fnref${level}" href="#fn${level}">${level}</a></sup>`;
       };
 
       /**
