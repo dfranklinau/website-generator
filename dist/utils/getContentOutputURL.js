@@ -4,7 +4,7 @@ exports.getContentOutputURL = void 0;
 const constants_1 = require("../config/constants");
 const getContentOutputPath_1 = require("./getContentOutputPath");
 const getContentOutputURL = (filePath, section) => {
-    const contentOutputPath = getContentOutputPath_1.getContentOutputPath(filePath, section);
+    const contentOutputPath = (0, getContentOutputPath_1.getContentOutputPath)(filePath, section);
     return contentOutputPath
         .replace(constants_1.DIRECTORIES.BUILD, '/')
         .replace('index.html', '');

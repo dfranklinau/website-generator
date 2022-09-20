@@ -9,11 +9,11 @@ const sinon_1 = __importDefault(require("sinon"));
 const _fixtures_1 = require("./_fixtures");
 const Renderer_1 = require("./Renderer");
 const renderContent_1 = require("./renderContent");
-tape_1.default('`renderContent`', (t) => {
+(0, tape_1.default)('`renderContent`', (t) => {
     const copyFileSyncStub = sinon_1.default.stub(fs_1.default, 'copyFileSync');
     const mkdirSyncStub = sinon_1.default.stub(fs_1.default, 'mkdirSync');
     const writeFileSyncStub = sinon_1.default.stub(fs_1.default, 'writeFileSync');
-    renderContent_1.renderContent({
+    (0, renderContent_1.renderContent)({
         content: _fixtures_1.mockPreparedContent.tree,
         globalMatter: {},
         renderer: new Renderer_1.Renderer({ baseTemplate: '', config: {}, partials: {} }),

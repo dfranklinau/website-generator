@@ -22,7 +22,7 @@ const parseContent = async (props) => {
         const itemPath = `${directory}${item.name}`;
         if (item.isFile()) {
             if (item.name.match(/\.md$/)) {
-                const data = (await readFile_1.readFile(`${directory}/${item.name}`, ''));
+                const data = (await (0, readFile_1.readFile)(`${directory}/${item.name}`, ''));
                 const markdown = markdownParser.parse(data);
                 const contentItem = {
                     markdown,
@@ -40,7 +40,7 @@ const parseContent = async (props) => {
                 }
             }
             else if (item.name === '_data.json') {
-                const data = (await readFile_1.readFile(`${directory}/${item.name}`, {}, (data) => JSON.parse(data)));
+                const data = (await (0, readFile_1.readFile)(`${directory}/${item.name}`, {}, (data) => JSON.parse(data)));
                 try {
                     parsedContent.data = {
                         json: data,
@@ -59,7 +59,7 @@ const parseContent = async (props) => {
             if (parsedContent.children === null) {
                 parsedContent.children = {};
             }
-            const parsedChildContent = await exports.parseContent({
+            const parsedChildContent = await (0, exports.parseContent)({
                 directory: `${itemPath}/`,
                 markdownParser,
                 renderer,

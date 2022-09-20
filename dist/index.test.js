@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const tape_1 = __importDefault(require("tape"));
-tape_1.default('website-generator', (t) => {
+(0, tape_1.default)('website-generator', (t) => {
     // @TODO: write tests for the entry function.
     t.end();
 });

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const tape_1 = __importDefault(require("tape"));
 const Renderer_1 = require("./Renderer");
-tape_1.default('`Renderer`', (t) => {
+(0, tape_1.default)('`Renderer`', (t) => {
     const renderer = new Renderer_1.Renderer({
         baseTemplate: '{{&content}}',
         config: {},

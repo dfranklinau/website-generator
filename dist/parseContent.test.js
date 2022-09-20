@@ -24,7 +24,7 @@ const mockDirent = (props) => {
         name,
     };
 };
-tape_1.default('`parseContent`', async (t) => {
+(0, tape_1.default)('`parseContent`', async (t) => {
     const readdirStub = sinon_1.default.stub(fs_1.default.promises, 'readdir');
     const readFileStub = sinon_1.default.stub(fs_1.default.promises, 'readFile');
     readdirStub
@@ -65,7 +65,7 @@ tape_1.default('`parseContent`', async (t) => {
         .resolves('{ "key": "value" }');
     const renderer = new Renderer_1.Renderer({ baseTemplate: '', config: {}, partials: {} });
     const markdownParser = new MarkdownParser_1.MarkdownParser(renderer, []);
-    const content = await parseContent_1.parseContent({
+    const content = await (0, parseContent_1.parseContent)({
         directory: constants_1.DIRECTORIES.CONTENT,
         markdownParser,
         renderer,

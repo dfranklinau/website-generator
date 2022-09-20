@@ -33,13 +33,13 @@ const prepareContent = (props) => {
                 },
             },
             name: sectionOverride?.name || section.name,
-            outputPath: getContentOutputPath_1.getContentOutputPath(section.filePath, sectionOverride),
-            outputURL: getContentOutputURL_1.getContentOutputURL(section.filePath, sectionOverride),
+            outputPath: (0, getContentOutputPath_1.getContentOutputPath)(section.filePath, sectionOverride),
+            outputURL: (0, getContentOutputURL_1.getContentOutputURL)(section.filePath, sectionOverride),
         };
         const preparedSection = {
             ...section,
-            outputPath: getContentOutputPath_1.getContentOutputPath(section.filePath, sectionOverride),
-            outputURL: getContentOutputURL_1.getContentOutputURL(section.filePath, sectionOverride),
+            outputPath: (0, getContentOutputPath_1.getContentOutputPath)(section.filePath, sectionOverride),
+            outputURL: (0, getContentOutputURL_1.getContentOutputURL)(section.filePath, sectionOverride),
         };
         preparedContentList.push(preparedSection);
         preparedContentTree.section = preparedSection;
@@ -47,8 +47,8 @@ const prepareContent = (props) => {
     if (pages) {
         preparedContentTree.pages = pages.map((page) => ({
             ...page,
-            outputPath: getContentOutputPath_1.getContentOutputPath(page.filePath, sectionOverride),
-            outputURL: getContentOutputURL_1.getContentOutputURL(page.filePath, sectionOverride),
+            outputPath: (0, getContentOutputPath_1.getContentOutputPath)(page.filePath, sectionOverride),
+            outputURL: (0, getContentOutputURL_1.getContentOutputURL)(page.filePath, sectionOverride),
         }));
         preparedContentList = preparedContentList.concat(preparedContentTree.pages);
     }
@@ -56,7 +56,7 @@ const prepareContent = (props) => {
         const preparedContentTreeChildren = {};
         const childrenKeys = Object.keys(children);
         childrenKeys.forEach((key) => {
-            const preparedChildrenContent = exports.prepareContent({
+            const preparedChildrenContent = (0, exports.prepareContent)({
                 content: children[key],
                 sectionParent: sectionOverride,
             });
@@ -68,7 +68,7 @@ const prepareContent = (props) => {
     if (assets) {
         preparedContentTree.assets = assets.map((asset) => ({
             ...asset,
-            outputPath: getContentOutputPath_1.getContentOutputPath(asset.filePath, sectionOverride),
+            outputPath: (0, getContentOutputPath_1.getContentOutputPath)(asset.filePath, sectionOverride),
         }));
     }
     return {

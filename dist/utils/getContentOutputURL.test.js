@@ -5,14 +5,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const tape_1 = __importDefault(require("tape"));
 const getContentOutputURL_1 = require("./getContentOutputURL");
-tape_1.default('`getContentOutputURL`', (t) => {
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/_index.md', null), '/', 'gets the content output URL for a section');
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/index.md', null), '/', 'gets the content output URL for an index page');
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/page.md', null), '/page/', 'gets the content output URL for a page');
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/section/_index.md', null), '/section/', 'gets the content output URL for a nested section');
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/section/index.md', null), '/section/', 'gets the content output URL for a nested index page');
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/section/page.md', null), '/section/page/', 'gets the content output URL for a nested page');
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/section/page.md', {
+(0, tape_1.default)('`getContentOutputURL`', (t) => {
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/_index.md', null), '/', 'gets the content output URL for a section');
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/index.md', null), '/', 'gets the content output URL for an index page');
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/page.md', null), '/page/', 'gets the content output URL for a page');
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/section/_index.md', null), '/section/', 'gets the content output URL for a nested section');
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/section/index.md', null), '/section/', 'gets the content output URL for a nested index page');
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/section/page.md', null), '/section/page/', 'gets the content output URL for a nested page');
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/section/page.md', {
         filePath: './content/section/_index.md',
         markdown: {
             content: '',
@@ -27,7 +27,7 @@ tape_1.default('`getContentOutputURL`', (t) => {
         outputPath: './build/index.html',
         outputURL: '/build/',
     }), '/section/page/', 'gets the content output URL for a nested page with a section whose url is empty');
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/section/page.md', {
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/section/page.md', {
         filePath: './content/section/_index.md',
         markdown: {
             content: '',
@@ -42,7 +42,7 @@ tape_1.default('`getContentOutputURL`', (t) => {
         outputPath: './build/index.html',
         outputURL: '/build/',
     }), '/page/', 'gets the content output URL for a nested page in a section whose url is a trailing slash');
-    t.equal(getContentOutputURL_1.getContentOutputURL('./content/section/page.md', {
+    t.equal((0, getContentOutputURL_1.getContentOutputURL)('./content/section/page.md', {
         filePath: './content/section/_index.md',
         markdown: {
             content: '',

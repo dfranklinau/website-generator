@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -27,14 +31,14 @@ const tape_1 = __importDefault(require("tape"));
 const findFiles = __importStar(require("./findFiles"));
 const readFile = __importStar(require("./readFile"));
 const getPartialTemplates_1 = require("./getPartialTemplates");
-tape_1.default('`getPartialTemplates`', async (t) => {
+(0, tape_1.default)('`getPartialTemplates`', async (t) => {
     const findFilesStub = sinon_1.default.stub(findFiles, 'findFiles');
     const readFileStub = sinon_1.default.stub(readFile, 'readFile');
     findFilesStub.returns(['./templates/_partials/partial.hbs']);
     readFileStub
         .withArgs('./templates/_partials/partial.hbs')
         .resolves('<p>Partial</p>');
-    const partials = await getPartialTemplates_1.getPartialTemplates();
+    const partials = await (0, getPartialTemplates_1.getPartialTemplates)();
     t.deepEqual(partials, {
         partial: '<p>Partial</p>',
     }, 'returns a formatted object of partial names and templates');

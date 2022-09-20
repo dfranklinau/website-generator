@@ -7,11 +7,11 @@ const fs_1 = __importDefault(require("fs"));
 const sinon_1 = __importDefault(require("sinon"));
 const tape_1 = __importDefault(require("tape"));
 const copyFiles_1 = require("./copyFiles");
-tape_1.default('`copyFiles`', (t) => {
+(0, tape_1.default)('`copyFiles`', (t) => {
     const mkdirSync = sinon_1.default.stub(fs_1.default, 'mkdirSync');
     const copyFileSync = sinon_1.default.stub(fs_1.default, 'copyFileSync');
     const files = ['./static/image.jpg', './static/js/main.js'];
-    copyFiles_1.copyFiles(files, './build/');
+    (0, copyFiles_1.copyFiles)(files, './build/');
     t.ok(mkdirSync.calledTwice, '`mkdirSync` should be called three times');
     t.ok(copyFileSync.calledTwice, '`copyFileSync` should be called three times');
     t.ok(mkdirSync.calledWith('./build', { recursive: true }), 'creates the provided destination folder');

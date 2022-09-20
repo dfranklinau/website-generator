@@ -22,13 +22,13 @@ const renderContent_1 = require("./renderContent");
 const saveContentToFile_1 = require("./utils/saveContentToFile");
 async function generateContent(props) {
     const { markdownParser, renderer } = props;
-    const parsedContent = await parseContent_1.parseContent({
+    const parsedContent = await (0, parseContent_1.parseContent)({
         directory: constants_1.DIRECTORIES.CONTENT,
         markdownParser,
         renderer,
     });
-    renderContent_1.renderContent({
-        content: prepareContent_1.prepareContent({ content: parsedContent }).tree,
+    (0, renderContent_1.renderContent)({
+        content: (0, prepareContent_1.prepareContent)({ content: parsedContent }).tree,
         globalMatter: {
             menus: {},
         },
@@ -36,33 +36,33 @@ async function generateContent(props) {
     });
 }
 async function generateAssets() {
-    const cssFiles = findFiles_1.findFiles(constants_1.DIRECTORIES.ASSETS, {
+    const cssFiles = (0, findFiles_1.findFiles)(constants_1.DIRECTORIES.ASSETS, {
         match: /\.css$/,
         recursive: true,
     });
     cssFiles.forEach(async (cssFile) => {
-        const outputCssFile = formatOutputFilePath_1.formatOutputFilePath(cssFile, constants_1.DIRECTORIES.BUILD);
-        const data = (await readFile_1.readFile(cssFile));
-        postcss_1.default([])
+        const outputCssFile = (0, formatOutputFilePath_1.formatOutputFilePath)(cssFile, constants_1.DIRECTORIES.BUILD);
+        const data = (await (0, readFile_1.readFile)(cssFile));
+        (0, postcss_1.default)([])
             .process(data, {
             from: cssFile,
             to: outputCssFile,
         })
             .then((result) => {
-            saveContentToFile_1.saveContentToFile(result.css, outputCssFile);
+            (0, saveContentToFile_1.saveContentToFile)(result.css, outputCssFile);
         });
     });
 }
 function generateStatic() {
-    const staticFiles = findFiles_1.findFiles(constants_1.DIRECTORIES.STATIC, {
+    const staticFiles = (0, findFiles_1.findFiles)(constants_1.DIRECTORIES.STATIC, {
         recursive: true,
     });
-    copyFiles_1.copyFiles(staticFiles, constants_1.DIRECTORIES.BUILD);
+    (0, copyFiles_1.copyFiles)(staticFiles, constants_1.DIRECTORIES.BUILD);
 }
 async function generateErrorDocuments(props) {
     const { config, renderer } = props;
     const templateFile = `${constants_1.DIRECTORIES.TEMPLATES}_404.hbs`;
-    const content = (await readFile_1.readFile(templateFile));
+    const content = (await (0, readFile_1.readFile)(templateFile));
     fs_1.default.writeFileSync(`${constants_1.DIRECTORIES.BUILD}404.html`, renderer.render({
         content,
         head: {
@@ -77,7 +77,7 @@ function clean() {
 const generate = async () => {
     clean();
     // @TODO how to differentiate from user-defined and reserved keywords?
-    const config = (await readFile_1.readFile('./website-generator.config.json', {}, (data) => {
+    const config = (await (0, readFile_1.readFile)('./website-generator.config.json', {}, (data) => {
         try {
             return JSON.parse(data);
         }
@@ -85,10 +85,10 @@ const generate = async () => {
             return {};
         }
     }));
-    const baseTemplate = (await readFile_1.readFile('./templates/_base.hbs', ''));
-    const helpers = getHelpers_1.getHelpers();
-    const partials = await getPartialTemplates_1.getPartialTemplates();
-    const shortcodes = await getShortcodeTemplates_1.getShortcodeTemplates();
+    const baseTemplate = (await (0, readFile_1.readFile)('./templates/_base.hbs', ''));
+    const helpers = (0, getHelpers_1.getHelpers)();
+    const partials = await (0, getPartialTemplates_1.getPartialTemplates)();
+    const shortcodes = await (0, getShortcodeTemplates_1.getShortcodeTemplates)();
     const renderer = new Renderer_1.Renderer({ baseTemplate, config, helpers, partials });
     const markdownParser = new MarkdownParser_1.MarkdownParser(renderer, shortcodes);
     await generateContent({ markdownParser, renderer });

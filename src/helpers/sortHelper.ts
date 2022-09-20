@@ -1,9 +1,6 @@
 import Handlebars from 'handlebars';
 
-const getPrimitive = (value: unknown): string => {
-  // @ts-expect-error: `value` is a primitive type, which will have `toString()`.
-  return value?.toString() || '';
-};
+const getPrimitive = (value: unknown): string => value?.toString() || '';
 
 export const sortHelper: Handlebars.HelperDelegate = (
   list: unknown[],

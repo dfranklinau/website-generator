@@ -6,13 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tape_1 = __importDefault(require("tape"));
 const _fixtures_1 = require("./_fixtures");
 const prepareContent_1 = require("./prepareContent");
-tape_1.default('`prepareContent`', (t) => {
-    const prepared = prepareContent_1.prepareContent({
+(0, tape_1.default)('`prepareContent`', (t) => {
+    const prepared = (0, prepareContent_1.prepareContent)({
         content: _fixtures_1.mockParsedContent,
     });
     t.deepEqual(prepared.list, _fixtures_1.mockPreparedContent.list, 'prepares a list of all content');
     t.deepEqual(prepared.tree, _fixtures_1.mockPreparedContent.tree, 'prepares a content tree');
-    t.deepEqual(prepareContent_1.prepareContent({
+    t.deepEqual((0, prepareContent_1.prepareContent)({
         content: {
             ..._fixtures_1.mockParsedContent,
             children: {
@@ -67,7 +67,7 @@ tape_1.default('`prepareContent`', (t) => {
             outputURL: '/nested/page/',
         },
     ], 'prepares a list of all content where a section has a URL removal');
-    t.deepEqual(prepareContent_1.prepareContent({
+    t.deepEqual((0, prepareContent_1.prepareContent)({
         content: {
             ..._fixtures_1.mockParsedContent,
             children: {

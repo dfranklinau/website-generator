@@ -42,7 +42,7 @@ const parseShortcodes = (props) => {
                 blockMatches.closingTags.push(i);
             }
         }
-        const blockPairs = convertShortcodeBlockMatchesToPairs_1.convertShortcodeBlockMatchesToPairs(blockMatches);
+        const blockPairs = (0, convertShortcodeBlockMatchesToPairs_1.convertShortcodeBlockMatchesToPairs)(blockMatches);
         inlineMatches.forEach((match) => {
             let inlineShift = 0;
             /**
@@ -53,7 +53,7 @@ const parseShortcodes = (props) => {
                 Array.from(lines[match].matchAll(new RegExp(pattern, 'g')), (inlineShortcode) => {
                     const index = (inlineShortcode.index || 0) + inlineShift;
                     const lastIndex = index + inlineShortcode[0].length;
-                    const params = getShortcodeAttributes_1.getShortcodeAttributes(shortcode.name, lines[match].substr(index, inlineShortcode[0].length), markdownParser);
+                    const params = (0, getShortcodeAttributes_1.getShortcodeAttributes)(shortcode.name, lines[match].substr(index, inlineShortcode[0].length), markdownParser);
                     const content = renderer.render({ content: '', params }, {
                         baseTemplate: shortcode.template,
                         stripNewlines: true,
@@ -69,7 +69,7 @@ const parseShortcodes = (props) => {
             let pairContent = lines
                 .slice(pair[0] + 1 + blockShift, pair[1] + blockShift)
                 .join('\n');
-            pairContent = exports.parseShortcodes({
+            pairContent = (0, exports.parseShortcodes)({
                 content: pairContent,
                 markdownParser,
                 renderer,
@@ -78,7 +78,7 @@ const parseShortcodes = (props) => {
             if (lines[pair[0] + blockShift].includes('%')) {
                 pairContent = markdownParser.parse(pairContent).content;
             }
-            const params = getShortcodeAttributes_1.getShortcodeAttributes(shortcode.name, lines[pair[0] + blockShift], markdownParser);
+            const params = (0, getShortcodeAttributes_1.getShortcodeAttributes)(shortcode.name, lines[pair[0] + blockShift], markdownParser);
             const renderedContent = renderer
                 .render({ content: pairContent, params }, {
                 baseTemplate: shortcode.template,

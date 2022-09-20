@@ -62,23 +62,23 @@ const stubReaddirSync = () => {
     readdirSync.withArgs('./does-not-exist/', { withFileTypes: true }).throws();
     return readdirSync;
 };
-tape_1.default('`findFiles`', (t) => {
+(0, tape_1.default)('`findFiles`', (t) => {
     const readdirSync = stubReaddirSync();
     const existsSync = sinon_1.default.stub(fs_1.default, 'existsSync');
     existsSync.returns(true);
     existsSync.withArgs('./does-not-exist/').returns(false);
     let content;
-    content = findFiles_1.findFiles('./content/');
+    content = (0, findFiles_1.findFiles)('./content/');
     t.equal(readdirSync.callCount, 1, '`readdirSync` should not be called');
     t.deepEqual(content, ['./content/index.md', './content/image.jpg'], 'returns an array of files');
     readdirSync.resetHistory();
-    content = findFiles_1.findFiles('./content/', { match: 'index.md' });
+    content = (0, findFiles_1.findFiles)('./content/', { match: 'index.md' });
     t.deepEqual(content, ['./content/index.md'], 'returns an array of files that match the given string');
     readdirSync.resetHistory();
-    content = findFiles_1.findFiles('./content/', { match: /\.md$/ });
+    content = (0, findFiles_1.findFiles)('./content/', { match: /\.md$/ });
     t.deepEqual(content, ['./content/index.md'], 'returns an array of files that match the given RegExp');
     readdirSync.resetHistory();
-    content = findFiles_1.findFiles('./content/', { recursive: true });
+    content = (0, findFiles_1.findFiles)('./content/', { recursive: true });
     t.deepEqual(content, [
         './content/index.md',
         './content/image.jpg',
@@ -88,14 +88,14 @@ tape_1.default('`findFiles`', (t) => {
         './content/blog/blog-post-two/image.jpg',
     ], 'returns an array of all files when `recursive` is specified');
     readdirSync.resetHistory();
-    content = findFiles_1.findFiles('./content/', { match: 'index.md', recursive: true });
+    content = (0, findFiles_1.findFiles)('./content/', { match: 'index.md', recursive: true });
     t.deepEqual(content, [
         './content/index.md',
         './content/blog/index.md',
         './content/blog/blog-post-two/index.md',
     ], 'returns an array of all files that match the given string when `recursive` is specified');
     readdirSync.resetHistory();
-    content = findFiles_1.findFiles('./content/', { match: /\.md$/, recursive: true });
+    content = (0, findFiles_1.findFiles)('./content/', { match: /\.md$/, recursive: true });
     t.deepEqual(content, [
         './content/index.md',
         './content/blog/index.md',
@@ -103,7 +103,7 @@ tape_1.default('`findFiles`', (t) => {
         './content/blog/blog-post-two/index.md',
     ], 'returns an array of all files that match the given RegExp when `recursive` is specified');
     readdirSync.resetHistory();
-    content = findFiles_1.findFiles('./does-not-exist/');
+    content = (0, findFiles_1.findFiles)('./does-not-exist/');
     t.equal(content.length, 0, 'returns an empty array when a directory does not exist');
     readdirSync.restore();
     t.end();

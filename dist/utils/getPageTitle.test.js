@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tape_1 = __importDefault(require("tape"));
 const getPageTitle_1 = require("./getPageTitle");
 const _fixtures_1 = require("../_fixtures");
-tape_1.default('`getPageTitle`', (t) => {
+(0, tape_1.default)('`getPageTitle`', (t) => {
     const page = {
         filePath: '/section/page.md',
         markdown: {
@@ -31,8 +31,8 @@ tape_1.default('`getPageTitle`', (t) => {
         outputPath: '/section/index.html',
         outputURL: '/section/',
     };
-    t.equal(getPageTitle_1.getPageTitle(page, section), 'Page / Section', "builds a page title using a page's section data");
-    t.equal(getPageTitle_1.getPageTitle(section, section), 'Section', 'builds a page title even if the content and section are identical');
-    t.equal(getPageTitle_1.getPageTitle(page, null), 'Page', 'builds a page title if no section is specified');
+    t.equal((0, getPageTitle_1.getPageTitle)(page, section), 'Page / Section', "builds a page title using a page's section data");
+    t.equal((0, getPageTitle_1.getPageTitle)(section, section), 'Section', 'builds a page title even if the content and section are identical');
+    t.equal((0, getPageTitle_1.getPageTitle)(page, null), 'Page', 'builds a page title if no section is specified');
     t.end();
 });
