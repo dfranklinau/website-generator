@@ -51,7 +51,7 @@ const getContentTemplate = (template, directories, filename) => {
         return content;
     }
     if (directories.length > 0) {
-        return exports.getContentTemplate(template, directories.slice(0, directories.length - 1), directories[directories.length - 1]);
+        return (0, exports.getContentTemplate)(template, directories.slice(0, directories.length - 1), directories[directories.length - 1]);
     }
     return '';
 };

@@ -9,7 +9,7 @@ const findFiles_1 = require("./findFiles");
 const readFile_1 = require("./readFile");
 const constants_1 = require("../config/constants");
 const getShortcodeTemplates = async () => {
-    const shortcodeTemplates = findFiles_1.findFiles(constants_1.DIRECTORIES.SHORTCODES, {
+    const shortcodeTemplates = (0, findFiles_1.findFiles)(constants_1.DIRECTORIES.SHORTCODES, {
         match: /^.*\.hbs/,
     });
     return Promise.all(shortcodeTemplates.map(async (file) => {
@@ -17,7 +17,7 @@ const getShortcodeTemplates = async () => {
         const template = `${constants_1.DIRECTORIES.SHORTCODES}${name}.hbs`;
         try {
             return {
-                template: (await readFile_1.readFile(template)),
+                template: (await (0, readFile_1.readFile)(template)),
                 name,
             };
         }

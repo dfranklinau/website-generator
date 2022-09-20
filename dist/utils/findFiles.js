@@ -19,7 +19,7 @@ const findFiles = (directory, options) => {
             }
         }
         else if (options?.recursive && item.isDirectory()) {
-            results = results.concat(exports.findFiles(`${directory}${item.name}/`, options));
+            results = results.concat((0, exports.findFiles)(`${directory}${item.name}/`, options));
         }
     });
     return results;

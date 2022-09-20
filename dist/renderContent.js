@@ -19,12 +19,12 @@ const getContentOutput = (props) => {
         .slice(2);
     const filename = typeof content.markdown.matter.title === "string" ?
         content.markdown.matter.title : null;
-    const contentTemplate = getContentTemplate_1.getContentTemplate(template, contentDirectories, filename);
+    const contentTemplate = (0, getContentTemplate_1.getContentTemplate)(template, contentDirectories, filename);
     const variables = {
         data: data?.json,
         global: globalMatter,
         head: {
-            title: getPageTitle_1.getPageTitle(content, parentSection),
+            title: (0, getPageTitle_1.getPageTitle)(content, parentSection),
         },
         page: {
             ...content.markdown.matter,
@@ -98,7 +98,7 @@ const renderContent = (props) => {
             parentSection: sectionOverride,
             template: parentSection ? 'section' : 'index',
         });
-        saveContentToFile_1.saveContentToFile(output, section.outputPath);
+        (0, saveContentToFile_1.saveContentToFile)(output, section.outputPath);
     }
     if (pages) {
         pages.forEach((page) => {
@@ -110,14 +110,14 @@ const renderContent = (props) => {
                 parentSection: sectionOverride,
                 template: 'page',
             });
-            saveContentToFile_1.saveContentToFile(output, page.outputPath);
+            (0, saveContentToFile_1.saveContentToFile)(output, page.outputPath);
         });
     }
     if (content.children) {
         const children = content.children;
         const childrenKeys = Object.keys(children);
         childrenKeys.forEach((child) => {
-            exports.renderContent({
+            (0, exports.renderContent)({
                 content: children[child],
                 globalMatter,
                 parentSection: sectionOverride,
@@ -126,7 +126,7 @@ const renderContent = (props) => {
         });
     }
     if (assets) {
-        copyFiles_1.copyFiles(assets.map((asset) => asset.filePath), constants_1.DIRECTORIES.BUILD, (filePath) => {
+        (0, copyFiles_1.copyFiles)(assets.map((asset) => asset.filePath), constants_1.DIRECTORIES.BUILD, (filePath) => {
             const asset = assets.find((asset) => asset.filePath === filePath);
             if (!asset) {
                 throw new Error(`Asset at "${filePath}" does not have an output path.`);
