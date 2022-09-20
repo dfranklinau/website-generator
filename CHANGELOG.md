@@ -15,6 +15,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Upgraded Node.js to `16.17.0` and npm to `8.15.0`
 - Updated the `clean` method to ignore exceptions if the build path does not
   exist.
+- Upgraded `postcss` to `8.4.16`
 
 --------------------------------------------------------------------------------
 
