@@ -18,6 +18,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Upgraded `postcss` to `8.4.16`
 - Upgraded `dompurify` to `2.3.4`
 - Upgraded `@ltd/j-toml` to `1.35.2`
+- Upgraded `jsdom` to `20.0.0`
 
 --------------------------------------------------------------------------------
 
