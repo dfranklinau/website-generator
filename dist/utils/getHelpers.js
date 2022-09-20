@@ -8,7 +8,7 @@ const path_1 = __importDefault(require("path"));
 const findFiles_1 = require("./findFiles");
 const constants_1 = require("../config/constants");
 const getHelpers = () => {
-    const helperFiles = findFiles_1.findFiles(`${constants_1.DIRECTORIES.HELPERS}`, {
+    const helperFiles = (0, findFiles_1.findFiles)(`${constants_1.DIRECTORIES.HELPERS}`, {
         match: /\.js$/,
         recursive: true,
     });

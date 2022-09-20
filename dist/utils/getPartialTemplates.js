@@ -5,7 +5,7 @@ const findFiles_1 = require("./findFiles");
 const readFile_1 = require("./readFile");
 const constants_1 = require("../config/constants");
 const getPartialTemplates = async () => {
-    const partialTemplates = findFiles_1.findFiles(`${constants_1.DIRECTORIES.TEMPLATES}_partials/`, {
+    const partialTemplates = (0, findFiles_1.findFiles)(`${constants_1.DIRECTORIES.TEMPLATES}_partials/`, {
         match: /\.hbs/,
         recursive: true,
     });
@@ -13,7 +13,7 @@ const getPartialTemplates = async () => {
         const name = file.match(/\/_partials\/(.*)\.hbs/);
         if (Array.isArray(name) && name[1]) {
             return {
-                data: (await readFile_1.readFile(file)),
+                data: (await (0, readFile_1.readFile)(file)),
                 name: name[1].replace(/\//g, '-'),
             };
         }

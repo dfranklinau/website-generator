@@ -22,7 +22,7 @@ const formatSectionUrl = (url) => {
     if (url.charAt(0) === path_1.default.sep) {
         formattedUrl = formattedUrl.slice(1);
     }
-    return removeTrailingSlash_1.removeTrailingSlash(formattedUrl);
+    return (0, removeTrailingSlash_1.removeTrailingSlash)(formattedUrl);
 };
 class MarkdownParser {
     constructor(renderer, shortcodes) {
@@ -46,7 +46,8 @@ class MarkdownParser {
         this._renderer = renderer;
         this._shortcodes = shortcodes;
         this._window = new JSDOM('').window;
-        this._DOMPurify = dompurify_1.default(this._window);
+        // @ts-expect-error: Argument of type 'DOMWindow' is not assignable to parameter of type 'Window'.
+        this._DOMPurify = (0, dompurify_1.default)(this._window);
     }
     getOptions(content, 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -66,7 +67,7 @@ class MarkdownParser {
             };
         }
         if (typeof data.toc === 'boolean') {
-            options.toc = this.parse(markdown_toc_1.default(content, {
+            options.toc = this.parse((0, markdown_toc_1.default)(content, {
                 bullets: ['1.'],
                 maxdepth: 3,
             }).content.replace(/ {2}/g, '    ')).content;
@@ -77,7 +78,7 @@ class MarkdownParser {
         return options;
     }
     parse(content) {
-        const file = gray_matter_1.default(content, {
+        const file = (0, gray_matter_1.default)(content, {
             delimiters: '+++',
             engines: {
                 toml: (source) => {
@@ -112,7 +113,7 @@ class MarkdownParser {
             return content;
         }
         let prepared = content;
-        prepared = parseShortcodes_1.parseShortcodes({
+        prepared = (0, parseShortcodes_1.parseShortcodes)({
             content: prepared,
             markdownParser: this,
             renderer: this._renderer,

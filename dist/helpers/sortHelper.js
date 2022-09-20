@@ -1,10 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortHelper = void 0;
-const getPrimitive = (value) => {
-    // @ts-expect-error: `value` is a primitive type, which will have `toString()`.
-    return value?.toString() || '';
-};
+const getPrimitive = (value) => value?.toString() || '';
 const sortHelper = (list, property, options) => {
     const ascending = options.hash?.ascending || false;
     const sorted = list.sort((a, b) => {
