@@ -16,6 +16,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated the `clean` method to ignore exceptions if the build path does not
   exist.
 - Upgraded `postcss` to `8.4.16`
+- Upgraded `dompurify` to `2.3.4`
 
 --------------------------------------------------------------------------------
 
