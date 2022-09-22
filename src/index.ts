@@ -87,7 +87,7 @@ async function generateErrorDocuments(props: {
 }
 
 function clean() {
-  fs.rmdirSync(DIRECTORIES.BUILD, { recursive: true });
+  fs.rmSync(DIRECTORIES.BUILD, { force: true, recursive: true });
   fs.mkdirSync(DIRECTORIES.BUILD);
 }
 

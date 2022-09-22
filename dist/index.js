@@ -71,7 +71,7 @@ async function generateErrorDocuments(props) {
     }));
 }
 function clean() {
-    fs_1.default.rmdirSync(constants_1.DIRECTORIES.BUILD, { recursive: true });
+    fs_1.default.rmSync(constants_1.DIRECTORIES.BUILD, { force: true, recursive: true });
     fs_1.default.mkdirSync(constants_1.DIRECTORIES.BUILD);
 }
 const generate = async () => {
