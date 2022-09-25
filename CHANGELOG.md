@@ -14,6 +14,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Added `removeComments` to `tsconfig.json`.
 
+### Changed
+
+- Moved the `clean` method in `index.ts` to its own utility.
+
 --------------------------------------------------------------------------------
 
 ## [1.0.0-alpha.8] - 2022-09-22

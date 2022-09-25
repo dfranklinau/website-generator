@@ -4,6 +4,7 @@ import postcss from 'postcss';
 import { DIRECTORIES } from './config/constants';
 import { MarkdownParser } from './MarkdownParser';
 import { Renderer } from './Renderer';
+import { cleanDirectory } from './utils/cleanDirectory';
 import { copyFiles } from './utils/copyFiles';
 import { findFiles } from './utils/findFiles';
 import { formatOutputFilePath } from './utils/formatOutputFilePath';
@@ -86,13 +87,8 @@ async function generateErrorDocuments(props: {
   );
 }
 
-function clean() {
-  fs.rmSync(DIRECTORIES.BUILD, { force: true, recursive: true });
-  fs.mkdirSync(DIRECTORIES.BUILD);
-}
-
 export const generate = async (): Promise<void> => {
-  clean();
+  cleanDirectory(DIRECTORIES.BUILD);
 
   // @TODO how to differentiate from user-defined and reserved keywords?
   const config: Record<string, unknown> = (await readFile(

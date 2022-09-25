@@ -9,6 +9,7 @@ const postcss_1 = __importDefault(require("postcss"));
 const constants_1 = require("./config/constants");
 const MarkdownParser_1 = require("./MarkdownParser");
 const Renderer_1 = require("./Renderer");
+const cleanDirectory_1 = require("./utils/cleanDirectory");
 const copyFiles_1 = require("./utils/copyFiles");
 const findFiles_1 = require("./utils/findFiles");
 const formatOutputFilePath_1 = require("./utils/formatOutputFilePath");
@@ -70,12 +71,8 @@ async function generateErrorDocuments(props) {
         },
     }));
 }
-function clean() {
-    fs_1.default.rmSync(constants_1.DIRECTORIES.BUILD, { force: true, recursive: true });
-    fs_1.default.mkdirSync(constants_1.DIRECTORIES.BUILD);
-}
 const generate = async () => {
-    clean();
+    (0, cleanDirectory_1.cleanDirectory)(constants_1.DIRECTORIES.BUILD);
     const config = (await (0, readFile_1.readFile)('./website-generator.config.json', {}, (data) => {
         try {
             return JSON.parse(data);
