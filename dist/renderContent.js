@@ -12,7 +12,6 @@ const getPageTitle_1 = require("./utils/getPageTitle");
 const saveContentToFile_1 = require("./utils/saveContentToFile");
 const getContentOutput = (props) => {
     const { content, data, globalMatter, renderer, sectionMatter, parentSection, template, } = props;
-    // Use `.slice(2)` to remove '.' and 'content' from the list.
     const contentDirectories = path_1.default
         .parse(content.filePath)
         .dir.split(path_1.default.sep)

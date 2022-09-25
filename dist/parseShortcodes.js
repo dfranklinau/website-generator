@@ -12,7 +12,6 @@ const parseShortcodes = (props) => {
             closingTags: [],
             openTags: [],
         };
-        // @TODO: support inline shortcodes wrapping across lines.
         const inlineTagPatterns = [
             `{{%${shortcode.name}(?:(?=\\s).+?)?\\/%}}`,
             `{{<${shortcode.name}(?:(?=\\s).+?)?\\/>}}`,
@@ -45,10 +44,6 @@ const parseShortcodes = (props) => {
         const blockPairs = (0, convertShortcodeBlockMatchesToPairs_1.convertShortcodeBlockMatchesToPairs)(blockMatches);
         inlineMatches.forEach((match) => {
             let inlineShift = 0;
-            /**
-             * Loop through all of the possible inline matches on the line in case
-             * there is more than one inline shortcode.
-             */
             inlineTagPatterns.forEach((pattern) => {
                 Array.from(lines[match].matchAll(new RegExp(pattern, 'g')), (inlineShortcode) => {
                     const index = (inlineShortcode.index || 0) + inlineShift;

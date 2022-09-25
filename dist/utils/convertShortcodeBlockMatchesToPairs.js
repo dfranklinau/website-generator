@@ -12,7 +12,7 @@ const convertShortcodeBlockMatchesToPairs = (blockMatches) => {
     while (closingTags.length > 0) {
         const openTagIndex = openTags.findIndex((tag) => tag > closingTags[closingTags.length - 1]);
         const openTag = openTagIndex > 0
-            ? openTags[openTagIndex - 1] // Subtract one to get the previous open tag.
+            ? openTags[openTagIndex - 1]
             : openTags[openTags.length - 1];
         let closeTag = closingTags[closingTags.length - 1];
         for (let i = closingTags.length - 2; i >= 0; i--) {
@@ -26,7 +26,6 @@ const convertShortcodeBlockMatchesToPairs = (blockMatches) => {
             closingTags.splice(closingTags.indexOf(closeTag), 1)[0],
         ]);
     }
-    // Remove any nested pairs.
     pairs = pairs.filter((pair) => {
         const open = pair[0];
         const close = pair[1];

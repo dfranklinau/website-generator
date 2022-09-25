@@ -29,7 +29,6 @@ const parseContent = async (props) => {
                     name: item.name,
                     filePath: itemPath,
                 };
-                // Exclude drafts from ever being published.
                 if (!contentItem.markdown.matter.draft) {
                     if (item.name === '_index.md') {
                         parsedContent.section = contentItem;

@@ -76,7 +76,6 @@ function clean() {
 }
 const generate = async () => {
     clean();
-    // @TODO how to differentiate from user-defined and reserved keywords?
     const config = (await (0, readFile_1.readFile)('./website-generator.config.json', {}, (data) => {
         try {
             return JSON.parse(data);

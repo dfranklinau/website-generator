@@ -10,7 +10,6 @@ const getContentOutputPath = (filePath, section) => {
     let rewritePath = filePath;
     if (typeof section?.markdown.options.url === 'string' &&
         section.markdown.options.url.length > 0) {
-        // Convert `./content/directory/page` to `directory/page`.
         const sectionPath = path_1.default
             .parse(section.filePath)
             .dir.split(path_1.default.sep)

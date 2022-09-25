@@ -13,15 +13,10 @@ const getHelpers = () => {
         recursive: true,
     });
     const helpers = helperFiles.map((file) => {
-        /**
-         * Resolve the path to `cwd` so that importing helper methods is always
-         * relative to where `website-generator` was called.
-         */
         const resolvedPath = path_1.default.resolve(process.cwd(), file);
         const name = file.match(/\/helpers\/(.*)\.js$/);
         if (Array.isArray(name) && name[1]) {
             try {
-                // eslint-disable-next-line @typescript-eslint/no-var-requires
                 const module = require(resolvedPath);
                 return {
                     func: module,
@@ -34,14 +29,6 @@ const getHelpers = () => {
         }
         return null;
     });
-    /**
-     * Format the array of `HelperFileType` objects into a key-value pair
-     * object for easier access, i.e.:
-     *
-     * {
-     *   'partial-name': '...'
-     * }
-     */
     return helpers.reduce((acc, curr) => {
         if (curr) {
             acc[curr.name] = curr.func;

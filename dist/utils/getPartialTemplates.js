@@ -19,14 +19,6 @@ const getPartialTemplates = async () => {
         }
         return null;
     });
-    /**
-     * Format the array of `PartialTemplateType` objects into a key-value pair
-     * object for easier access, i.e.:
-     *
-     * {
-     *   'partial-name': '...'
-     * }
-     */
     return Promise.all(partials).then((values) => {
         return values.reduce((acc, curr) => {
             if (curr) {

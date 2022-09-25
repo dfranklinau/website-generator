@@ -22,9 +22,6 @@ class Renderer {
                 year: new Date().getFullYear().toString(),
             },
         };
-        /**
-         * Register the partials to Handlebars.
-         */
         Object.keys(this._partials).forEach((partial) => {
             handlebars_1.default.registerPartial(partial, this._partials[partial]);
         });
@@ -34,9 +31,6 @@ class Renderer {
         handlebars_1.default.registerHelper('isarray', isarrayHelper_1.isarrayHelper);
         handlebars_1.default.registerHelper('sort', sortHelper_1.sortHelper);
         handlebars_1.default.registerHelper('stripnewlines', stripnewlinesHelper_1.stripnewlinesHelper);
-        /**
-         * Register custom helpers to Handlebars.
-         */
         Object.keys(this._helpers).forEach((helper) => {
             handlebars_1.default.registerHelper(helper, (...args) => {
                 const value = this._helpers[helper].apply(null, args);
