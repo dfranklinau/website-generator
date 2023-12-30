@@ -25,15 +25,15 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Upgraded Node.js to `16.17.0` and npm to `8.15.0`
+- Upgraded Node.js to `16.17.0` and npm to `8.15.0`.
 - Updated the `clean` method to ignore exceptions if the build path does not
   exist.
-- Upgraded `postcss` to `8.4.16`
-- Upgraded `dompurify` to `2.3.4`
-- Upgraded `@ltd/j-toml` to `1.35.2`
-- Upgraded `jsdom` to `20.0.0`
-- Made the `proxyquire` dev dependency version static
-- Upgraded `typescript` to `4.8.3`
+- Upgraded `postcss` to `8.4.16`.
+- Upgraded `dompurify` to `2.3.4`.
+- Upgraded `@ltd/j-toml` to `1.35.2`.
+- Upgraded `jsdom` to `20.0.0`.
+- Made the `proxyquire` dev dependency version static.
+- Upgraded `typescript` to `4.8.3`.
 
 --------------------------------------------------------------------------------
 
@@ -68,9 +68,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-- Fixed a missing dependency to `postcss` by adding it in `package.json`
+- Fixed a missing dependency to `postcss` by adding it in `package.json`.
 - Fixed an error in `findFiles` that is caused by certain directories not
-  existing, e.g. `./helpers/`
+  existing, e.g. `./helpers/`.
 
 --------------------------------------------------------------------------------
 
