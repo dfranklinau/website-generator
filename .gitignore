@@ -41,7 +41,6 @@ Icon[]
 # Project directories
 ################################################################################
 .nyc_output/
-.nycrc.json
 build/
 coverage/
 node_modules/
