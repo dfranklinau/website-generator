@@ -1,2 +1,5 @@
-./dist
-./build
+node_modules/
+.nyc_output/
+packages/website-generator/bin/
+packages/website-generator/coverage/
+packages/website-generator/dist/

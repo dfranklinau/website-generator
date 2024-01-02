@@ -50,12 +50,6 @@ node_modules/
 # Generator directories and files
 # These are where website content is placed
 ################################################################################
-./assets/
-./content/
-/dist/**/*.test.js
-/dist/_fixtures/
-./helpers/
-./shortcodes/
-./static/
-./templates/
+packages/website-generator/dist/**/*.test.js
+packages/website-generator/dist/_fixtures/
 website-generator.config.json
