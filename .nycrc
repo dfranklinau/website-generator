@@ -1,0 +1,5 @@
+{
+  "all": true,
+  "include": ["dist"],
+  "reporter": ["html", "text"]
+}
