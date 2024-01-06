@@ -20,6 +20,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Moved the `clean` method in `index.ts` to its own utility.
 - Upgraded Node.js to `20.10.0` and npm to `10.2.3`.
 
+### Removed
+
+- Unused `stylelint` dependency.
+
 --------------------------------------------------------------------------------
 
 ## [1.0.0-alpha.8] - 2022-09-22
