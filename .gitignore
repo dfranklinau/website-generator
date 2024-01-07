@@ -53,3 +53,4 @@ node_modules/
 packages/website-generator/dist/**/*.test.js
 packages/website-generator/dist/_fixtures/
 website-generator.config.json
+website/build/

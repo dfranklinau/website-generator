@@ -3,3 +3,4 @@ node_modules/
 packages/website-generator/bin/
 packages/website-generator/coverage/
 packages/website-generator/dist/
+packages/website-generator/build/

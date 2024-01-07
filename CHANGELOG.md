@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Added `removeComments` to `tsconfig.json`.
 - Added the `nyc` package to enable code coverage reporting.
+- Installed the Docusaurus package to `website`
 
 ### Changed
 
