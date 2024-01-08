@@ -80,9 +80,8 @@ export const parseShortcodes = (props: ParseShortcodesProps): string => {
       }
     }
 
-    const blockPairs: ShortcodeBlockPairsType = convertShortcodeBlockMatchesToPairs(
-      blockMatches,
-    );
+    const blockPairs: ShortcodeBlockPairsType =
+      convertShortcodeBlockMatchesToPairs(blockMatches);
 
     inlineMatches.forEach((match: number) => {
       let inlineShift = 0;

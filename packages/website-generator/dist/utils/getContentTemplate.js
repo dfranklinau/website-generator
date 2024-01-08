@@ -30,7 +30,7 @@ const getContentTemplate = (template, directories, filename) => {
         }
     }
     else {
-        if (template === "page" && filename) {
+        if (template === 'page' && filename) {
             try {
                 content = fs_1.default.readFileSync(`${templatePath}${filename}.${constants_1.EXTENSIONS.TEMPLATES}`, 'utf8');
             }
@@ -40,7 +40,8 @@ const getContentTemplate = (template, directories, filename) => {
         }
         if (!content) {
             try {
-                content = fs_1.default.readFileSync(`${templatePath}${template}.${constants_1.EXTENSIONS.TEMPLATES}`, 'utf8') || null;
+                content =
+                    fs_1.default.readFileSync(`${templatePath}${template}.${constants_1.EXTENSIONS.TEMPLATES}`, 'utf8') || null;
             }
             catch {
                 content = null;

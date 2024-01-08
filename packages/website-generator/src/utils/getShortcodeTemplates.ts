@@ -18,20 +18,18 @@ export const getShortcodeTemplates = async (): Promise<
   });
 
   return Promise.all(
-    shortcodeTemplates.map(
-      async (file): Promise<ShortcodeTemplateType> => {
-        const name = path.parse(file).name;
-        const template = `${DIRECTORIES.SHORTCODES}${name}.hbs`;
+    shortcodeTemplates.map(async (file): Promise<ShortcodeTemplateType> => {
+      const name = path.parse(file).name;
+      const template = `${DIRECTORIES.SHORTCODES}${name}.hbs`;
 
-        try {
-          return {
-            template: (await readFile(template)) as string,
-            name,
-          };
-        } catch (error) {
-          throw new Error('Shortcode template file does not exist.');
-        }
-      },
-    ),
+      try {
+        return {
+          template: (await readFile(template)) as string,
+          name,
+        };
+      } catch (error) {
+        throw new Error('Shortcode template file does not exist.');
+      }
+    }),
   );
 };

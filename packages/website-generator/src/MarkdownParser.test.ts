@@ -24,8 +24,7 @@ test('`MarkdownParser`', (t: test.Test) => {
           name: 'main',
           order: 1,
         },
-        toc:
-          '<ol>\n<li><a href="#heading">Heading</a>\n<ol>\n<li><a href="#heading-1">Heading</a></li>\n</ol></li>\n</ol>',
+        toc: '<ol>\n<li><a href="#heading">Heading</a>\n<ol>\n<li><a href="#heading-1">Heading</a></li>\n</ol></li>\n</ol>',
         url: 'url',
       },
       'parses front-matter containing all supported options',
@@ -121,8 +120,7 @@ test('`MarkdownParser`', (t: test.Test) => {
       parsed.options,
       {
         menu: false,
-        toc:
-          '<ol>\n<li><a href="#heading">Heading</a>\n<ol>\n<li><a href="#heading-1">Heading</a></li>\n</ol></li>\n</ol>',
+        toc: '<ol>\n<li><a href="#heading">Heading</a>\n<ol>\n<li><a href="#heading-1">Heading</a></li>\n</ol></li>\n</ol>',
         url: false,
       },
       'generates an `options` object containing data for special properties',

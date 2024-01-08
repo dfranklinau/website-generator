@@ -10,7 +10,10 @@ test('`cleanDirectory`', (t: test.Test) => {
 
   cleanDirectory('./build/');
 
-  t.ok(rmSync.calledWith('./build/', { force: true, recursive: true }), 'removes the directory');
+  t.ok(
+    rmSync.calledWith('./build/', { force: true, recursive: true }),
+    'removes the directory',
+  );
   t.ok(mkdirSync.calledWith(), 'recreates the directory');
 
   mkdirSync.restore();

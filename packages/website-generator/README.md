@@ -7,26 +7,26 @@ A static-site generator written in Node.js.
 - [Overview](#overview)
 - [How it works](#how-it-works)
 - [Content](#content)
-    - [Sections](#sections)
-    - [Pages](#pages)
-    - [Markdown](#markdown)
-      - [Front matter](#front-matter)
-        - [`toc`](#toc)
-        - [`url`](#url)
-    - [Data](#data)
+  - [Sections](#sections)
+  - [Pages](#pages)
+  - [Markdown](#markdown)
+    - [Front matter](#front-matter)
+      - [`toc`](#toc)
+      - [`url`](#url)
+  - [Data](#data)
 - [Templates](#templates)
-    - [Base template](#base-template)
-    - [404 template](#404-template)
-    - [Content templates](#content-templates)
-      - [Section templates](#section-templates)
-      - [Page templates](#page-templates)
-    - [Template lookup](#template-lookup)
-    - [Variables](#variables)
-    - [Partials](#partials)
+  - [Base template](#base-template)
+  - [404 template](#404-template)
+  - [Content templates](#content-templates)
+    - [Section templates](#section-templates)
+    - [Page templates](#page-templates)
+  - [Template lookup](#template-lookup)
+  - [Variables](#variables)
+  - [Partials](#partials)
 - [Shortcodes](#shortcodes)
-    - [Inline shortcodes](#inline-shortcodes)
-    - [Block shortcodes](#block-shortcodes)
-    - [Shortcode attributes](#shortcode-attributes)
+  - [Inline shortcodes](#inline-shortcodes)
+  - [Block shortcodes](#block-shortcodes)
+  - [Shortcode attributes](#shortcode-attributes)
 - [Assets](#assets)
 - [Static](#static)
 - [Configuration](#configuration)
@@ -73,7 +73,6 @@ website-generator works by parsing files within the following directories:
 
 When website-generator runs, the compiled website is output to a `build`
 directory.
-
 
 ## Content
 
@@ -310,8 +309,8 @@ There are several kinds of templates that website-generator looks for:
 - a base template;
 - a 404 template;
 - content templates, which are split into two categories:
-    - section templates; and
-    - page templates; and
+  - section templates; and
+  - page templates; and
 - partial templates.
 
 Templates have access to variables that contain data from the website
@@ -447,7 +446,7 @@ As an example, for the following file structure:
         "filePath": "./content/section/post-two.md",
         "outputPath": "./build/section/post-two/index.html",
         "outputURL": "/section/post-two/"
-      },
+      }
     ]
   }
 }
@@ -492,7 +491,6 @@ files.
 
 Shortcodes come in two variants, inline and block.
 
-
 ### Inline shortcodes
 
 Inline shortcodes look like:
@@ -509,7 +507,7 @@ like:
 
 ```markdown
 {{%shortcode%}}
-  Content
+Content
 {{%/shortcode%}}
 ```
 
@@ -526,6 +524,7 @@ nested content within a shortcode, e.g.:
 
 ```markdown
 <!-- This is invalid. -->
+
 {{%shortcode%}}Content{{%/shortcode%}}
 ```
 
@@ -538,7 +537,7 @@ block shortcodes:
 {{%shortcode key="value"/%}}
 
 {{%shortcode key="value"%}}
-  Content
+Content
 {{%/shortcode%}}
 ```
 
@@ -606,7 +605,7 @@ Below is a table of all supported configuration keys and an example
 `website-generator.config.json` file:
 
 | Variable                | Description                                                |
-| ----------------------- | ---------------------------------------------------------  |
+| ----------------------- | ---------------------------------------------------------- |
 | `custom`                | User-defined configuration.                                |
 | `errorDocument404Title` | The value for the `<title>` tag of the 404 error document. |
 
@@ -616,6 +615,6 @@ Below is a table of all supported configuration keys and an example
     "a": "1",
     "b": "2"
   },
-  "errorDocument404Title": "404",
+  "errorDocument404Title": "404"
 }
 ```

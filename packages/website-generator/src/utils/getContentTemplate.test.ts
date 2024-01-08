@@ -1,4 +1,5 @@
-import fs from 'fs'; import sinon from 'sinon';
+import fs from 'fs';
+import sinon from 'sinon';
 import test from 'tape';
 
 import { DIRECTORIES, EXTENSIONS } from '../config/constants';
@@ -24,17 +25,25 @@ test('`getContentTemplate`', (t: test.Test) => {
     .withArgs(`${DIRECTORIES.TEMPLATES}directory/page.${EXTENSIONS.TEMPLATES}`)
     .returns('directory page template');
   readFileSync
-    .withArgs(`${DIRECTORIES.TEMPLATES}directory/section.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(
+      `${DIRECTORIES.TEMPLATES}directory/section.${EXTENSIONS.TEMPLATES}`,
+    )
     .returns('directory section template');
   readFileSync
-    .withArgs(`${DIRECTORIES.TEMPLATES}directory/filename.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(
+      `${DIRECTORIES.TEMPLATES}directory/filename.${EXTENSIONS.TEMPLATES}`,
+    )
     .returns('named directory page template');
 
   readFileSync
-    .withArgs(`${DIRECTORIES.TEMPLATES}non-existant/page.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(
+      `${DIRECTORIES.TEMPLATES}non-existant/page.${EXTENSIONS.TEMPLATES}`,
+    )
     .throws();
   readFileSync
-    .withArgs(`${DIRECTORIES.TEMPLATES}non-existant/section.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(
+      `${DIRECTORIES.TEMPLATES}non-existant/section.${EXTENSIONS.TEMPLATES}`,
+    )
     .throws();
 
   let contentTemplate = null;

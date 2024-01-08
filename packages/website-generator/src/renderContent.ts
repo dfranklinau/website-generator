@@ -48,10 +48,16 @@ const getContentOutput = (props: GetContentOutputProps): string => {
     .dir.split(path.sep)
     .slice(2);
 
-  const filename = typeof content.markdown.matter.title === "string" ?
-      content.markdown.matter.title : null;
+  const filename =
+    typeof content.markdown.matter.title === 'string'
+      ? content.markdown.matter.title
+      : null;
 
-  const contentTemplate = getContentTemplate(template, contentDirectories, filename);
+  const contentTemplate = getContentTemplate(
+    template,
+    contentDirectories,
+    filename,
+  );
 
   const variables = {
     data: data?.json,

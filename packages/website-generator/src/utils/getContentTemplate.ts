@@ -15,27 +15,35 @@ export const getContentTemplate = (
       ? `${DIRECTORIES.TEMPLATES}${section}${path.sep}`
       : `${DIRECTORIES.TEMPLATES}`;
 
-
   let content = null;
 
   if (template === 'index' && section.length === 0) {
     try {
-      content = fs.readFileSync(`${templatePath}_index.${EXTENSIONS.TEMPLATES}`, 'utf8');
+      content = fs.readFileSync(
+        `${templatePath}_index.${EXTENSIONS.TEMPLATES}`,
+        'utf8',
+      );
     } catch {
       content = null;
     }
 
     if (!content) {
       try {
-        content = fs.readFileSync(`${templatePath}section.${EXTENSIONS.TEMPLATES}`, 'utf8');
+        content = fs.readFileSync(
+          `${templatePath}section.${EXTENSIONS.TEMPLATES}`,
+          'utf8',
+        );
       } catch {
         content = null;
       }
     }
   } else {
-    if (template === "page" && filename) {
+    if (template === 'page' && filename) {
       try {
-        content = fs.readFileSync(`${templatePath}${filename}.${EXTENSIONS.TEMPLATES}`, 'utf8');
+        content = fs.readFileSync(
+          `${templatePath}${filename}.${EXTENSIONS.TEMPLATES}`,
+          'utf8',
+        );
       } catch {
         content = null;
       }
@@ -43,7 +51,11 @@ export const getContentTemplate = (
 
     if (!content) {
       try {
-        content = fs.readFileSync(`${templatePath}${template}.${EXTENSIONS.TEMPLATES}`, 'utf8') || null;
+        content =
+          fs.readFileSync(
+            `${templatePath}${template}.${EXTENSIONS.TEMPLATES}`,
+            'utf8',
+          ) || null;
       } catch {
         content = null;
       }

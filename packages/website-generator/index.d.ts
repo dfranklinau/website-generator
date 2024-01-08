@@ -4,7 +4,7 @@ declare module 'markdown-toc' {
     options: {
       bullets: string[];
       maxdepth: number;
-    }
+    },
   ): {
     content: string;
     highest: number;

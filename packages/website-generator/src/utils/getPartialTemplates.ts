@@ -21,20 +21,21 @@ export const getPartialTemplates = async (): Promise<PartialsType> => {
     },
   );
 
-  const partials: Promise<PartialTemplateType | null>[] = await partialTemplates.map(
-    async (file: string): Promise<PartialTemplateType | null> => {
-      const name = file.match(/\/_partials\/(.*)\.hbs/);
+  const partials: Promise<PartialTemplateType | null>[] =
+    await partialTemplates.map(
+      async (file: string): Promise<PartialTemplateType | null> => {
+        const name = file.match(/\/_partials\/(.*)\.hbs/);
 
-      if (Array.isArray(name) && name[1]) {
-        return {
-          data: (await readFile(file)) as string,
-          name: name[1].replace(/\//g, '-'),
-        };
-      }
+        if (Array.isArray(name) && name[1]) {
+          return {
+            data: (await readFile(file)) as string,
+            name: name[1].replace(/\//g, '-'),
+          };
+        }
 
-      return null;
-    },
-  );
+        return null;
+      },
+    );
 
   /**
    * Format the array of `PartialTemplateType` objects into a key-value pair
@@ -44,18 +45,16 @@ export const getPartialTemplates = async (): Promise<PartialsType> => {
    *   'partial-name': '...'
    * }
    */
-  return Promise.all(partials).then(
-    (values): PartialsType => {
-      return values.reduce(
-        (acc: { [key: string]: string }, curr): PartialsType => {
-          if (curr) {
-            acc[curr.name] = curr.data;
-          }
+  return Promise.all(partials).then((values): PartialsType => {
+    return values.reduce(
+      (acc: { [key: string]: string }, curr): PartialsType => {
+        if (curr) {
+          acc[curr.name] = curr.data;
+        }
 
-          return acc;
-        },
-        {},
-      );
-    },
-  );
+        return acc;
+      },
+      {},
+    );
+  });
 };
