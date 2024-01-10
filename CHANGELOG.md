@@ -21,6 +21,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Moved the `clean` method in `index.ts` to its own utility.
 - Upgraded Node.js to `20.10.0` and npm to `10.2.3`.
 - Set up a monorepo structure.
+- Set up a monorepo structure for the package.
+- Moved documentation from `packages/website-generator/README.md` to `website`.
 
 ### Removed
 

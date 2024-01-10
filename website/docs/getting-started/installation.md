@@ -1,13 +1,11 @@
-# website-generator
-
-A static-site generator written in Node.js.
-
-## Installation
+---
+title: Installation
+description: How to install website-generator.
+---
 
 Install website-generator by adding a dependency to `package.json` that points
 to a release archive, making sure to update `<version>` with the desired
 [release](https://github.com/dfranklinau/website-generator/releases):
-
 
 ```json
 {
@@ -31,9 +29,3 @@ Once installed, website-generator can be called with an npm script:
   }
 }
 ```
-
-## Documentation
-
-See the [documentation
-website](https://dfranklinau.github.io/website-generator/) for more information
-on getting started and how to use website-generator.

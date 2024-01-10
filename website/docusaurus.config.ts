@@ -48,6 +48,7 @@ const config: Config = {
       copyright: `©2024–today, Daniel Franklin. Built with Docusaurus.`,
     },
     prism: {
+      additionalLanguages: ['json', 'markdown'],
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
