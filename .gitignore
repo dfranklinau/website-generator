@@ -50,7 +50,9 @@ node_modules/
 # Generator directories and files
 # These are where website content is placed
 ################################################################################
+.tmp/
 packages/website-generator/dist/**/*.test.js
 packages/website-generator/dist/_fixtures/
 website-generator.config.json
 website/build/
+website-generator*.tar.gz
