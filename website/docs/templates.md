@@ -194,7 +194,7 @@ description: A short description.
 - `page.description`.
 
 Some front-matter keys are reserved to enable specific features (see
-[Front-matter](/website-generator/docs/writing-content/markdown#front-matter)).
+[Front-matter](/website-generator/content/markdown#front-matter)).
 
 
 ### Section

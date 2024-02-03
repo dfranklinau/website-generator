@@ -17,7 +17,7 @@ defined by the `+++` delimiter is supported.
 
 Any front-matter within Markdown is available for use within templates under a
 `page` variable (see [Template
-variables](/website-generator/templates/#template-variables)).
+variables](/website-generator/templates#template-variables)).
 
 Additionaly, there are front-matter options that allow website-generator to
 perform advanced tasks during the build process.
