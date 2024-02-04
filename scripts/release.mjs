@@ -1,6 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
 import tar from "tar";
+import { execSync } from "child_process";
 
 // The version number to use in file names and directories.
 const NPM_PACKAGE_VERSION = process.env.npm_package_version
@@ -23,6 +24,9 @@ const SOURCE = [
 // Set up the temporary directory to prepare the release archive.
 await fs.mkdirp(TMP_RELEASE);
 await fs.emptydir(TMP_RELEASE);
+
+// Test the release (which also builds the release).
+execSync("npm run test", { cwd: "packages/website-generator" });
 
 // Copy all required files and directories to the release archive.
 await Promise.all(SOURCE.map(async (item) => {
