@@ -35,3 +35,4 @@ const getShortcodeAttributes = (name, match, markdownParser) => {
     return params;
 };
 exports.getShortcodeAttributes = getShortcodeAttributes;
+//# sourceMappingURL=getShortcodeAttributes.js.map

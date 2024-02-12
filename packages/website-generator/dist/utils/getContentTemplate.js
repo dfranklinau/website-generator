@@ -57,3 +57,4 @@ const getContentTemplate = (template, directories, filename) => {
     return '';
 };
 exports.getContentTemplate = getContentTemplate;
+//# sourceMappingURL=getContentTemplate.js.map

@@ -19,3 +19,4 @@ const getPageTitle = (content, section) => {
     return pageTitle;
 };
 exports.getPageTitle = getPageTitle;
+//# sourceMappingURL=getPageTitle.js.map

@@ -8,3 +8,4 @@ const isarrayHelper = (value, options) => {
     return options.inverse(options.data.root);
 };
 exports.isarrayHelper = isarrayHelper;
+//# sourceMappingURL=isarrayHelper.js.map

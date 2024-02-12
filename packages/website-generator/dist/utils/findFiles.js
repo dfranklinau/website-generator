@@ -25,3 +25,4 @@ const findFiles = (directory, options) => {
     return results;
 };
 exports.findFiles = findFiles;
+//# sourceMappingURL=findFiles.js.map

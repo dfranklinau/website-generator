@@ -9,3 +9,4 @@ const stripnewlinesHelper = (value) => {
     return new handlebars_1.default.SafeString(value.replace(/[\r\n]+/g, ' '));
 };
 exports.stripnewlinesHelper = stripnewlinesHelper;
+//# sourceMappingURL=stripnewlinesHelper.js.map

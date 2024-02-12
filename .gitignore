@@ -52,6 +52,7 @@ node_modules/
 ################################################################################
 .tmp/
 packages/website-generator/dist/**/*.test.js
+packages/website-generator/dist/**/*.map
 packages/website-generator/dist/_fixtures/
 website-generator.config.json
 website/build/

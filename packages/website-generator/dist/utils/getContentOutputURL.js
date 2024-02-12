@@ -10,3 +10,4 @@ const getContentOutputURL = (filePath, section) => {
         .replace('index.html', '');
 };
 exports.getContentOutputURL = getContentOutputURL;
+//# sourceMappingURL=getContentOutputURL.js.map

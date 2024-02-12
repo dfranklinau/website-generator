@@ -246,3 +246,4 @@ exports.mockShortcodes = [
         template: '<div>{{&content}}<ul>{{#each params.key}}<li>{{this}}</li>{{/each}}</ul></div>',
     },
 ];
+//# sourceMappingURL=index.js.map

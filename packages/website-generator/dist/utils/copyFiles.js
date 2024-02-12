@@ -16,3 +16,4 @@ const copyFiles = (files, dest, callback) => {
     });
 };
 exports.copyFiles = copyFiles;
+//# sourceMappingURL=copyFiles.js.map

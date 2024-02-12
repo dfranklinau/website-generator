@@ -43,3 +43,4 @@ const convertShortcodeBlockMatchesToPairs = (blockMatches) => {
     return pairs.sort((a, b) => a[0] - b[0]);
 };
 exports.convertShortcodeBlockMatchesToPairs = convertShortcodeBlockMatchesToPairs;
+//# sourceMappingURL=convertShortcodeBlockMatchesToPairs.js.map

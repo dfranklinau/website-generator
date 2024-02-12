@@ -10,3 +10,4 @@ const cleanDirectory = (dir) => {
     fs_1.default.mkdirSync(dir);
 };
 exports.cleanDirectory = cleanDirectory;
+//# sourceMappingURL=cleanDirectory.js.map

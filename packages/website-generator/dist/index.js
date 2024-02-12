@@ -93,3 +93,4 @@ const generate = async () => {
     await generateAssets();
 };
 exports.generate = generate;
+//# sourceMappingURL=index.js.map

@@ -27,3 +27,4 @@ const dateformatHelper = (value, format) => {
     return new handlebars_1.default.SafeString(value);
 };
 exports.dateformatHelper = dateformatHelper;
+//# sourceMappingURL=dateformatHelper.js.map

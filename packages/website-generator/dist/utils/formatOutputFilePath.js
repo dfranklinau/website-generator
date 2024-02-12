@@ -10,3 +10,4 @@ const formatOutputFilePath = (filePath, outputDir) => {
     return filePath.replace(/^\.?\/?\w*\//, `./${outputDirBase}/`);
 };
 exports.formatOutputFilePath = formatOutputFilePath;
+//# sourceMappingURL=formatOutputFilePath.js.map

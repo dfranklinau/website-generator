@@ -32,3 +32,4 @@ const getContentOutputPath = (filePath, section) => {
     return rewritePath;
 };
 exports.getContentOutputPath = getContentOutputPath;
+//# sourceMappingURL=getContentOutputPath.js.map

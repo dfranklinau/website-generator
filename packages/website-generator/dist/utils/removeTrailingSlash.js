@@ -12,3 +12,4 @@ const removeTrailingSlash = (filePath) => {
     return filePath;
 };
 exports.removeTrailingSlash = removeTrailingSlash;
+//# sourceMappingURL=removeTrailingSlash.js.map

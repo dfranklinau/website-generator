@@ -27,3 +27,4 @@ const getShortcodeTemplates = async () => {
     }));
 };
 exports.getShortcodeTemplates = getShortcodeTemplates;
+//# sourceMappingURL=getShortcodeTemplates.js.map
