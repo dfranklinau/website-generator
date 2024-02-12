@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.8",
   "private": "true",
   "description": "A static-site generator written in Node.js.",
-  "homepage": "https://github.com/dfranklinau/website-generator/tree/master/packages/website-generator/",
+  "homepage": "https://github.com/dfranklinau/website-generator/tree/main/packages/website-generator/",
   "bugs": {
     "url": "https://github.com/dfranklinau/website-generator/issues/"
   },

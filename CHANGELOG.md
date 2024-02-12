@@ -23,6 +23,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Set up a monorepo structure.
 - Set up a monorepo structure for the package.
 - Moved documentation from `packages/website-generator/README.md` to `website`.
+- Updated all instances of the `master` branch to `main`.
 
 ### Removed
 
