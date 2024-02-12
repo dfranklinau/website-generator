@@ -27,6 +27,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated all instances of the `master` branch to `main`.
 - Structured TypeScript module declarations in `packages/website-generator` as
   type packages.
+- Improved code coverage reporting for `packages/website-generator` to use
+  source maps.
 
 
 ### Removed
