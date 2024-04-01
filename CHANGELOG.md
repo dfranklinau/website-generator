@@ -10,6 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Added
+
+- Added a `serve` script to `packages/website-generator`.
+
 ### Changed
 
 - Upgraded Node.js to `24.15.0`.
