@@ -19,6 +19,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Updated the export of `index.ts` to use a default export.
 - Updated `tsconfig.json` in `packages/website-generator` to use
   `@tsconfig/node20`.
 - Upgraded `typescript` to `5.4.5` for `packages/website-generator` and `website`.

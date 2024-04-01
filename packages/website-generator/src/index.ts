@@ -12,7 +12,7 @@ import { getShortcodeTemplates } from './utils/getShortcodeTemplates';
 import { getWebsiteGeneratorConfig } from './utils/getWebsiteGeneratorConfig';
 import { readFile } from './utils/readFile';
 
-export const generate = async (): Promise<void> => {
+const generate = async (): Promise<void> => {
   cleanDirectory(DIRECTORIES.BUILD);
 
   // @TODO how to differentiate from user-defined and reserved keywords?
@@ -39,4 +39,8 @@ export const generate = async (): Promise<void> => {
   await generateErrorDocuments({ config, renderer });
   generateStaticFiles();
   await generateAssets();
+};
+
+export default {
+  generate
 };
