@@ -10,6 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Added an npm `serve` script.
+
 ### Fixed
 
 - Fixed the `website-generator` bin script.
