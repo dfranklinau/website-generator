@@ -35,6 +35,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Unused `stylelint` dependency.
 
+### Fixed
+
+- Reset the `existsSync` stub in `utils/findFiles.test.ts`.
+
 --------------------------------------------------------------------------------
 
 ## [1.0.0-alpha.8] - 2022-09-22

@@ -152,5 +152,6 @@ test('`findFiles`', (t: test.Test) => {
   );
 
   readdirSync.restore();
+  existsSync.restore();
   t.end();
 });
