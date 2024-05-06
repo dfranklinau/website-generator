@@ -11,6 +11,7 @@ import { formatOutputFilePath } from './utils/formatOutputFilePath';
 import { getHelpers } from './utils/getHelpers';
 import { getPartialTemplates } from './utils/getPartialTemplates';
 import { getShortcodeTemplates } from './utils/getShortcodeTemplates';
+import { getWebsiteGeneratorConfig } from './utils/getWebsiteGeneratorConfig';
 import { parseContent } from './parseContent';
 import { prepareContent } from './prepareContent';
 import { readFile } from './utils/readFile';
@@ -91,19 +92,7 @@ export const generate = async (): Promise<void> => {
   cleanDirectory(DIRECTORIES.BUILD);
 
   // @TODO how to differentiate from user-defined and reserved keywords?
-  const config = await readFile('./website-generator.config.json', '{}');
-
-  let configJSON: Record<string, unknown>;
-
-  try {
-    if (config) {
-      configJSON = JSON.parse(config);
-    } else {
-      configJSON = {};
-    }
-  } catch {
-    configJSON = {};
-  }
+  const config = await getWebsiteGeneratorConfig();
 
   const baseTemplate: string = (await readFile(
     './templates/_base.hbs',
@@ -116,14 +105,14 @@ export const generate = async (): Promise<void> => {
 
   const renderer = new Renderer({
     baseTemplate,
-    config: configJSON,
+    config,
     helpers,
     partials,
   });
   const markdownParser = new MarkdownParser(renderer, shortcodes);
 
   await generateContent({ markdownParser, renderer });
-  await generateErrorDocuments({ config: configJSON, renderer });
+  await generateErrorDocuments({ config, renderer });
   await generateStatic();
   await generateAssets();
 };
