@@ -10,9 +10,9 @@ const constants_1 = require("./config/constants");
 const MarkdownParser_1 = require("./MarkdownParser");
 const Renderer_1 = require("./Renderer");
 const cleanDirectory_1 = require("./utils/cleanDirectory");
-const copyFiles_1 = require("./utils/copyFiles");
 const findFiles_1 = require("./utils/findFiles");
 const formatOutputFilePath_1 = require("./utils/formatOutputFilePath");
+const generateStaticFiles_1 = require("./generateStaticFiles");
 const getHelpers_1 = require("./utils/getHelpers");
 const getPartialTemplates_1 = require("./utils/getPartialTemplates");
 const getShortcodeTemplates_1 = require("./utils/getShortcodeTemplates");
@@ -55,12 +55,6 @@ async function generateAssets() {
         });
     });
 }
-function generateStatic() {
-    const staticFiles = (0, findFiles_1.findFiles)(constants_1.DIRECTORIES.STATIC, {
-        recursive: true,
-    });
-    (0, copyFiles_1.copyFiles)(staticFiles, constants_1.DIRECTORIES.BUILD);
-}
 async function generateErrorDocuments(props) {
     const { config, renderer } = props;
     const templateFile = `${constants_1.DIRECTORIES.TEMPLATES}_404.hbs`;
@@ -88,7 +82,7 @@ const generate = async () => {
     const markdownParser = new MarkdownParser_1.MarkdownParser(renderer, shortcodes);
     await generateContent({ markdownParser, renderer });
     await generateErrorDocuments({ config, renderer });
-    await generateStatic();
+    (0, generateStaticFiles_1.generateStaticFiles)();
     await generateAssets();
 };
 exports.generate = generate;

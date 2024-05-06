@@ -5,9 +5,9 @@ import { DIRECTORIES } from './config/constants';
 import { MarkdownParser } from './MarkdownParser';
 import { Renderer } from './Renderer';
 import { cleanDirectory } from './utils/cleanDirectory';
-import { copyFiles } from './utils/copyFiles';
 import { findFiles } from './utils/findFiles';
 import { formatOutputFilePath } from './utils/formatOutputFilePath';
+import { generateStaticFiles } from './generateStaticFiles';
 import { getHelpers } from './utils/getHelpers';
 import { getPartialTemplates } from './utils/getPartialTemplates';
 import { getShortcodeTemplates } from './utils/getShortcodeTemplates';
@@ -61,13 +61,6 @@ async function generateAssets() {
   });
 }
 
-function generateStatic() {
-  const staticFiles = findFiles(DIRECTORIES.STATIC, {
-    recursive: true,
-  });
-  copyFiles(staticFiles, DIRECTORIES.BUILD);
-}
-
 async function generateErrorDocuments(props: {
   config: Record<string, unknown>;
   renderer: Renderer;
@@ -113,6 +106,6 @@ export const generate = async (): Promise<void> => {
 
   await generateContent({ markdownParser, renderer });
   await generateErrorDocuments({ config, renderer });
-  await generateStatic();
+  generateStaticFiles();
   await generateAssets();
 };
