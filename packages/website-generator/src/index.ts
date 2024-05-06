@@ -91,17 +91,19 @@ export const generate = async (): Promise<void> => {
   cleanDirectory(DIRECTORIES.BUILD);
 
   // @TODO how to differentiate from user-defined and reserved keywords?
-  const config: Record<string, unknown> = (await readFile(
-    './website-generator.config.json',
-    {},
-    (data: string): Record<string, unknown> => {
-      try {
-        return JSON.parse(data);
-      } catch {
-        return {};
-      }
-    },
-  )) as Record<string, unknown>;
+  const config = await readFile('./website-generator.config.json', '{}');
+
+  let configJSON: Record<string, unknown>;
+
+  try {
+    if (config) {
+      configJSON = JSON.parse(config);
+    } else {
+      configJSON = {};
+    }
+  } catch {
+    configJSON = {};
+  }
 
   const baseTemplate: string = (await readFile(
     './templates/_base.hbs',
@@ -112,11 +114,16 @@ export const generate = async (): Promise<void> => {
   const partials = await getPartialTemplates();
   const shortcodes = await getShortcodeTemplates();
 
-  const renderer = new Renderer({ baseTemplate, config, helpers, partials });
+  const renderer = new Renderer({
+    baseTemplate,
+    config: configJSON,
+    helpers,
+    partials,
+  });
   const markdownParser = new MarkdownParser(renderer, shortcodes);
 
   await generateContent({ markdownParser, renderer });
-  await generateErrorDocuments({ config, renderer });
+  await generateErrorDocuments({ config: configJSON, renderer });
   await generateStatic();
   await generateAssets();
 };

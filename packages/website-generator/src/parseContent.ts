@@ -79,15 +79,17 @@ export const parseContent = async (
             }
           }
         } else if (item.name === '_data.json') {
-          const data = (await readFile(
+          const data = await readFile(
             `${directory}/${item.name}`,
-            {},
-            (data: string) => JSON.parse(data),
-          )) as Record<string, unknown>;
+            '{}',
+          );
 
           try {
+            let dataJSON: Record<string, unknown> = {};
+            if (data) dataJSON = JSON.parse(data);
+
             parsedContent.data = {
-              json: data,
+              json: dataJSON,
               filePath: itemPath,
             };
           } catch {

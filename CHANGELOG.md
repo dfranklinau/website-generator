@@ -33,6 +33,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Removed
 
+- The `callback` argument from `utils/readFile`.
 - Unused `stylelint` dependency.
 
 ### Fixed

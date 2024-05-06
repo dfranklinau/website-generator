@@ -73,22 +73,32 @@ async function generateErrorDocuments(props) {
 }
 const generate = async () => {
     (0, cleanDirectory_1.cleanDirectory)(constants_1.DIRECTORIES.BUILD);
-    const config = (await (0, readFile_1.readFile)('./website-generator.config.json', {}, (data) => {
-        try {
-            return JSON.parse(data);
+    const config = await (0, readFile_1.readFile)('./website-generator.config.json', '{}');
+    let configJSON;
+    try {
+        if (config) {
+            configJSON = JSON.parse(config);
         }
-        catch {
-            return {};
+        else {
+            configJSON = {};
         }
-    }));
+    }
+    catch {
+        configJSON = {};
+    }
     const baseTemplate = (await (0, readFile_1.readFile)('./templates/_base.hbs', ''));
     const helpers = (0, getHelpers_1.getHelpers)();
     const partials = await (0, getPartialTemplates_1.getPartialTemplates)();
     const shortcodes = await (0, getShortcodeTemplates_1.getShortcodeTemplates)();
-    const renderer = new Renderer_1.Renderer({ baseTemplate, config, helpers, partials });
+    const renderer = new Renderer_1.Renderer({
+        baseTemplate,
+        config: configJSON,
+        helpers,
+        partials,
+    });
     const markdownParser = new MarkdownParser_1.MarkdownParser(renderer, shortcodes);
     await generateContent({ markdownParser, renderer });
-    await generateErrorDocuments({ config, renderer });
+    await generateErrorDocuments({ config: configJSON, renderer });
     await generateStatic();
     await generateAssets();
 };

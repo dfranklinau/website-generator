@@ -39,10 +39,13 @@ const parseContent = async (props) => {
                 }
             }
             else if (item.name === '_data.json') {
-                const data = (await (0, readFile_1.readFile)(`${directory}/${item.name}`, {}, (data) => JSON.parse(data)));
+                const data = await (0, readFile_1.readFile)(`${directory}/${item.name}`, '{}');
                 try {
+                    let dataJSON = {};
+                    if (data)
+                        dataJSON = JSON.parse(data);
                     parsedContent.data = {
-                        json: data,
+                        json: dataJSON,
                         filePath: itemPath,
                     };
                 }

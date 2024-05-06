@@ -1,14 +1,11 @@
 import fs from 'fs';
 
-export const readFile = async (
-  file: string,
-  defaultValue?: unknown,
-  callback?: (data: string) => void,
-): Promise<unknown | null> => {
+async function readFile(file: string, defaultValue?: string): Promise<string | null> {
   try {
-    const data = await fs.promises.readFile(file, 'utf8');
-    return callback ? callback(data) : data;
+    return fs.promises.readFile(file, 'utf8');
   } catch {
     return defaultValue || null;
   }
-};
+}
+
+export { readFile };
