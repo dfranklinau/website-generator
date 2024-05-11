@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generate = void 0;
-const fs_1 = __importDefault(require("fs"));
 const postcss_1 = __importDefault(require("postcss"));
 const constants_1 = require("./config/constants");
 const MarkdownParser_1 = require("./MarkdownParser");
@@ -12,6 +11,7 @@ const Renderer_1 = require("./Renderer");
 const cleanDirectory_1 = require("./utils/cleanDirectory");
 const findFiles_1 = require("./utils/findFiles");
 const formatOutputFilePath_1 = require("./utils/formatOutputFilePath");
+const generateErrorDocuments_1 = require("./generateErrorDocuments");
 const generateStaticFiles_1 = require("./generateStaticFiles");
 const getHelpers_1 = require("./utils/getHelpers");
 const getPartialTemplates_1 = require("./utils/getPartialTemplates");
@@ -55,17 +55,6 @@ async function generateAssets() {
         });
     });
 }
-async function generateErrorDocuments(props) {
-    const { config, renderer } = props;
-    const templateFile = `${constants_1.DIRECTORIES.TEMPLATES}_404.hbs`;
-    const content = (await (0, readFile_1.readFile)(templateFile));
-    fs_1.default.writeFileSync(`${constants_1.DIRECTORIES.BUILD}404.html`, renderer.render({
-        content,
-        head: {
-            title: config.errorDocument404Title || '404',
-        },
-    }));
-}
 const generate = async () => {
     (0, cleanDirectory_1.cleanDirectory)(constants_1.DIRECTORIES.BUILD);
     const config = await (0, getWebsiteGeneratorConfig_1.getWebsiteGeneratorConfig)();
@@ -81,7 +70,7 @@ const generate = async () => {
     });
     const markdownParser = new MarkdownParser_1.MarkdownParser(renderer, shortcodes);
     await generateContent({ markdownParser, renderer });
-    await generateErrorDocuments({ config, renderer });
+    await (0, generateErrorDocuments_1.generateErrorDocuments)({ config, renderer });
     (0, generateStaticFiles_1.generateStaticFiles)();
     await generateAssets();
 };
