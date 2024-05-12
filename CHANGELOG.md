@@ -42,6 +42,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Removed
 
+- An unused test script.
 - The `callback` argument from `utils/readFile`.
 - Unused `stylelint` dependency.
 
