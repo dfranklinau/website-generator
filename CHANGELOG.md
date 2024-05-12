@@ -19,6 +19,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Moved the `generate` method out of `index.ts`.
 - Updated the export of `index.ts` to use a default export.
 - Updated `tsconfig.json` in `packages/website-generator` to use
   `@tsconfig/node20`.
