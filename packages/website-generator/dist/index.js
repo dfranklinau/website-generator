@@ -1,18 +1,13 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generate = void 0;
-const postcss_1 = __importDefault(require("postcss"));
 const constants_1 = require("./config/constants");
 const MarkdownParser_1 = require("./MarkdownParser");
 const Renderer_1 = require("./Renderer");
 const cleanDirectory_1 = require("./utils/cleanDirectory");
-const findFiles_1 = require("./utils/findFiles");
-const formatOutputFilePath_1 = require("./utils/formatOutputFilePath");
 const generateErrorDocuments_1 = require("./generateErrorDocuments");
 const generateStaticFiles_1 = require("./generateStaticFiles");
+const generateAssets_1 = require("./generateAssets");
 const getHelpers_1 = require("./utils/getHelpers");
 const getPartialTemplates_1 = require("./utils/getPartialTemplates");
 const getShortcodeTemplates_1 = require("./utils/getShortcodeTemplates");
@@ -21,7 +16,6 @@ const parseContent_1 = require("./parseContent");
 const prepareContent_1 = require("./prepareContent");
 const readFile_1 = require("./utils/readFile");
 const renderContent_1 = require("./renderContent");
-const saveContentToFile_1 = require("./utils/saveContentToFile");
 async function generateContent(props) {
     const { markdownParser, renderer } = props;
     const parsedContent = await (0, parseContent_1.parseContent)({
@@ -35,24 +29,6 @@ async function generateContent(props) {
             menus: {},
         },
         renderer,
-    });
-}
-async function generateAssets() {
-    const cssFiles = (0, findFiles_1.findFiles)(constants_1.DIRECTORIES.ASSETS, {
-        match: /\.css$/,
-        recursive: true,
-    });
-    cssFiles.forEach(async (cssFile) => {
-        const outputCssFile = (0, formatOutputFilePath_1.formatOutputFilePath)(cssFile, constants_1.DIRECTORIES.BUILD);
-        const data = (await (0, readFile_1.readFile)(cssFile));
-        (0, postcss_1.default)([])
-            .process(data, {
-            from: cssFile,
-            to: outputCssFile,
-        })
-            .then((result) => {
-            (0, saveContentToFile_1.saveContentToFile)(result.css, outputCssFile);
-        });
     });
 }
 const generate = async () => {
@@ -72,7 +48,7 @@ const generate = async () => {
     await generateContent({ markdownParser, renderer });
     await (0, generateErrorDocuments_1.generateErrorDocuments)({ config, renderer });
     (0, generateStaticFiles_1.generateStaticFiles)();
-    await generateAssets();
+    await (0, generateAssets_1.generateAssets)();
 };
 exports.generate = generate;
 //# sourceMappingURL=index.js.map

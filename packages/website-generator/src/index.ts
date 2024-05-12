@@ -1,13 +1,10 @@
-import postcss from 'postcss';
-
 import { DIRECTORIES } from './config/constants';
 import { MarkdownParser } from './MarkdownParser';
 import { Renderer } from './Renderer';
 import { cleanDirectory } from './utils/cleanDirectory';
-import { findFiles } from './utils/findFiles';
-import { formatOutputFilePath } from './utils/formatOutputFilePath';
 import { generateErrorDocuments } from './generateErrorDocuments';
 import { generateStaticFiles } from './generateStaticFiles';
+import { generateAssets } from './generateAssets';
 import { getHelpers } from './utils/getHelpers';
 import { getPartialTemplates } from './utils/getPartialTemplates';
 import { getShortcodeTemplates } from './utils/getShortcodeTemplates';
@@ -16,7 +13,6 @@ import { parseContent } from './parseContent';
 import { prepareContent } from './prepareContent';
 import { readFile } from './utils/readFile';
 import { renderContent } from './renderContent';
-import { saveContentToFile } from './utils/saveContentToFile';
 
 async function generateContent(props: {
   markdownParser: MarkdownParser;
@@ -36,28 +32,6 @@ async function generateContent(props: {
       menus: {},
     },
     renderer,
-  });
-}
-
-async function generateAssets() {
-  const cssFiles = findFiles(DIRECTORIES.ASSETS, {
-    match: /\.css$/,
-    recursive: true,
-  });
-
-  cssFiles.forEach(async (cssFile: string) => {
-    const outputCssFile = formatOutputFilePath(cssFile, DIRECTORIES.BUILD);
-
-    const data = (await readFile(cssFile)) as string;
-
-    postcss([])
-      .process(data, {
-        from: cssFile,
-        to: outputCssFile,
-      })
-      .then((result) => {
-        saveContentToFile(result.css, outputCssFile);
-      });
   });
 }
 
