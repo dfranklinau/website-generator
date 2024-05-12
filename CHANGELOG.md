@@ -19,6 +19,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Aligned the required node version across all packages to `^20.10.0`.
+- Aligned the required npm version across all packages to `^10.2.3`.
 - Moved the `generatorContent` method outside of `index.ts`.
 - Moved the `generatorErrorDocuments` method outside of `index.ts`.
 - Moved the `generateStaticFiles` method outside of `index.ts`.
