@@ -2,6 +2,7 @@ import { DIRECTORIES } from './config/constants';
 import { MarkdownParser } from './MarkdownParser';
 import { Renderer } from './Renderer';
 import { cleanDirectory } from './utils/cleanDirectory';
+import { generateContent } from './generateContent';
 import { generateErrorDocuments } from './generateErrorDocuments';
 import { generateStaticFiles } from './generateStaticFiles';
 import { generateAssets } from './generateAssets';
@@ -9,31 +10,7 @@ import { getHelpers } from './utils/getHelpers';
 import { getPartialTemplates } from './utils/getPartialTemplates';
 import { getShortcodeTemplates } from './utils/getShortcodeTemplates';
 import { getWebsiteGeneratorConfig } from './utils/getWebsiteGeneratorConfig';
-import { parseContent } from './parseContent';
-import { prepareContent } from './prepareContent';
 import { readFile } from './utils/readFile';
-import { renderContent } from './renderContent';
-
-async function generateContent(props: {
-  markdownParser: MarkdownParser;
-  renderer: Renderer;
-}) {
-  const { markdownParser, renderer } = props;
-
-  const parsedContent = await parseContent({
-    directory: DIRECTORIES.CONTENT,
-    markdownParser,
-    renderer,
-  });
-
-  renderContent({
-    content: prepareContent({ content: parsedContent }).tree,
-    globalMatter: {
-      menus: {},
-    },
-    renderer,
-  });
-}
 
 export const generate = async (): Promise<void> => {
   cleanDirectory(DIRECTORIES.BUILD);

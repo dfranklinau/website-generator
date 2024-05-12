@@ -5,6 +5,7 @@ const constants_1 = require("./config/constants");
 const MarkdownParser_1 = require("./MarkdownParser");
 const Renderer_1 = require("./Renderer");
 const cleanDirectory_1 = require("./utils/cleanDirectory");
+const generateContent_1 = require("./generateContent");
 const generateErrorDocuments_1 = require("./generateErrorDocuments");
 const generateStaticFiles_1 = require("./generateStaticFiles");
 const generateAssets_1 = require("./generateAssets");
@@ -12,25 +13,7 @@ const getHelpers_1 = require("./utils/getHelpers");
 const getPartialTemplates_1 = require("./utils/getPartialTemplates");
 const getShortcodeTemplates_1 = require("./utils/getShortcodeTemplates");
 const getWebsiteGeneratorConfig_1 = require("./utils/getWebsiteGeneratorConfig");
-const parseContent_1 = require("./parseContent");
-const prepareContent_1 = require("./prepareContent");
 const readFile_1 = require("./utils/readFile");
-const renderContent_1 = require("./renderContent");
-async function generateContent(props) {
-    const { markdownParser, renderer } = props;
-    const parsedContent = await (0, parseContent_1.parseContent)({
-        directory: constants_1.DIRECTORIES.CONTENT,
-        markdownParser,
-        renderer,
-    });
-    (0, renderContent_1.renderContent)({
-        content: (0, prepareContent_1.prepareContent)({ content: parsedContent }).tree,
-        globalMatter: {
-            menus: {},
-        },
-        renderer,
-    });
-}
 const generate = async () => {
     (0, cleanDirectory_1.cleanDirectory)(constants_1.DIRECTORIES.BUILD);
     const config = await (0, getWebsiteGeneratorConfig_1.getWebsiteGeneratorConfig)();
@@ -45,7 +28,7 @@ const generate = async () => {
         partials,
     });
     const markdownParser = new MarkdownParser_1.MarkdownParser(renderer, shortcodes);
-    await generateContent({ markdownParser, renderer });
+    await (0, generateContent_1.generateContent)({ markdownParser, renderer });
     await (0, generateErrorDocuments_1.generateErrorDocuments)({ config, renderer });
     (0, generateStaticFiles_1.generateStaticFiles)();
     await (0, generateAssets_1.generateAssets)();

@@ -19,6 +19,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Moved the `generatorContent` method outside of `index.ts`.
 - Moved the `generatorErrorDocuments` method outside of `index.ts`.
 - Moved the `generateStaticFiles` method outside of `index.ts`.
 - Moved the `clean` method in `index.ts` to its own utility.
