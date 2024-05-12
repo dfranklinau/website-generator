@@ -19,6 +19,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Upgraded `typescript` to `5.4.5` for `packages/website-generator` and `website`.
 - Aligned the required node version across all packages to `^20.10.0`.
 - Aligned the required npm version across all packages to `^10.2.3`.
 - Moved the `generatorContent` method outside of `index.ts`.
