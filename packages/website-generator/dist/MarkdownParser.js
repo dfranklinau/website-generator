@@ -25,6 +25,11 @@ const formatSectionUrl = (url) => {
     return (0, removeTrailingSlash_1.removeTrailingSlash)(formattedUrl);
 };
 class MarkdownParser {
+    _DOMPurify;
+    _md;
+    _renderer;
+    _shortcodes;
+    _window;
     constructor(renderer, shortcodes) {
         const { JSDOM } = jsdom_1.default;
         this._md = new remarkable_1.Remarkable({ html: true });

@@ -12,6 +12,11 @@ const isarrayHelper_1 = require("./helpers/isarrayHelper");
 const sortHelper_1 = require("./helpers/sortHelper");
 const stripnewlinesHelper_1 = require("./helpers/stripnewlinesHelper");
 class Renderer {
+    _baseTemplate;
+    _config;
+    _helpers;
+    _partials;
+    _runtime;
     constructor(props) {
         this._baseTemplate = props.baseTemplate;
         this._config = props.config;
