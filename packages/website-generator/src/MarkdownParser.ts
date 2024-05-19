@@ -75,7 +75,6 @@ export class MarkdownParser {
     this._renderer = renderer;
     this._shortcodes = shortcodes;
     this._window = new JSDOM('').window;
-    // @ts-expect-error: Argument of type 'DOMWindow' is not assignable to parameter of type 'Window'.
     this._DOMPurify = createDOMPurify(this._window);
   }
 

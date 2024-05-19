@@ -29,6 +29,8 @@ const mockDirent = (props: MockDirentProps): fs.Dirent => {
     isSocket: () => false,
     isSymbolicLink: () => false,
     name,
+    parentPath: "",
+    path: "",
   };
 };
 

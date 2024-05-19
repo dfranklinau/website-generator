@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
-import tar from "tar";
+import * as tar from "tar";
 import { execSync } from "child_process";
 
 // The version number to use in file names and directories.
