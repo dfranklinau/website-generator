@@ -1,21 +1,25 @@
 {
-  "name": "website-generator",
-  "version": "1.0.0-alpha.8",
-  "private": "true",
-  "description": "A static-site generator written in Node.js.",
-  "homepage": "https://github.com/dfranklinau/website-generator/tree/main/packages/website-generator/",
   "bugs": {
     "url": "https://github.com/dfranklinau/website-generator/issues/"
   },
+  "name": "website-generator",
+  "version": "1.0.0-alpha.8",
+  "description": "A static-site generator written in Node.js.",
+  "private": "true",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/dfranklinau/website-generator/"
   },
-  "license": "ISC",
+  "homepage": "https://github.com/dfranklinau/website-generator/tree/main/packages/website-generator/",
   "author": "Daniel Franklin <git@danielfranklin.id.au>",
-  "main": "./dist/index.js",
   "bin": {
     "website-generator": "./bin/website-generator"
+  },
+  "main": "./dist/index.js",
+  "engines": {
+    "node": "^20.10.0",
+    "npm": "^10.2.3"
   },
   "scripts": {
     "build": "npm run clean && tsc",
@@ -53,9 +57,5 @@
     "tape": "5.0.1",
     "ts-node": "10.9.2",
     "typescript": "4.8.3"
-  },
-  "engines": {
-    "node": "^20.10.0",
-    "npm": "^10.2.3"
   }
 }
