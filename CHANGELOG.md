@@ -8,6 +8,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
+## [Unreleased]
+
+### Fixed
+
+- Fixed the `website-generator` bin script.
+
 ## [1.0.0-alpha.9] - 2024-05-19
 
 ### Added
