@@ -7,7 +7,7 @@
     "website"
   ],
   "name": "@website-generator/monorepo",
-  "version": "1.0.0-alpha.9",
+  "version": "1.0.0-alpha.10",
   "description": "A static-site generator written in Node.js.",
   "private": "true",
   "license": "ISC",
