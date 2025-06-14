@@ -10,6 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Upgraded Node.js to `^24.2.0` and npm to `^11.3.0`.
+
 ### Fixed
 
 - Fixed the `website-generator` bin script.
