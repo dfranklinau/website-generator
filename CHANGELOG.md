@@ -12,6 +12,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Deprecated `.node-version` in favour of `mise.toml`
 - Upgraded `typescript` to `6.0.3` for `packages/website-generator` and
   `website`.
 - Updated Docusaurus to `3.10.2`.
