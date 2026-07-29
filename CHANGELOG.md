@@ -10,6 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Changed
+
+- Updated `@types/node` to `24.2.0` for `packages/website-generator`.
+
 ### Fixed
 
 - Resolved an issue with running `npm install` by updating the version of the
