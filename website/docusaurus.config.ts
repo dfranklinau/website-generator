@@ -7,9 +7,13 @@ const config: Config = {
   favicon: 'https://www.danielfranklin.id.au/favicon.svg?v=13',
   url: 'https://dfranklinau.github.io',
   baseUrl: '/website-generator/',
-
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
