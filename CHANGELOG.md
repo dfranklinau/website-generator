@@ -8,6 +8,13 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
+## Unreleased
+
+### Fixed
+
+- Resolved an issue with running `npm install` by updating the version of the
+  `@tsconfig/node24` package from `20.1.4` to `24.0.0`.
+
 ## [1.0.0-alpha.10] - 2025-06-14
 
 ### Changed
