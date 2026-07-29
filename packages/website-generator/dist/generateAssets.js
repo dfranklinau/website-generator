@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateAssets = void 0;
+exports.generateAssets = generateAssets;
 const postcss_1 = __importDefault(require("postcss"));
 const constants_1 = require("./config/constants");
 const findFiles_1 = require("./utils/findFiles");
@@ -30,5 +30,4 @@ async function generateAssets() {
         });
     }));
 }
-exports.generateAssets = generateAssets;
 //# sourceMappingURL=generateAssets.js.map

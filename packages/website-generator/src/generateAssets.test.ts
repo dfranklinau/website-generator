@@ -5,7 +5,14 @@ import test from 'tape';
 import { generateAssets } from './generateAssets';
 
 test('`generateAssets`', async (t: test.Test) => {
-  const readdirSync = sinon.stub(fs, 'readdirSync');
+  // FIXME: Improve Sinon stub typings.
+  const readdirSync = sinon.stub(
+    fs,
+    'readdirSync',
+  ) as unknown as sinon.SinonStub<
+    [path: fs.PathLike, options: { withFileTypes: true }],
+    fs.Dirent<string>[]
+  >;
   const readFile = sinon.stub(fs.promises, 'readFile');
   const existsSync = sinon.stub(fs, 'existsSync');
   const mkdirSync = sinon.stub(fs, 'mkdirSync');

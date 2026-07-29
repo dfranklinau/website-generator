@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateErrorDocuments = void 0;
+exports.generateErrorDocuments = generateErrorDocuments;
 const fs_1 = __importDefault(require("fs"));
 const constants_1 = require("./config/constants");
 const readFile_1 = require("./utils/readFile");
@@ -18,5 +18,4 @@ async function generateErrorDocuments(props) {
         },
     }));
 }
-exports.generateErrorDocuments = generateErrorDocuments;
 //# sourceMappingURL=generateErrorDocuments.js.map

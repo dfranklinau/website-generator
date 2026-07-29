@@ -3,9 +3,10 @@
   "compilerOptions": {
     "outDir": "./dist",
     "removeComments": true,
+    "rootDir": "./src",
     "sourceMap": true,
     "typeRoots": ["./node_modules/@types", "./typings"]
   },
   "exclude": ["./node_modules"],
-  "include": ["./src/**/*.ts", "./index.d.ts"]
+  "include": ["./src/**/*.ts", "./typings/**/*.d.ts"]
 }

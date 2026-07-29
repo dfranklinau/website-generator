@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateContent = void 0;
+exports.generateContent = generateContent;
 const constants_1 = require("./config/constants");
 const parseContent_1 = require("./parseContent");
 const prepareContent_1 = require("./prepareContent");
@@ -20,5 +20,4 @@ async function generateContent(props) {
         renderer,
     });
 }
-exports.generateContent = generateContent;
 //# sourceMappingURL=generateContent.js.map

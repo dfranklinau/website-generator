@@ -5,7 +5,14 @@ import test from 'tape';
 import { generateStaticFiles } from './generateStaticFiles';
 
 const stubReaddirSync = () => {
-  const readdirSync = sinon.stub(fs, 'readdirSync');
+  // FIXME: Improve Sinon stub typings.
+  const readdirSync = sinon.stub(
+    fs,
+    'readdirSync',
+  ) as unknown as sinon.SinonStub<
+    [path: fs.PathLike, options: { withFileTypes: true }],
+    fs.Dirent<string>[]
+  >;
 
   readdirSync.withArgs('./static/', { withFileTypes: true }).returns([
     // @ts-expect-error mimic a fs.Dirent type

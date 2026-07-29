@@ -29,13 +29,26 @@ const mockDirent = (props: MockDirentProps): fs.Dirent => {
     isSocket: () => false,
     isSymbolicLink: () => false,
     name,
-    parentPath: "",
-    path: "",
+    parentPath: '',
   };
 };
 
 test('`parseContent`', async (t: test.Test) => {
-  const readdirStub = sinon.stub(fs.promises, 'readdir');
+  // FIXME: Improve Sinon stub typings.
+  const readdirStub = sinon.stub(
+    fs.promises,
+    'readdir',
+  ) as unknown as sinon.SinonStub<
+    [
+      path: fs.PathLike,
+      options: {
+        encoding: 'buffer';
+        withFileTypes: true;
+        recursive?: boolean | undefined;
+      },
+    ],
+    Promise<fs.Dirent<string>[]>
+  >;
   const readFileStub = sinon.stub(fs.promises, 'readFile');
 
   readdirStub
