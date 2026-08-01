@@ -12,6 +12,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Added the `@website-generator` prefix to all package names.
 - Changed the version in `package.json` for `@website-generator/monorepo`
   to `0.0.0`.
 - Deprecated `.node-version` in favour of `mise.toml`
