@@ -12,6 +12,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Upgraded Node.js to `24.15.0`.
 - Added the `@website-generator` prefix to all package names.
 - Changed the version in `package.json` for `@website-generator/monorepo`
   to `0.0.0`.
@@ -20,6 +21,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
   `website`.
 - Updated Docusaurus to `3.10.2`.
 - Updated `@types/node` to `24.2.0` for `packages/website-generator`.
+
+### Removed
+
+- Removed `npm` from `mise.toml`.
 
 ### Fixed
 
