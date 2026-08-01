@@ -2,7 +2,7 @@
   "bugs": {
     "url": "https://github.com/dfranklinau/website-generator/issues/"
   },
-  "name": "website-generator",
+  "name": "@website-generator/website-generator",
   "version": "1.0.0-alpha.10",
   "description": "A static-site generator written in Node.js.",
   "private": "true",
