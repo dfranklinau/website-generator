@@ -20,6 +20,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+- Corrected the version listed in `package.json` for
+  `packages/website-generator`.
 - Resolved an issue with running `npm install` by updating the version of the
   `@tsconfig/node24` package from `20.1.4` to `24.0.0`.
 
