@@ -12,6 +12,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Changed the version in `package.json` for `@website-generator/monorepo`
+  to `0.0.0`.
 - Deprecated `.node-version` in favour of `mise.toml`
 - Upgraded `typescript` to `6.0.3` for `packages/website-generator` and
   `website`.
