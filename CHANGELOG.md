@@ -13,6 +13,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - Added a `serve` script to `packages/website-generator`.
+- Added documentation around additional Handlebars.js helpers available for use
+  in templates.
 
 ### Changed
 
