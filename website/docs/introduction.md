@@ -11,7 +11,8 @@ website-generator is a static-site generator written in Node.js, which aims to:
 * generate accessible HTML from Markdown; and
 * support customisation when it is reasonable to do so.
 
-It is **not** intended for production environments or large-scale applications.
+It is **not** intended for production environments or large-scale applications
+but **can** be used for personal projects.
 
 ## Feature comparison
 
@@ -21,7 +22,7 @@ ack](https://beyondgrep.com/feature-comparison/), which is in turn inspired by
 Lester](https://blog.petdance.com/2018/01/02/the-best-open-source-project-for-someone-might-not-be-yours-and-thats-ok/).
 
 The following static-site generators can all achieve what website-generator
-does:
+does (and more):
 
 * [Eleventy](https://www.11ty.dev);
 * [Hexo](https://hexo.io);
