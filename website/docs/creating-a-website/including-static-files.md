@@ -1,6 +1,6 @@
 ---
-title: Static files
-sidebar_position: 6
+title: Including static files
+sidebar_position: 7
 ---
 
 Any files required by the website (that do not require [asset

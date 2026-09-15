@@ -73,13 +73,13 @@ name with a hyphen (`-`).
 
 Special templates define the HTML for specific pages or use cases.
 
-### Home page template
+### Home page
 
 The 404 page template is always named `_index.hbs`. It is **optional** and is
 used to override any page or section templates for the page rendered at the root
 of the website.
 
-### 404 page template
+### 404 page
 
 The 404 page template is always named `_404.hbs`. It is **optional** and is used
 to generate a `404.html` page.

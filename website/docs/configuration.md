@@ -1,6 +1,6 @@
 ---
 title: Configuration
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 Create a `website-generator.config.json` file in the root of the directory to

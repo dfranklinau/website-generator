@@ -1,6 +1,6 @@
 ---
-title: Templates
-sidebar_position: 7
+title: Using templates
+sidebar_position: 4
 ---
 import DocCardList from '@theme/DocCardList';
 

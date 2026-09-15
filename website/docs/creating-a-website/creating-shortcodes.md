@@ -1,5 +1,5 @@
 ---
-title: Shortcodes
+title: Creating shortcodes
 sidebar_position: 5
 ---
 
@@ -39,12 +39,16 @@ nested content within a shortcode, e.g.:
 </div>
 ```
 
-**WARNING:** block shortcodes **do not** work on a single line, e.g.:
+:::warning
+Block shortcodes **do not** work on a single line, e.g.:
 
 ```markdown
 <!-- This is invalid. -->
 {{%shortcode%}}Content{{%/shortcode%}}
 ```
+
+This is a known limitation and may be resolved in a future release.
+:::
 
 ## Shortcode attributes
 
@@ -100,3 +104,4 @@ Use the `#each` block in Handlebars to loop over the `key` array:
   {{/each}}
 </ul>
 ```
+

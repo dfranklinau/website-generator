@@ -1,6 +1,6 @@
 ---
-title: Assets
-sidebar_position: 5
+title: Building assets
+sidebar_position: 6
 ---
 
 Including CSS, JavaScript, images and other static files is as easy as placing
