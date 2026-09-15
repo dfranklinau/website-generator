@@ -1,6 +1,7 @@
 ---
 title: Installation
 description: How to install website-generator.
+sidebar_position: 1
 ---
 
 Install website-generator by adding a dependency to `package.json` that points
@@ -17,8 +18,8 @@ to a release archive, making sure to update `<version>` with the desired
 
 With the dependency listed in `package.json`, run `npm install` to install.
 
-website-generator is not published on npm as it is not intended to be used in a
-production environment, which is why it must be installed with a repository URL.
+website-generator is not published on npm which is why it must be installed with
+a repository URL.
 
 Once installed, website-generator can be called with an npm script:
 
