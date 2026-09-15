@@ -29,6 +29,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
   `website`.
 - Updated Docusaurus to `3.10.2`.
 - Updated `@types/node` to `24.2.0` for `packages/website-generator`.
+- Updated the organisation of pages and sections across the documentation
+  website.
 
 ### Removed
 
