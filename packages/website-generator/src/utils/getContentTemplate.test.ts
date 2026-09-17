@@ -120,15 +120,8 @@ test('`getContentTemplate`', (t: test.Test) => {
   );
 
   /**
-   * Template lookup with filenames (only applies to page templates).
+   * Template lookup with file names (only applies to page templates).
    */
-  contentTemplate = getContentTemplate('page', [], 'filename');
-  t.equal(
-    contentTemplate,
-    'named page template',
-    'return the template for a named page when no directories are passed',
-  );
-
   contentTemplate = getContentTemplate('page', [], 'filename');
   t.equal(
     contentTemplate,
@@ -156,7 +149,7 @@ test('`getContentTemplate`', (t: test.Test) => {
   t.equal(
     contentTemplate,
     'page template',
-    'return the template for a page when a the named page template does not exist',
+    'return the template for a page when the named page template does not exist',
   );
 
   /**
