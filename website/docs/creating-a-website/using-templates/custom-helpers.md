@@ -1,14 +1,13 @@
 ---
-title: Template Helpers
-sidebar_position: 5
+title: Custom helpers
+sidebar_position: 4
 ---
 
 website-generator includes some of its own helpers in addition to the [built-in
 helpers of Handlebars](https://handlebarsjs.com/guide/builtin-helpers.html).
 
 Some of the below examples reference front matter to demonstrate their
-functionality but any [template
-variable](/website-generator/templates/template-variables/) can be passed to
+functionality but any [template variable](./using-variables.md) can be passed to
 these additional helpers.
 
 ## `dateformat`

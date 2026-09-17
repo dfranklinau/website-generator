@@ -31,6 +31,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated `@types/node` to `24.2.0` for `packages/website-generator`.
 - Updated the organisation of pages and sections across the documentation
   website.
+- Updated the documentation around templates, types of templates, the template
+  lookup, variables and helpers.
 
 ### Removed
 

@@ -1,53 +1,66 @@
 ---
-title: Types of Templates
-sidebar_position: 2
+title: Types of templates
+sidebar_position: 1
 ---
 
-There are several templates that website-generator uses when generating HTML
-from Markdown files. These are:
+There are four types of templates that website-generator recognises:
 
 * a base template;
-* content templates;
+* content (page and section) templates;
 * partial templates; and
 * page templates.
 
-## Base template
+There are also [reserved templates](#reserved-templates) for specific pages.
 
-The base template is always named `_base.hbs`. This template is required for
-website-generator to run, and only one base template is necessary.
+## The base template
 
-It is applied to **every** page and serves as the base HTML document of the
-entire site.
+The base template is named `_base.hbs`. This template is required for
+website-generator to run.
+
+It must be placed at the root of the `templates` directory and serves as the
+base HTML document.
+
+An example of a base template is below:
+
+```handlebars title="templates/_base.hbs"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Website</title>
+  </head>
+
+  <body>
+    <main id="main">
+      {{{content}}}
+    </main>
+  </body>
+</html>
+```
 
 ## Content templates
 
-Content templates define the HTML that will wrap around page and section
-Markdown files.
+Content templates define the HTML that is wrapped Markdown files. As mentioned
+in [Pages and sections](../writing-content/pages-and-sections.md), content is
+categorised as either a page or a section, and templates can be created for both
+content types.
 
-## Page templates
+All content templates inherit the base template.
 
-Page templates are named `page.hbs`. Page templates for specific pages can be
-defined by copying the directory structure under `content` (see [Template
-lookup](#template-lookup) for more information).
-
-## Section templates
-
-Section templates are named `section.hbs`. Section templates for specific
-sections can be defined by copying the directory structure under `content` (see
-[Template lookup](#template-lookup) for more information).
+Content templates can be generic or written for specific pages or sections. For
+more information, see [The template lookup](./the-template-lookup.md).
 
 ## Partial templates
 
-Partial templates are reusable snippets of HTML that can be referenced by other
+Partial templates contain snippets of HTML that can be referenced by other
 templates. Partials must be placed within the `templates/_partials` directory.
 
-Partials are referenced in Handlebars templates with the following syntax:
+Partials are referenced in any other template with the following syntax:
 
 ```handlebars
 {{> partial}}
 ```
 
-As an example, for the following file structure:
+As an example, for the following file structure&hellip;
 
 ```
 templates/
@@ -58,7 +71,7 @@ templates/
       └─ facebook.hbs
 ```
 
-&hellip;the corresponding partial templates that can be used would be:
+&hellip;will create the following partials:
 
 ```handlebars
 {{> header}}
@@ -66,20 +79,23 @@ templates/
 {{> socials-facebook}}
 ```
 
-Note that nested directories are handled by separating the directory and file
-name with a hyphen (`-`).
+:::note
+Nested directories are handled by separating the directory and file name with a
+hyphen.
+:::
 
-## Special templates
+## Reserved templates
 
-Special templates define the HTML for specific pages or use cases.
+### The index (home page) template
 
-### Home page
+The index template is named `_index.hbs` and is **optional**
 
-The 404 page template is always named `_index.hbs`. It is **optional** and is
-used to override any page or section templates for the page rendered at the root
-of the website.
+It is used to define the template for the `index.html` file rendered at the root
+of the website, often referred to as the home page.
 
-### 404 page
+### The 404 page template
 
-The 404 page template is always named `_404.hbs`. It is **optional** and is used
-to generate a `404.html` page.
+The 404 page template is named `_404.hbs` and is **optional**, but recommended.
+
+It is used to generate a `404.html` page, which can be used by web servers for
+handling 404 status codes.

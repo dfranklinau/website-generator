@@ -18,8 +18,7 @@ will not work.
 :::
 
 Any front matter within Markdown is available for use within templates under a
-`page` variable (see [Template
-variables](../using-templates/template-variables.md)).
+`page` variable (see [Using variables](../using-templates/using-variables.md)).
 
 There are front matter options that allow website-generator to perform advanced
 tasks during the build process.
