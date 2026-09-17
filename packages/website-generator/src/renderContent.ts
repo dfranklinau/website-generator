@@ -48,9 +48,10 @@ const getContentOutput = (props: GetContentOutputProps): string => {
     .dir.split(path.sep)
     .slice(2);
 
+  // Remove the Markdown extension from the file name.
   const filename =
-    typeof content.markdown.matter.title === 'string'
-      ? content.markdown.matter.title
+    content.name.endsWith('.md')
+      ? content.name.slice(0, -3)
       : null;
 
   const contentTemplate = getContentTemplate(

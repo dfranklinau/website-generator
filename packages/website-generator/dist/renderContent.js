@@ -16,8 +16,8 @@ const getContentOutput = (props) => {
         .parse(content.filePath)
         .dir.split(path_1.default.sep)
         .slice(2);
-    const filename = typeof content.markdown.matter.title === 'string'
-        ? content.markdown.matter.title
+    const filename = content.name.endsWith('.md')
+        ? content.name.slice(0, -3)
         : null;
     const contentTemplate = (0, getContentTemplate_1.getContentTemplate)(template, contentDirectories, filename);
     const variables = {

@@ -44,6 +44,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
   `packages/website-generator`.
 - Resolved an issue with running `npm install` by updating the version of the
   `@tsconfig/node24` package from `20.1.4` to `24.0.0`.
+- Fixed an issue with the template lookup where the Markdown front matter
+  `title` was being passed to `getContentTemplate` instead of the Markdown file
+  name.
 
 ## [1.0.0-alpha.10] - 2025-06-14
 
