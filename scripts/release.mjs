@@ -2,9 +2,10 @@ import fs from "fs-extra";
 import path from "path";
 import * as tar from "tar";
 import { execSync } from "child_process";
+import packagejson from "../packages/website-generator/package.json" with { type: "json" };
 
 // The version number to use in file names and directories.
-const NPM_PACKAGE_VERSION = process.env.npm_package_version
+const NPM_PACKAGE_VERSION = packagejson.version;
 
 // A temporary directory to prepare the release archive.
 const TMP_RELEASE = ".tmp/release";
