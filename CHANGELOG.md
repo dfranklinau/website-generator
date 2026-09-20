@@ -8,7 +8,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
-## Unreleased
+## [1.0.0-beta.1] - 2026-09-20
 
 ### Changed
 
@@ -203,7 +203,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Everything.
 
-[Unreleased]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-beta...HEAD
+[Unreleased]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-beta.1...HEAD
+[1.0.0-beta.1]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-beta...v1.0.0-beta.1
 [1.0.0-beta]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.10...v1.0.0-beta
 [1.0.0-alpha.10]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.9...v1.0.0-alpha.10
 [1.0.0-alpha.9]: https://github.com/dfranklinau/website-generator/compare/v1.0.0-alpha.8...v1.0.0-alpha.9
