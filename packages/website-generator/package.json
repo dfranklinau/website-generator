@@ -3,7 +3,7 @@
     "url": "https://github.com/dfranklinau/website-generator/issues/"
   },
   "name": "@website-generator/website-generator",
-  "version": "1.0.0-beta",
+  "version": "1.0.0-beta.1",
   "description": "A static-site generator written in Node.js.",
   "private": "true",
   "license": "ISC",
