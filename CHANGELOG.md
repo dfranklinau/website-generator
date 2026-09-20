@@ -8,7 +8,13 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
-## [1.0.0-beta] - 2026-08-01
+## Unreleased
+
+### Changed
+
+- Updated the URL provided in the documentation's installation instructions.
+
+## [1.0.0-beta] - 2026-09-18
 
 ### Added
 
