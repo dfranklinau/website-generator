@@ -8,6 +8,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
+## [Unreleased]
+
+### Changed
+
+- Updated the Node.js version in the GitHub `docs` workflow.
+
 ## [1.0.0-beta.1] - 2026-09-20
 
 ### Changed
