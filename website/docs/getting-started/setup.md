@@ -4,6 +4,11 @@ description: How to structure directories and where to place content.
 sidebar_position: 2
 ---
 
+:::tip
+With `website-generator` installed, run `npx website-generator init` from the
+root directory to set up a starter website with all of the below folders.
+:::
+
 website-generator works by parsing files within the following folders at the
 root of the project it is installed in:
 

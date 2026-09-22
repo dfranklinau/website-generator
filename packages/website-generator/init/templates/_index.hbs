@@ -1,0 +1,10 @@
+<h1>My Website</h1>
+{{{content}}}
+
+<ul>
+  {{#each section.children}}
+    <li>
+      <a href="{{outputURL}}">{{markdown.matter.title}}</a>
+    </li>
+  {{/each}}
+</ul>

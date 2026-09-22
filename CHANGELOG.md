@@ -10,6 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Added an `init` script to `packages/website-generator`.
+
 ### Changed
 
 - Updated the Node.js version in the GitHub `docs` workflow.

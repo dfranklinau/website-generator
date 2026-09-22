@@ -1,0 +1,25 @@
+/**
+ * See: https://dfranklinau.github.io/website-generator/creating-a-website/building-assets#css
+ */
+html {
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+body {
+  padding: 1.5rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.my-shortcode-class {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: lightgreen;
+
+  > p {
+    margin: 0;
+  }
+}
