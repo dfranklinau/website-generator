@@ -1,6 +1,31 @@
 #!/usr/bin/env node
 const args = process.argv.slice(2);
 const websiteGenerator = require('../dist/index.js').default;
+const packagejson = require('../package.json');
+
+if (args.includes("--help") || args.includes("-h")) {
+  process.stdout.write(`\
+Usage: website-generator <command> [options]
+
+With no arguments, website-generator will build the static website.
+
+Commands:
+  init       Create an example website.
+  serve      Run a local server and rebuild when changes are made.
+
+Options:
+  -h, --help     Show this help message.
+  -v, --version  Show the version number.
+`);
+  process.exit(0);
+}
+
+if (args.includes("--version") || args.includes("-v")) {
+  process.stdout.write(`\
+${packagejson.version}
+`);
+  process.exit();
+}
 
 if (args[0] === "init") {
   websiteGenerator.init();
