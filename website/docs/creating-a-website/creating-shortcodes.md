@@ -16,7 +16,7 @@ shortcodes
 The shortcode can then be referenced in Markdown using either inline or block
 shortcode syntax:
 
-```markdown
+```handlebars
 An inline shortcode has a self-closing tag.
 {{%my-shortcode/%}}
 
