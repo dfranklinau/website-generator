@@ -33,3 +33,6 @@ Once installed, website-generator can be called with an npm script:
   }
 }
 ```
+
+See [Command line](../command-line-tool.md) for a list of all available commands
+and options.

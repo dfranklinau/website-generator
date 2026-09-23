@@ -15,6 +15,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Added an `init` script to `packages/website-generator`.
 - Added documentation around helpers.
 - Added `--help` and `--version` arguments to the command line tool.
+- Added documentation for the command line tool.
 
 ### Changed
 

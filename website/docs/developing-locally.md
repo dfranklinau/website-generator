@@ -1,6 +1,6 @@
 ---
 title: Developing locally
-sidebar_position: 9
+sidebar_position: 5
 ---
 
 website-generator can be developed and tested locally using `npm link`.
