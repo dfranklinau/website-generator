@@ -14,6 +14,7 @@ root of the project it is installed in:
 
 * `content`;
 * `templates`;
+* `helpers`;
 * `shortcodes`;
 * `assets`; and
 * `static`.
@@ -34,6 +35,8 @@ project
 │   │   └── footer.hbs
 │   ├── _index.hbs
 │   └── _base.hbs
+├── helpers
+│   └── counter.js
 ├── shortcodes
 │   └── blockquote.hbs
 ├── assets
@@ -72,6 +75,12 @@ website-generator offers a template lookup and inheritance based on the folder
 structure within the `template` folder.
 
 Partials (reusable template snippets) are also supported.
+
+### `helpers`
+
+The `helpers` folder contains Common JS modules that are automatically
+registered by Handlebars at runtime and can be used by any template in the
+`templates` folder. 
 
 ### `shortcodes`
 

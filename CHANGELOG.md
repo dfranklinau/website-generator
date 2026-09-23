@@ -13,6 +13,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - Added an `init` script to `packages/website-generator`.
+- Added documentation around helpers.
 
 ### Changed
 

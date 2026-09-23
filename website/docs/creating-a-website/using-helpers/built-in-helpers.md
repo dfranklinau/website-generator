@@ -1,14 +1,14 @@
 ---
-title: Template helpers
-sidebar_position: 4
+title: Built-in helpers
+sidebar_position: 1
 ---
 
-website-generator includes some of its own helpers in addition to the [built-in
-helpers of Handlebars](https://handlebarsjs.com/guide/builtin-helpers.html).
+Handlebars includes a range of [built-in
+helpers](https://handlebarsjs.com/guide/builtin-helpers.html) which can be used
+to conditionally render content, iterate over lists or other tasks. 
 
-Some of the below examples reference front matter to demonstrate their
-functionality but any [template variable](./using-variables.md) can be passed to
-these additional helpers.
+website-generator includes some of its own built-in helpers for common tasks
+specific to static websites.
 
 ## `dateformat`
 
@@ -190,3 +190,4 @@ no newlines."}}</p>
 
 ```html title="build/index.html"
 <p>This paragraph contains no newlines.</p>
+
