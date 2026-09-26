@@ -22,6 +22,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated the Node.js version in the GitHub `docs` workflow.
 - Updated the installation instructions in README to match the documentation.
 
+### Fixed
+
+- Fixed error handling within `readFile` so that a website could be generated
+  without a `website-generator.config.json` file.
+
 ## [1.0.0-beta.1] - 2026-09-20
 
 ### Changed

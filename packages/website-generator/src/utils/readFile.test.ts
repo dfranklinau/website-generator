@@ -8,7 +8,7 @@ test('`readFile`', async (t: test.Test) => {
   const readFileStub = sinon.stub(fs.promises, 'readFile');
 
   readFileStub.withArgs('./file.txt').resolves('file');
-  readFileStub.withArgs('./error.txt').throws();
+  readFileStub.withArgs('./error.txt').rejects();
 
   t.ok(
     (await readFile('./file.txt')) === 'file',

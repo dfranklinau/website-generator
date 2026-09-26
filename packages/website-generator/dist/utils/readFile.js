@@ -6,11 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.readFile = readFile;
 const fs_1 = __importDefault(require("fs"));
 async function readFile(file, defaultValue) {
-    try {
-        return fs_1.default.promises.readFile(file, 'utf8');
-    }
-    catch {
-        return defaultValue || null;
-    }
+    return fs_1.default.promises.readFile(file, 'utf8').catch(() => {
+        return defaultValue ?? null;
+    });
 }
 //# sourceMappingURL=readFile.js.map
