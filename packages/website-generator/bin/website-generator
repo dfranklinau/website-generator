@@ -7,11 +7,10 @@ if (args.includes("--help") || args.includes("-h")) {
   process.stdout.write(`\
 Usage: website-generator <command> [options]
 
-With no arguments, website-generator will build the static website.
-
 Commands:
-  init       Create an example website.
+  build:     Build the static website.
   serve      Run a local server and rebuild when changes are made.
+  init       Create an example website.
 
 Options:
   -h, --help     Show this help message.
@@ -27,10 +26,16 @@ ${packagejson.version}
   process.exit();
 }
 
-if (args[0] === "init") {
-  websiteGenerator.init();
-} else if (args.includes("--serve")) {
-  websiteGenerator.serve();
-} else {
-  websiteGenerator.generate();
+switch (args[0]) {
+  case "build":
+    websiteGenerator.generate();
+  case "serve":
+    websiteGenerator.serve();
+  case "init":
+    websiteGenerator.init();
+  default:
+    process.stdout.write(`\
+Please specify a command when using website-generator. Run \`website-generator --help\` for usage.
+`);
+    process.exit();
 }

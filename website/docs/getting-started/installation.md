@@ -29,7 +29,7 @@ Once installed, website-generator can be called with an npm script:
 ```json
 {
   "scripts": {
-    "build": "website-generator"
+    "start": "website-generator build"
   }
 }
 ```

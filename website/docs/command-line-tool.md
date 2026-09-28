@@ -9,11 +9,10 @@ boilerplate website or run a local HTTP server with file watching.
 ```
 Usage: website-generator <command> [options]
 
-With no arguments, website-generator will build the static website.
-
 Commands:
-  init       Create an example website.
+  build:     Build the static website.
   serve      Run a local server and rebuild when changes are made.
+  init       Create an example website.
 
 Options:
   -h, --help     Show this help message.

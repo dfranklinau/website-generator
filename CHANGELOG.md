@@ -16,6 +16,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Added documentation around helpers.
 - Added `--help` and `--version` arguments to the command line tool.
 - Added documentation for the command line tool.
+- Added a `build` script to `packages/website-generator`.
 
 ### Changed
 
@@ -23,6 +24,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated the installation instructions in README to match the documentation.
 - Removed section divider logic from `getPageTitle` (i.e. "Page / Section"),
   which is used to populate the `page.title` template variable.
+
+### Removed
+
+- Removed the default script from `packages/website-generator`.
 
 ### Fixed
 
