@@ -64,7 +64,7 @@ const getContentOutput = (props: GetContentOutputProps): string => {
     data: data?.json,
     global: globalMatter,
     head: {
-      title: getPageTitle(content, parentSection),
+      title: getPageTitle(content),
     },
     page: {
       ...content.markdown.matter,

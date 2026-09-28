@@ -21,6 +21,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Updated the Node.js version in the GitHub `docs` workflow.
 - Updated the installation instructions in README to match the documentation.
+- Removed section divider logic from `getPageTitle` (i.e. "Page / Section"),
+  which is used to populate the `page.title` template variable.
 
 ### Fixed
 

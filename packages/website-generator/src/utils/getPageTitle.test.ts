@@ -19,35 +19,24 @@ test('`getPageTitle`', (t: test.Test) => {
     outputURL: '/section/page/',
   };
 
-  const section: PreparedContentType = {
-    filePath: '/section/_index.md',
-    markdown: {
-      ...mockParsedMarkdown,
-      matter: {
-        title: 'Section',
-      },
-    },
-    name: '_index.md',
-    outputPath: '/section/index.html',
-    outputURL: '/section/',
-  };
-
   t.equal(
-    getPageTitle(page, section),
-    'Page / Section',
-    "builds a page title using a page's section data",
-  );
-
-  t.equal(
-    getPageTitle(section, section),
-    'Section',
-    'builds a page title even if the content and section are identical',
-  );
-
-  t.equal(
-    getPageTitle(page, null),
+    getPageTitle(page),
     'Page',
-    'builds a page title if no section is specified',
+    "returns a page's front matter as the title",
+  );
+
+  t.equal(
+    getPageTitle({
+      ...page,
+      markdown: {
+        ...page.markdown,
+        matter: {
+          title: undefined,
+        }
+      }
+    }),
+    '',
+    'returns an empty string when no there is no title defined in the front matter',
   );
 
   t.end();

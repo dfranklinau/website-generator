@@ -1,30 +1,11 @@
 import type { PreparedContentType } from '../prepareContent';
 
-export const getPageTitle = (
-  content: PreparedContentType,
-  section: PreparedContentType | null,
-): string => {
-  const pageTitle: string | unknown = content.markdown.matter?.title;
-  const sectionTitle: string | unknown | undefined =
-    section?.markdown.matter?.title;
-  const sectionURL: string | false | undefined = section?.markdown.options.url;
+export const getPageTitle = (content: PreparedContentType): string => {
+  const title: string | unknown = content.markdown.matter?.title;
 
-  if (
-    !pageTitle ||
-    typeof pageTitle !== 'string' ||
-    (pageTitle === sectionTitle && sectionURL === '/')
-  ) {
-    return '';
+  if (title && typeof title === 'string') {
+    return title
   }
 
-  if (
-    sectionTitle &&
-    typeof sectionTitle === 'string' &&
-    pageTitle !== sectionTitle &&
-    sectionURL !== '/'
-  ) {
-    return `${pageTitle} / ${sectionTitle}`;
-  }
-
-  return pageTitle;
+  return '';
 };
