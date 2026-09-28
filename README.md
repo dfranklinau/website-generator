@@ -24,12 +24,14 @@ With the dependency listed in `package.json`, run `npm install` to install.
 website-generator is not published on npm which is why it must be installed with
 a repository URL.
 
+## Usage
+
 Once installed, website-generator can be called with an npm script:
 
 ```json
 {
   "scripts": {
-    "build": "website-generator"
+    "start": "website-generator build"
   }
 }
 ```
