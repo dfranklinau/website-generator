@@ -33,7 +33,7 @@ const mockDirent = (props: MockDirentProps): fs.Dirent => {
   };
 };
 
-test('`parseContent`', async (t: test.Test) => {
+test('`parseContent`', async (t: test.TestContext) => {
   // FIXME: Improve Sinon stub typings.
   const readdirStub = sinon.stub(
     fs.promises,
@@ -100,7 +100,7 @@ test('`parseContent`', async (t: test.Test) => {
     renderer,
   });
 
-  t.deepEqual(
+  t.assert.deepEqual(
     content,
     {
       assets: [{ filePath: './content/asset.jpg' }],
@@ -168,5 +168,5 @@ test('`parseContent`', async (t: test.Test) => {
 
   readdirStub.restore();
   readFileStub.restore();
-  t.end();
+  t.assert.end();
 });

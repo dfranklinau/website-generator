@@ -2,44 +2,44 @@ import test from 'node:test';
 
 import { getContentOutputPath } from './getContentOutputPath';
 
-test('`getContentOutputPath`', (t: test.Test) => {
-  t.equal(
+test('`getContentOutputPath`', (t: test.TestContext) => {
+  t.assert.equal(
     getContentOutputPath('./content/_index.md', null),
     './build/index.html',
     'gets the content output path for a section',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputPath('./content/index.md', null),
     './build/index.html',
     'gets the content output path for an index page',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputPath('./content/page.md', null),
     './build/page/index.html',
     'gets the content output path for a page',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputPath('./content/section/_index.md', null),
     './build/section/index.html',
     'gets the content output path for a nested section',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputPath('./content/section/index.md', null),
     './build/section/index.html',
     'gets the content output path for a nested index page',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputPath('./content/section/page.md', null),
     './build/section/page/index.html',
     'gets the content output path for a nested page',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputPath('./content/section/page.md', {
       filePath: './content/section/_index.md',
       markdown: {
@@ -59,7 +59,7 @@ test('`getContentOutputPath`', (t: test.Test) => {
     'gets the content output path for a nested page with a section whose url is empty',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputPath('./content/section/page.md', {
       filePath: './content/section/_index.md',
       markdown: {
@@ -79,7 +79,7 @@ test('`getContentOutputPath`', (t: test.Test) => {
     'gets the content output path for a nested page in a section whose url is a trailing slash',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputPath('./content/section/page.md', {
       filePath: './content/section/_index.md',
       markdown: {
@@ -99,5 +99,5 @@ test('`getContentOutputPath`', (t: test.Test) => {
     'gets the content output path for a nested page in a section whose url is a replacement string',
   );
 
-  t.end();
+  t.assert.end();
 });

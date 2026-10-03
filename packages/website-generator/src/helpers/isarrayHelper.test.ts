@@ -10,16 +10,16 @@ const options = {
   inverse: () => false,
 };
 
-test('`isarrayHelper`', (t: test.Test) => {
-  t.equal(
+test('`isarrayHelper`', (t: test.TestContext) => {
+  t.assert.equal(
     isarrayHelper([], options),
     true,
     'returns `true` if the value is an array',
   );
-  t.equal(
+  t.assert.equal(
     isarrayHelper('string', options),
     false,
     'returns `false` if the value is not an array',
   );
-  t.end();
+  t.assert.end();
 });

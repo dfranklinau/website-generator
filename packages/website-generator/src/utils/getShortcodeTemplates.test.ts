@@ -6,7 +6,7 @@ import * as readFile from './readFile';
 
 import { getShortcodeTemplates } from './getShortcodeTemplates';
 
-test('`getShortcodeTemplates`', async (t: test.Test) => {
+test('`getShortcodeTemplates`', async (t: test.TestContext) => {
   const findFilesStub = sinon.stub(findFiles, 'findFiles');
   const readFileStub = sinon.stub(readFile, 'readFile');
 
@@ -22,7 +22,7 @@ test('`getShortcodeTemplates`', async (t: test.Test) => {
 
   const shortcodes = await getShortcodeTemplates();
 
-  t.deepEqual(
+  t.assert.deepEqual(
     shortcodes,
     [
       {
@@ -39,5 +39,5 @@ test('`getShortcodeTemplates`', async (t: test.Test) => {
 
   findFilesStub.restore();
   readFileStub.restore();
-  t.end();
+  t.assert.end();
 });

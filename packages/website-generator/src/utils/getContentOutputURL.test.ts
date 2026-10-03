@@ -2,44 +2,44 @@ import test from 'node:test';
 
 import { getContentOutputURL } from './getContentOutputURL';
 
-test('`getContentOutputURL`', (t: test.Test) => {
-  t.equal(
+test('`getContentOutputURL`', (t: test.TestContext) => {
+  t.assert.equal(
     getContentOutputURL('./content/_index.md', null),
     '/',
     'gets the content output URL for a section',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputURL('./content/index.md', null),
     '/',
     'gets the content output URL for an index page',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputURL('./content/page.md', null),
     '/page/',
     'gets the content output URL for a page',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputURL('./content/section/_index.md', null),
     '/section/',
     'gets the content output URL for a nested section',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputURL('./content/section/index.md', null),
     '/section/',
     'gets the content output URL for a nested index page',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputURL('./content/section/page.md', null),
     '/section/page/',
     'gets the content output URL for a nested page',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputURL('./content/section/page.md', {
       filePath: './content/section/_index.md',
       markdown: {
@@ -59,7 +59,7 @@ test('`getContentOutputURL`', (t: test.Test) => {
     'gets the content output URL for a nested page with a section whose url is empty',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputURL('./content/section/page.md', {
       filePath: './content/section/_index.md',
       markdown: {
@@ -79,7 +79,7 @@ test('`getContentOutputURL`', (t: test.Test) => {
     'gets the content output URL for a nested page in a section whose url is a trailing slash',
   );
 
-  t.equal(
+  t.assert.equal(
     getContentOutputURL('./content/section/page.md', {
       filePath: './content/section/_index.md',
       markdown: {
@@ -99,5 +99,5 @@ test('`getContentOutputURL`', (t: test.Test) => {
     'gets the content output URL for a nested page in a section whose url is a replacement string',
   );
 
-  t.end();
+  t.assert.end();
 });

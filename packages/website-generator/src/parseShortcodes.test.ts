@@ -5,14 +5,14 @@ import { Renderer } from './Renderer';
 import { mockShortcodes } from './_fixtures';
 import { parseShortcodes } from './parseShortcodes';
 
-test('`parseShortcodes`', (t: test.Test) => {
+test('`parseShortcodes`', (t: test.TestContext) => {
   const renderer = new Renderer({ baseTemplate: '', config: {}, partials: {} });
   const markdownParser = new MarkdownParser(renderer, mockShortcodes);
 
   /**
    * Inline shortcode tests.
    */
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: '{{<shortcode/>}}',
       markdownParser,
@@ -23,7 +23,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses an inline shortcode',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: '{{<shortcode-with-attribute id="value"/>}}',
       markdownParser,
@@ -34,7 +34,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses an inline shortcode with an attribute',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content:
         '{{<shortcode-with-multiple-attributes id="value" class="css"/>}}',
@@ -46,7 +46,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses an inline shortcode with multiple attributes',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content:
         '{{<shortcode-with-array-attribute key="one" key="two" key="three"/>}}',
@@ -61,7 +61,7 @@ test('`parseShortcodes`', (t: test.Test) => {
   /**
    * Block shortcode tests with content that renders as plain text.
    */
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{<shortcode>}}
@@ -75,7 +75,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a block shortcode with content',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{<shortcode-with-attribute id="value">}}
@@ -89,7 +89,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a block shortcode with content and an attribute',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{<shortcode-with-multiple-attributes id="value" class="css">}}
@@ -103,7 +103,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a block shortcode with content and multiple attributes',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{<shortcode-with-array-attribute key="one" key="two" key="three">}}
@@ -120,7 +120,7 @@ test('`parseShortcodes`', (t: test.Test) => {
   /**
    * Block shortcode tests with content that renders to Markdown.
    */
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{%shortcode%}}
@@ -134,7 +134,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a block shortcode with content as Markdown',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{%shortcode-with-attribute id="value"%}}
@@ -148,7 +148,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a block shortcode with content and an attribute as Markdown',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{%shortcode-with-multiple-attributes id="value" class="css"%}}
@@ -162,7 +162,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a block shortcode with content and multiple attributes as Markdown',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{%shortcode-with-array-attribute key="one" key="two" key="three"%}}
@@ -179,7 +179,7 @@ test('`parseShortcodes`', (t: test.Test) => {
   /**
    * Special cases.
    */
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: '{{%shortcode/%}} content {{%shortcode/%}}',
       markdownParser,
@@ -190,7 +190,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses two inline shortcodes on the same line, preserving other content as well',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content:
         '{{%shortcode-with-attribute id="value"/%}} content {{%shortcode-with-attribute id="value"/%}}',
@@ -202,7 +202,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses two inline shortcodes with attributes on the same line, preserving other content as well',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{%shortcode%}}
@@ -218,7 +218,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a nested group of block shortcodes',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{%shortcode-with-attribute id="value"%}}
@@ -234,7 +234,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a nested group of different block shortcodes',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{<shortcode-with-attribute id="value">}}
@@ -250,7 +250,7 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a nested group of inline shortcodes in a block shortcode',
   );
 
-  t.equal(
+  t.assert.equal(
     parseShortcodes({
       content: `
 {{%shortcode-with-attribute id="value"%}}
@@ -266,5 +266,5 @@ test('`parseShortcodes`', (t: test.Test) => {
     'parses a nested group of inline shortcodes in a block shortcode as Markdown',
   );
 
-  t.end();
+  t.assert.end();
 });

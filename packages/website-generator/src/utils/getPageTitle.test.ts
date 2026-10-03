@@ -5,7 +5,7 @@ import { mockParsedMarkdown } from '../_fixtures';
 
 import type { PreparedContentType } from '../prepareContent';
 
-test('`getPageTitle`', (t: test.Test) => {
+test('`getPageTitle`', (t: test.TestContext) => {
   const page: PreparedContentType = {
     filePath: '/section/page.md',
     markdown: {
@@ -19,13 +19,13 @@ test('`getPageTitle`', (t: test.Test) => {
     outputURL: '/section/page/',
   };
 
-  t.equal(
+  t.assert.equal(
     getPageTitle(page),
     'Page',
     "returns a page's front matter as the title",
   );
 
-  t.equal(
+  t.assert.equal(
     getPageTitle({
       ...page,
       markdown: {
@@ -39,5 +39,5 @@ test('`getPageTitle`', (t: test.Test) => {
     'returns an empty string when no there is no title defined in the front matter',
   );
 
-  t.end();
+  t.assert.end();
 });

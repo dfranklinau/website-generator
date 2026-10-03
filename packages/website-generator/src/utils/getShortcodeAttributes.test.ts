@@ -4,11 +4,11 @@ import { MarkdownParser } from '../MarkdownParser';
 import { Renderer } from '../Renderer';
 import { getShortcodeAttributes } from './getShortcodeAttributes';
 
-test('`getShortcodeAttributes`', (t: test.Test) => {
+test('`getShortcodeAttributes`', (t: test.TestContext) => {
   const renderer = new Renderer({ baseTemplate: '', config: {}, partials: {} });
   const markdownParser = new MarkdownParser(renderer, []);
 
-  t.deepEqual(
+  t.assert.deepEqual(
     getShortcodeAttributes(
       'shortcode',
       '{{%shortcode id="value"%}}',
@@ -20,7 +20,7 @@ test('`getShortcodeAttributes`', (t: test.Test) => {
     `should return a named attribute's value`,
   );
 
-  t.deepEqual(
+  t.assert.deepEqual(
     getShortcodeAttributes(
       'shortcode',
       '{{%shortcode id="value"/%}}',
@@ -32,7 +32,7 @@ test('`getShortcodeAttributes`', (t: test.Test) => {
     `should return a named attribute's value for a self-closing shortcode`,
   );
 
-  t.deepEqual(
+  t.assert.deepEqual(
     getShortcodeAttributes(
       'shortcode',
       '{{%shortcode id="value" class="css"/%}}',
@@ -45,7 +45,7 @@ test('`getShortcodeAttributes`', (t: test.Test) => {
     'should return the values of multiple named attributes',
   );
 
-  t.deepEqual(
+  t.assert.deepEqual(
     getShortcodeAttributes(
       'shortcode',
       '{{%shortcode key="one" key="two"/%}}',
@@ -57,5 +57,5 @@ test('`getShortcodeAttributes`', (t: test.Test) => {
     'should return an array of values for an attribute name used multiple times',
   );
 
-  t.end();
+  t.assert.end();
 });

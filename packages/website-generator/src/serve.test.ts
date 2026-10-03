@@ -5,8 +5,8 @@ import * as ws from 'ws';
 
 import { serve } from './serve';
 
-test('`serve`', (t: test.Test) => {
-  t.skip('creates HTTP and WebSocket servers');
-  t.skip('calls `generate` and emits a `reload` event when watched files are changed');
-  t.end();
+test('`serve`', (t: test.TestContext) => {
+  t.assert.skip('creates HTTP and WebSocket servers');
+  t.assert.skip('calls `generate` and emits a `reload` event when watched files are changed');
+  t.assert.end();
 });

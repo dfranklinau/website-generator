@@ -21,7 +21,7 @@ const getHelpers = proxyquire('./getHelpers', {
   },
 }).getHelpers;
 
-test('`getHelpers`', async (t: test.Test) => {
+test('`getHelpers`', async (t: test.TestContext) => {
   const processCwdStub = sinon.stub(process, 'cwd');
   const findFilesStub = sinon.stub(findFiles, 'findFiles');
 
@@ -34,20 +34,20 @@ test('`getHelpers`', async (t: test.Test) => {
 
   const helpers = await getHelpers();
 
-  t.equal(
+  t.assert.equal(
     helpers.helper(),
     'helper',
     `calls an imported helper's default export`,
   );
 
-  t.throws(() => {
+  t.assert.throws(() => {
     helpers.namedExport();
   }, `will not register a helper that does not have a default export`);
 
-  t.throws(() => {
+  t.assert.throws(() => {
     helpers.hasError();
   }, `will import a helper regardless of the code within`);
 
   findFilesStub.restore();
-  t.end();
+  t.assert.end();
 });

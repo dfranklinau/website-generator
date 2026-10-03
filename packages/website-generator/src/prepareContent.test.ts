@@ -8,24 +8,24 @@ import {
 
 import { prepareContent } from './prepareContent';
 
-test('`prepareContent`', (t: test.Test) => {
+test('`prepareContent`', (t: test.TestContext) => {
   const prepared = prepareContent({
     content: mockParsedContent,
   });
 
-  t.deepEqual(
+  t.assert.deepEqual(
     prepared.list,
     mockPreparedContent.list,
     'prepares a list of all content',
   );
 
-  t.deepEqual(
+  t.assert.deepEqual(
     prepared.tree,
     mockPreparedContent.tree,
     'prepares a content tree',
   );
 
-  t.deepEqual(
+  t.assert.deepEqual(
     prepareContent({
       content: {
         ...mockParsedContent,
@@ -85,7 +85,7 @@ test('`prepareContent`', (t: test.Test) => {
     'prepares a list of all content where a section has a URL removal',
   );
 
-  t.deepEqual(
+  t.assert.deepEqual(
     prepareContent({
       content: {
         ...mockParsedContent,
@@ -145,5 +145,5 @@ test('`prepareContent`', (t: test.Test) => {
     'prepares a list of all content where a section has a URL replacement',
   );
 
-  t.end();
+  t.assert.end();
 });

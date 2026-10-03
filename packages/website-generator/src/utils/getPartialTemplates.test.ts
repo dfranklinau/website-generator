@@ -6,7 +6,7 @@ import * as readFile from './readFile';
 
 import { getPartialTemplates } from './getPartialTemplates';
 
-test('`getPartialTemplates`', async (t: test.Test) => {
+test('`getPartialTemplates`', async (t: test.TestContext) => {
   const findFilesStub = sinon.stub(findFiles, 'findFiles');
   const readFileStub = sinon.stub(readFile, 'readFile');
 
@@ -17,7 +17,7 @@ test('`getPartialTemplates`', async (t: test.Test) => {
 
   const partials = await getPartialTemplates();
 
-  t.deepEqual(
+  t.assert.deepEqual(
     partials,
     {
       partial: '<p>Partial</p>',
@@ -27,5 +27,5 @@ test('`getPartialTemplates`', async (t: test.Test) => {
 
   findFilesStub.restore();
   readFileStub.restore();
-  t.end();
+  t.assert.end();
 });

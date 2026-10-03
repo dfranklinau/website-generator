@@ -11,7 +11,7 @@ const renderer = new Renderer({
   partials: {},
 });
 
-test('`generateErrorDocuments`', async (t: test.Test) => {
+test('`generateErrorDocuments`', async (t: test.TestContext) => {
   const readFileStub = sinon.stub(fs.promises, 'readFile');
   const writeFileSyncStub = sinon.stub(fs, 'writeFileSync');
 
@@ -22,8 +22,8 @@ test('`generateErrorDocuments`', async (t: test.Test) => {
     renderer,
   });
 
-  t.ok(readFileStub.calledWith('./templates/_404.hbs'), 'retrieves the contents of the `_404.hbs` template file');
-  t.ok(writeFileSyncStub.calledWith('./build/404.html', '<title>404</title> <h1>404</h1>'), 'writes a `404.html` file to the build directory with template content and a default title');
+  t.assert.ok(readFileStub.calledWith('./templates/_404.hbs'), 'retrieves the contents of the `_404.hbs` template file');
+  t.assert.ok(writeFileSyncStub.calledWith('./build/404.html', '<title>404</title> <h1>404</h1>'), 'writes a `404.html` file to the build directory with template content and a default title');
 
   await generateErrorDocuments({
     config: {
@@ -32,9 +32,9 @@ test('`generateErrorDocuments`', async (t: test.Test) => {
     renderer,
   });
 
-  t.ok(writeFileSyncStub.calledWith('./build/404.html', '<title>Error Document 404 Title</title> <h1>404</h1>'), 'writes a `404.html` file to the build directory with template content and a title defined in configuration');
+  t.assert.ok(writeFileSyncStub.calledWith('./build/404.html', '<title>Error Document 404 Title</title> <h1>404</h1>'), 'writes a `404.html` file to the build directory with template content and a title defined in configuration');
 
   readFileStub.restore();
   writeFileSyncStub.restore();
-  t.end();
+  t.assert.end();
 });

@@ -4,7 +4,7 @@ import test from 'node:test';
 
 import { generateAssets } from './generateAssets';
 
-test('`generateAssets`', async (t: test.Test) => {
+test('`generateAssets`', async (t: test.TestContext) => {
   // FIXME: Improve Sinon stub typings.
   const readdirSync = sinon.stub(
     fs,
@@ -31,11 +31,11 @@ test('`generateAssets`', async (t: test.Test) => {
 
   await generateAssets();
 
-  t.ok(
+  t.assert.ok(
     mkdirSync.calledWith('./build', { recursive: true }),
     'makes the `./build/` directory',
   );
-  t.ok(
+  t.assert.ok(
     writeFileSync.calledWith('./build/style.css', '.css { color: blue; }'),
     'creates a new file called `./build/style.css`',
   );
@@ -45,5 +45,5 @@ test('`generateAssets`', async (t: test.Test) => {
   existsSync.restore();
   mkdirSync.restore();
   writeFileSync.restore();
-  t.end();
+  t.assert.end();
 });
