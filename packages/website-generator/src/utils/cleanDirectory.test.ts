@@ -1,6 +1,6 @@
 import fs from 'fs';
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 
 import { cleanDirectory } from './cleanDirectory';
 

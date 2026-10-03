@@ -1,6 +1,6 @@
 import fs from 'fs';
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 
 import { Renderer } from './Renderer';
 import { generateErrorDocuments } from './generateErrorDocuments';
@@ -27,7 +27,7 @@ test('`generateErrorDocuments`', async (t: test.Test) => {
 
   await generateErrorDocuments({
     config: {
-      errorDocument404Title: 'Error Document 404 Title', 
+      errorDocument404Title: 'Error Document 404 Title',
     },
     renderer,
   });

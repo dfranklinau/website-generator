@@ -1,5 +1,5 @@
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 
 import * as findFiles from './findFiles';
 import * as readFile from './readFile';

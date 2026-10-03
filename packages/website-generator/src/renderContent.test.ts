@@ -1,5 +1,5 @@
 import fs from 'fs';
-import test from 'tape';
+import test from 'node:test';
 import sinon from 'sinon';
 
 import { mockPreparedContent } from './_fixtures';

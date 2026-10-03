@@ -1,4 +1,4 @@
-import test from 'tape';
+import test from 'node:test';
 
 import { getPageTitle } from './getPageTitle';
 import { mockParsedMarkdown } from '../_fixtures';

@@ -1,6 +1,6 @@
 import http from 'http';
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 import * as ws from 'ws';
 
 import { serve } from './serve';
