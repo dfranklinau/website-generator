@@ -1,6 +1,6 @@
 import fs from 'fs';
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 
 import { findFiles } from './findFiles';
 
@@ -72,7 +72,7 @@ const stubReaddirSync = () => {
   return readdirSync;
 };
 
-test('`findFiles`', (t: test.Test) => {
+test('`findFiles`', (t: test.TestContext) => {
   const readdirSync = stubReaddirSync();
   const existsSync = sinon.stub(fs, 'existsSync');
   existsSync.returns(true);
@@ -81,9 +81,9 @@ test('`findFiles`', (t: test.Test) => {
   let content;
   content = findFiles('./content/');
 
-  t.equal(readdirSync.callCount, 1, '`readdirSync` should not be called');
+  t.assert.equal(readdirSync.callCount, 1, '`readdirSync` should not be called');
 
-  t.deepEqual(
+  t.assert.deepEqual(
     content,
     ['./content/index.md', './content/image.jpg'],
     'returns an array of files',
@@ -92,7 +92,7 @@ test('`findFiles`', (t: test.Test) => {
   readdirSync.resetHistory();
   content = findFiles('./content/', { match: 'index.md' });
 
-  t.deepEqual(
+  t.assert.deepEqual(
     content,
     ['./content/index.md'],
     'returns an array of files that match the given string',
@@ -101,7 +101,7 @@ test('`findFiles`', (t: test.Test) => {
   readdirSync.resetHistory();
   content = findFiles('./content/', { match: /\.md$/ });
 
-  t.deepEqual(
+  t.assert.deepEqual(
     content,
     ['./content/index.md'],
     'returns an array of files that match the given RegExp',
@@ -110,7 +110,7 @@ test('`findFiles`', (t: test.Test) => {
   readdirSync.resetHistory();
   content = findFiles('./content/', { recursive: true });
 
-  t.deepEqual(
+  t.assert.deepEqual(
     content,
     [
       './content/index.md',
@@ -126,7 +126,7 @@ test('`findFiles`', (t: test.Test) => {
   readdirSync.resetHistory();
   content = findFiles('./content/', { match: 'index.md', recursive: true });
 
-  t.deepEqual(
+  t.assert.deepEqual(
     content,
     [
       './content/index.md',
@@ -139,7 +139,7 @@ test('`findFiles`', (t: test.Test) => {
   readdirSync.resetHistory();
   content = findFiles('./content/', { match: /\.md$/, recursive: true });
 
-  t.deepEqual(
+  t.assert.deepEqual(
     content,
     [
       './content/index.md',
@@ -152,7 +152,7 @@ test('`findFiles`', (t: test.Test) => {
 
   readdirSync.resetHistory();
   content = findFiles('./does-not-exist/');
-  t.equal(
+  t.assert.equal(
     content.length,
     0,
     'returns an empty array when a directory does not exist',
@@ -160,5 +160,4 @@ test('`findFiles`', (t: test.Test) => {
 
   readdirSync.restore();
   existsSync.restore();
-  t.end();
 });

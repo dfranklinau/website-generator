@@ -10,6 +10,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Replaced the `tap-node` test runner with `node:test` and improved code
+  coverage reporting.
+
 ### Fixed
 
 - Fixed the `switch` block in the `website-generator` bin script.

@@ -1,11 +1,11 @@
 import fs from 'fs';
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 
 import { DIRECTORIES, EXTENSIONS } from '../config/constants';
 import { getContentTemplate } from './getContentTemplate';
 
-test('`getContentTemplate`', (t: test.Test) => {
+test('`getContentTemplate`', (t: test.TestContext) => {
   const readFileSync = sinon.stub(fs, 'readFileSync');
 
   readFileSync
@@ -52,7 +52,7 @@ test('`getContentTemplate`', (t: test.Test) => {
    * Template lookup without filenames.
    */
   contentTemplate = getContentTemplate('page', []);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'page template',
     'return the template for a page when no directories are passed',
@@ -60,14 +60,14 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   readFileSync.resetHistory();
   contentTemplate = getContentTemplate('section', []);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'section template',
     'return the template for a section when no directories are passed',
   );
 
   contentTemplate = getContentTemplate('index', []);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'index template',
     'return the template for the index section when no directories are passed',
@@ -75,7 +75,7 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   readFileSync.resetHistory();
   contentTemplate = getContentTemplate('page', ['directory']);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'directory page template',
     'return the directory template for a page when a directory is passed',
@@ -83,14 +83,14 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   readFileSync.resetHistory();
   contentTemplate = getContentTemplate('section', ['directory']);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'directory section template',
     'return the directory template for a section when a directory is passed',
   );
 
   contentTemplate = getContentTemplate('index', ['directory']);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'index template',
     'return the template for the index section when a directory is passed',
@@ -98,7 +98,7 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   readFileSync.resetHistory();
   contentTemplate = getContentTemplate('page', ['non-existant']);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'page template',
     'return the index template for a page when a non-existant directory is passed',
@@ -106,14 +106,14 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   readFileSync.resetHistory();
   contentTemplate = getContentTemplate('section', ['non-existant']);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'section template',
     'return the index template for a section when a non-existant directory is passed',
   );
 
   contentTemplate = getContentTemplate('index', ['directory']);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'index template',
     'return the template for the index section when a non-existant directory is passed',
@@ -123,7 +123,7 @@ test('`getContentTemplate`', (t: test.Test) => {
    * Template lookup with file names (only applies to page templates).
    */
   contentTemplate = getContentTemplate('page', [], 'filename');
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'named page template',
     'return the template for a named page when no directories are passed',
@@ -131,7 +131,7 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   readFileSync.resetHistory();
   contentTemplate = getContentTemplate('page', ['directory'], 'filename');
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'named directory page template',
     'return the directory template for a named page when a directory is passed',
@@ -139,14 +139,14 @@ test('`getContentTemplate`', (t: test.Test) => {
 
   readFileSync.resetHistory();
   contentTemplate = getContentTemplate('page', ['non-existant'], 'filename');
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'page template',
     'return the template for a named page when a non-existant directory is passed',
   );
 
   contentTemplate = getContentTemplate('page', [], 'non-existant');
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'page template',
     'return the template for a page when the named page template does not exist',
@@ -170,28 +170,28 @@ test('`getContentTemplate`', (t: test.Test) => {
     .throws();
 
   contentTemplate = getContentTemplate('page', []);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     '',
     'return an empty string when no matching page template exists',
   );
 
   contentTemplate = getContentTemplate('page', [], 'filename');
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     '',
     'return an empty string when no matching named page template exists',
   );
 
   contentTemplate = getContentTemplate('section', []);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     '',
     'return an empty string when no matching section template exists',
   );
 
   contentTemplate = getContentTemplate('index', []);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     '',
     'return an empty string when no matching index section template exists',
@@ -210,12 +210,11 @@ test('`getContentTemplate`', (t: test.Test) => {
     .returns('section template');
 
   contentTemplate = getContentTemplate('index', []);
-  t.equal(
+  t.assert.equal(
     contentTemplate,
     'section template',
     'return the template for a section when no index section template exists',
   );
 
   readFileSync.restore();
-  t.end();
 });

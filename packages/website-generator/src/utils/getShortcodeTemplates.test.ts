@@ -1,28 +1,29 @@
+import proxyquire from 'proxyquire';
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 
-import * as findFiles from './findFiles';
-import * as readFile from './readFile';
+const getShortcodeTemplates = proxyquire('./getShortcodeTemplates', {
+  './findFiles': {
+    findFiles: sinon.fake.returns([
+      './shortcodes/shortcode.hbs',
+      './shortcodes/shortcode-with-attribute.hbs',
+    ]),
+  },
+  './readFile': {
+    readFile: sinon.fake(arg => {
+      if (arg === './shortcodes/shortcode.hbs') {
+        return '<p>Shortcode</p>'
+      } else if (arg === './shortcodes/shortcode-with-attribute.hbs') {
+        return '<p>Shortcode with attribute</p>';
+      };
+    })
+  },
+}).getShortcodeTemplates;
 
-import { getShortcodeTemplates } from './getShortcodeTemplates';
-
-test('`getShortcodeTemplates`', async (t: test.Test) => {
-  const findFilesStub = sinon.stub(findFiles, 'findFiles');
-  const readFileStub = sinon.stub(readFile, 'readFile');
-
-  findFilesStub.returns([
-    './shortcodes/shortcode.hbs',
-    './shortcodes/shortcode-with-attribute.hbs',
-  ]);
-  readFileStub
-    .withArgs('./shortcodes/shortcode.hbs')
-    .resolves('<p>Shortcode</p>')
-    .withArgs('./shortcodes/shortcode-with-attribute.hbs')
-    .resolves('<p>Shortcode with attribute</p>');
-
+test('`getShortcodeTemplates`', async (t: test.TestContext) => {
   const shortcodes = await getShortcodeTemplates();
 
-  t.deepEqual(
+  t.assert.deepEqual(
     shortcodes,
     [
       {
@@ -36,8 +37,4 @@ test('`getShortcodeTemplates`', async (t: test.Test) => {
     ],
     'returns an array of shortcode names and templates',
   );
-
-  findFilesStub.restore();
-  readFileStub.restore();
-  t.end();
 });

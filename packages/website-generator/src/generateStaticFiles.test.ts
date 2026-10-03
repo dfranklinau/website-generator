@@ -1,6 +1,6 @@
 import fs from 'fs';
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 
 import { generateStaticFiles } from './generateStaticFiles';
 
@@ -39,18 +39,17 @@ const stubReaddirSync = () => {
   return readdirSync;
 };
 
-test('`generateStaticFiles`', (t: test.Test) => {
+test('`generateStaticFiles`', (t: test.TestContext) => {
   const readdirSync = stubReaddirSync();
   const existsSync = sinon.stub(fs, 'existsSync');
   const copyFileSync = sinon.stub(fs, 'copyFileSync');
   existsSync.returns(true);
 
   generateStaticFiles();
-  t.ok(copyFileSync.calledWith('./static/script.js', './build/script.js'), 'copies a static file to the destination folder');
-  t.ok(copyFileSync.calledWith('./static/images/image.jpg', './build/images/image.jpg'), 'copies a static file to the destination folder, with nesting');
+  t.assert.ok(copyFileSync.calledWith('./static/script.js', './build/script.js'), 'copies a static file to the destination folder');
+  t.assert.ok(copyFileSync.calledWith('./static/images/image.jpg', './build/images/image.jpg'), 'copies a static file to the destination folder, with nesting');
 
   readdirSync.restore();
   existsSync.restore();
   copyFileSync.restore();
-  t.end();
 });
