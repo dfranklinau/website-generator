@@ -25,7 +25,9 @@
     "build": "npm run clean && tsc",
     "clean": "rm -rf ./dist",
     "coverage": "npm run build && nyc --require source-map-support/register --require ts-node/register --exclude-after-remap=false tape 'dist/**/*.test.js'",
-    "test": "npm run build && tape --require source-map-support/register --require ts-node/register 'dist/**/*.test.js'"
+    "test:node": "node --test 'dist/**/*.test.node.js'",
+    "test:tape": "tape --require source-map-support/register --require ts-node/register 'dist/**/*.test.js'",
+    "test": "npm run build && test:tape && test:node"
   },
   "dependencies": {
     "@ltd/j-toml": "1.38.0",
