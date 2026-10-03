@@ -1,8 +1,8 @@
-import test from 'tape';
+import test from 'node:test';
 
 import { Renderer } from './Renderer';
 
-test('`Renderer`', (t: test.Test) => {
+test('`Renderer`', (t: test.TestContext) => {
   const renderer = new Renderer({
     baseTemplate: '{{&content}}',
     config: {},
@@ -11,8 +11,8 @@ test('`Renderer`', (t: test.Test) => {
     },
   });
 
-  t.test('`Renderer.render`', (t: test.Test) => {
-    t.equal(
+  t.test('`Renderer.render`', (t: test.TestContext) => {
+    t.assert.equal(
       renderer.render({
         content: 'hello world',
       }),
@@ -20,7 +20,7 @@ test('`Renderer`', (t: test.Test) => {
       'renders content using the base template',
     );
 
-    t.equal(
+    t.assert.equal(
       renderer.render(
         {
           content: 'hello world',
@@ -33,7 +33,7 @@ test('`Renderer`', (t: test.Test) => {
       'renders content using a custom base template',
     );
 
-    t.equal(
+    t.assert.equal(
       renderer.render(
         {
           content: 'hello world',
@@ -49,7 +49,7 @@ test('`Renderer`', (t: test.Test) => {
       'renders content with page variables ',
     );
 
-    t.equal(
+    t.assert.equal(
       renderer.render(
         {
           content: 'hello world',
@@ -62,7 +62,7 @@ test('`Renderer`', (t: test.Test) => {
       'renders content with partials ',
     );
 
-    t.match(
+    t.assert.match(
       renderer.render(
         {
           content: 'hello world',
@@ -75,8 +75,6 @@ test('`Renderer`', (t: test.Test) => {
       'renders content with a runtime variable of the current year',
     );
 
-    t.end();
   });
 
-  t.end();
 });

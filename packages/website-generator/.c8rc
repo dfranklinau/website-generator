@@ -1,0 +1,11 @@
+{
+  "all": true,
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/_fixtures/*"],
+  "extension": "ts",
+  "checkCoverage": true,
+  "statements": 98,
+  "branches": 76,
+  "functions": 90,
+  "lines": 98
+}

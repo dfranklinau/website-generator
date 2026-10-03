@@ -1,4 +1,4 @@
-import test from 'tape';
+import test from 'node:test';
 
 import { sortHelper } from './sortHelper';
 
@@ -11,8 +11,8 @@ const nestedOptions = {
     `<li>${item.property.nested}</li>`,
 };
 
-test('`sortHelper`', (t: test.Test) => {
-  t.equal(
+test('`sortHelper`', (t: test.TestContext) => {
+  t.assert.equal(
     sortHelper(
       [{ property: 'c' }, { property: 'a' }, { property: 'b' }],
       'property',
@@ -26,7 +26,7 @@ test('`sortHelper`', (t: test.Test) => {
     '<li>a</li><li>b</li><li>c</li>',
     'returns a Handlebars.js string in ascending order',
   );
-  t.equal(
+  t.assert.equal(
     sortHelper(
       [{ property: 'c' }, { property: 'a' }, { property: 'b' }],
       'property',
@@ -35,7 +35,7 @@ test('`sortHelper`', (t: test.Test) => {
     '<li>c</li><li>b</li><li>a</li>',
     'returns a Handlebars.js string in descending order',
   );
-  t.equal(
+  t.assert.equal(
     sortHelper(
       [{ property: 'c' }, { property: 'a' }, { property: 'b' }],
       'unknown',
@@ -44,7 +44,7 @@ test('`sortHelper`', (t: test.Test) => {
     '<li>c</li><li>a</li><li>b</li>',
     'returns a Handlebars.js string in the order if the sort property does not exist',
   );
-  t.equal(
+  t.assert.equal(
     sortHelper(
       [
         { property: { nested: 'c' } },
@@ -62,7 +62,7 @@ test('`sortHelper`', (t: test.Test) => {
     '<li>a</li><li>b</li><li>c</li>',
     'returns a Handlebars.js string in ascending order for nested properties',
   );
-  t.equal(
+  t.assert.equal(
     sortHelper(
       [
         { property: { nested: 'c' } },
@@ -75,7 +75,7 @@ test('`sortHelper`', (t: test.Test) => {
     '<li>c</li><li>b</li><li>a</li>',
     'returns a Handlebars.js string in descending order for nested properties',
   );
-  t.equal(
+  t.assert.equal(
     sortHelper(
       [
         { property: { nested: 'c' } },
@@ -88,5 +88,4 @@ test('`sortHelper`', (t: test.Test) => {
     '<li>c</li><li>a</li><li>b</li>',
     'returns a Handlebars.js string in the order if the nested sort property does not exist',
   );
-  t.end();
 });

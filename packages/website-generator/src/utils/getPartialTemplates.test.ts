@@ -1,31 +1,30 @@
+import proxyquire from 'proxyquire';
 import sinon from 'sinon';
-import test from 'tape';
+import test from 'node:test';
 
-import * as findFiles from './findFiles';
-import * as readFile from './readFile';
+const getPartialTemplates = proxyquire('./getPartialTemplates', {
+  './findFiles': {
+    findFiles: sinon.fake.returns([
+      './templates/_partials/partial.hbs',
+    ]),
+  },
+  './readFile': {
+    readFile: sinon.fake(arg => {
+      if (arg === './templates/_partials/partial.hbs') {
+        return '<p>Partial</p>'
+      };
+    })
+  },
+}).getPartialTemplates;
 
-import { getPartialTemplates } from './getPartialTemplates';
-
-test('`getPartialTemplates`', async (t: test.Test) => {
-  const findFilesStub = sinon.stub(findFiles, 'findFiles');
-  const readFileStub = sinon.stub(readFile, 'readFile');
-
-  findFilesStub.returns(['./templates/_partials/partial.hbs']);
-  readFileStub
-    .withArgs('./templates/_partials/partial.hbs')
-    .resolves('<p>Partial</p>');
-
+test('`getPartialTemplates`', async (t: test.TestContext) => {
   const partials = await getPartialTemplates();
 
-  t.deepEqual(
+  t.assert.deepEqual(
     partials,
     {
       partial: '<p>Partial</p>',
     },
     'returns a formatted object of partial names and templates',
   );
-
-  findFilesStub.restore();
-  readFileStub.restore();
-  t.end();
 });
