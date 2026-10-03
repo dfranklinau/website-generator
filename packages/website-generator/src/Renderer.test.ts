@@ -11,7 +11,7 @@ test('`Renderer`', (t: test.TestContext) => {
     },
   });
 
-  t.assert.test('`Renderer.render`', (t: test.TestContext) => {
+  t.test('`Renderer.render`', (t: test.TestContext) => {
     t.assert.equal(
       renderer.render({
         content: 'hello world',

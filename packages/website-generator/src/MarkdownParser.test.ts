@@ -9,7 +9,7 @@ test('`MarkdownParser`', (t: test.TestContext) => {
   const renderer = new Renderer({ baseTemplate: '', config: {}, partials: {} });
   const markdownParser = new MarkdownParser(renderer, mockShortcodes);
 
-  t.assert.test('`MarkdownParser.getOptions`', (t: test.TestContext) => {
+  t.test('`MarkdownParser.getOptions`', (t: test.TestContext) => {
     t.assert.deepEqual(
       markdownParser.getOptions(mockMarkdown, {
         menu: {
@@ -83,7 +83,7 @@ test('`MarkdownParser`', (t: test.TestContext) => {
 
   });
 
-  t.assert.test('`MarkdownParser.parse`', (t: test.TestContext) => {
+  t.test('`MarkdownParser.parse`', (t: test.TestContext) => {
     const parsed = markdownParser.parse(mockMarkdown);
 
     /**

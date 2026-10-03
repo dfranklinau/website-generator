@@ -23,12 +23,5 @@ test('`generateContent`', async (t: test.TestContext) => {
     renderer,
   })
 
-  /**
-   * The modules within `generateContent` are all tested individually, there is
-   * nothing to test here besides the fact that the methods are called and do
-   * not throw.
-   */
-  t.assert.pass('generates content without errors');
-
   readdir.restore();
 });
