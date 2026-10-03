@@ -94,5 +94,4 @@ test('`renderContent`', (t: test.TestContext) => {
   copyFileSyncStub.restore();
   mkdirSyncStub.restore();
   writeFileSyncStub.restore();
-  t.assert.end();
 });

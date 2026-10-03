@@ -266,5 +266,4 @@ test('`parseShortcodes`', (t: test.TestContext) => {
     'parses a nested group of inline shortcodes in a block shortcode as Markdown',
   );
 
-  t.assert.end();
 });

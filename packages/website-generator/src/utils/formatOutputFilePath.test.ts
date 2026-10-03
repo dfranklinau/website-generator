@@ -19,5 +19,4 @@ test('`formatOutputFilePath`', (t: test.TestContext) => {
     `replaces the root directory with the supplied output directory for a nested file`,
   );
 
-  t.assert.end();
 });

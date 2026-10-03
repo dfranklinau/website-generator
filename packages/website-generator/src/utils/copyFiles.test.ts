@@ -35,5 +35,4 @@ test('`copyFiles`', (t: test.TestContext) => {
 
   mkdirSync.restore();
   copyFileSync.restore();
-  t.assert.end();
 });

@@ -21,5 +21,4 @@ test('`removeTrailingSlash`', (t: test.TestContext) => {
     'does not alter a file path to a file',
   );
 
-  t.assert.end();
 });

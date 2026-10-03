@@ -21,5 +21,4 @@ test('`isarrayHelper`', (t: test.TestContext) => {
     false,
     'returns `false` if the value is not an array',
   );
-  t.assert.end();
 });

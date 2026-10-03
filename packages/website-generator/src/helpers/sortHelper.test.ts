@@ -88,5 +88,4 @@ test('`sortHelper`', (t: test.TestContext) => {
     '<li>c</li><li>a</li><li>b</li>',
     'returns a Handlebars.js string in the order if the nested sort property does not exist',
   );
-  t.assert.end();
 });

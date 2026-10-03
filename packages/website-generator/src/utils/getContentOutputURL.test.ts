@@ -99,5 +99,4 @@ test('`getContentOutputURL`', (t: test.TestContext) => {
     'gets the content output URL for a nested page in a section whose url is a replacement string',
   );
 
-  t.assert.end();
 });

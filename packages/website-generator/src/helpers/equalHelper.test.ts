@@ -22,5 +22,4 @@ test('`equalHelper`', (t: test.TestContext) => {
     'returns `false` if two values do not equal',
   );
   t.assert.equal(equalHelper(1, '1', options), false, 'uses strict equality');
-  t.assert.end();
 });

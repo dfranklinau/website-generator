@@ -168,5 +168,4 @@ test('`parseContent`', async (t: test.TestContext) => {
 
   readdirStub.restore();
   readFileStub.restore();
-  t.assert.end();
 });

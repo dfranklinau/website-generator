@@ -49,5 +49,4 @@ test('`getHelpers`', async (t: test.TestContext) => {
   }, `will import a helper regardless of the code within`);
 
   findFilesStub.restore();
-  t.assert.end();
 });

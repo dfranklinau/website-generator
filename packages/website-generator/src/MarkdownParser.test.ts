@@ -81,7 +81,6 @@ test('`MarkdownParser`', (t: test.TestContext) => {
       'parses front-matter containing no supported options',
     );
 
-    t.assert.end();
   });
 
   t.assert.test('`MarkdownParser.parse`', (t: test.TestContext) => {
@@ -126,8 +125,6 @@ test('`MarkdownParser`', (t: test.TestContext) => {
       'generates an `options` object containing data for special properties',
     );
 
-    t.assert.end();
   });
 
-  t.assert.end();
 });

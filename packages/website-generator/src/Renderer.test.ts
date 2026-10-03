@@ -75,8 +75,6 @@ test('`Renderer`', (t: test.TestContext) => {
       'renders content with a runtime variable of the current year',
     );
 
-    t.assert.end();
   });
 
-  t.assert.end();
 });

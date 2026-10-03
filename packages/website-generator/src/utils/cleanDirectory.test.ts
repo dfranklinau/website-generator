@@ -18,5 +18,4 @@ test('`cleanDirectory`', (t: test.TestContext) => {
 
   mkdirSync.restore();
   rmSync.restore();
-  t.assert.end();
 });

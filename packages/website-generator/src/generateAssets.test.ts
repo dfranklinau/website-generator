@@ -45,5 +45,4 @@ test('`generateAssets`', async (t: test.TestContext) => {
   existsSync.restore();
   mkdirSync.restore();
   writeFileSync.restore();
-  t.assert.end();
 });

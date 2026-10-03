@@ -13,5 +13,4 @@ test('`getWebsiteGeneratorConfig`', async (t: test.TestContext) => {
   t.assert.deepEqual((await getWebsiteGeneratorConfig()), {}, 'returns an empty object when there is an error');
 
   readFileStub.restore();
-  t.assert.end();
 });

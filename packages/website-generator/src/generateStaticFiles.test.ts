@@ -52,5 +52,4 @@ test('`generateStaticFiles`', (t: test.TestContext) => {
   readdirSync.restore();
   existsSync.restore();
   copyFileSync.restore();
-  t.assert.end();
 });

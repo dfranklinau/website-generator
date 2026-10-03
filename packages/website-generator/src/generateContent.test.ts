@@ -31,5 +31,4 @@ test('`generateContent`', async (t: test.TestContext) => {
   t.assert.pass('generates content without errors');
 
   readdir.restore();
-  t.assert.end();
 });

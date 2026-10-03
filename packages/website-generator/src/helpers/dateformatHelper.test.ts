@@ -13,5 +13,4 @@ test('`dateformatHelper`', (t: test.TestContext) => {
     '2021-01-30T10:10:10Z',
     'returns the supplied date if an unsupported format option is supplied',
   );
-  t.assert.end();
 });

@@ -49,5 +49,4 @@ test('`saveContentToFile`', (t: test.TestContext) => {
 
   mkdirSync.restore();
   writeFileSync.restore();
-  t.assert.end();
 });

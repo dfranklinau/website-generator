@@ -27,5 +27,4 @@ test('`getPartialTemplates`', async (t: test.TestContext) => {
 
   findFilesStub.restore();
   readFileStub.restore();
-  t.assert.end();
 });

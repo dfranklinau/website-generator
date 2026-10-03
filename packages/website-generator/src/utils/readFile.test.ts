@@ -26,5 +26,4 @@ test('`readFile`', async (t: test.TestContext) => {
   );
 
   readFileStub.restore();
-  t.assert.end();
 });

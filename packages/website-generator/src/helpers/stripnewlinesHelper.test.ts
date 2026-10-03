@@ -11,5 +11,4 @@ text`).string,
     'this is multiline text',
     'removes all newlines from a string of a text',
   );
-  t.assert.end();
 });

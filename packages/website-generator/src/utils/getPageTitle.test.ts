@@ -39,5 +39,4 @@ test('`getPageTitle`', (t: test.TestContext) => {
     'returns an empty string when no there is no title defined in the front matter',
   );
 
-  t.assert.end();
 });

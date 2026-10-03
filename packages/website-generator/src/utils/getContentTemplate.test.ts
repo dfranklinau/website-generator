@@ -217,5 +217,4 @@ test('`getContentTemplate`', (t: test.TestContext) => {
   );
 
   readFileSync.restore();
-  t.assert.end();
 });

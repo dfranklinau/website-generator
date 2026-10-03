@@ -145,5 +145,4 @@ test('`prepareContent`', (t: test.TestContext) => {
     'prepares a list of all content where a section has a URL replacement',
   );
 
-  t.assert.end();
 });

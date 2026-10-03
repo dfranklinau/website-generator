@@ -36,5 +36,4 @@ test('`generateErrorDocuments`', async (t: test.TestContext) => {
 
   readFileStub.restore();
   writeFileSyncStub.restore();
-  t.assert.end();
 });

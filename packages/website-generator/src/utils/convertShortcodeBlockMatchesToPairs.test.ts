@@ -46,5 +46,4 @@ test('`convertShortcodeBlockMatchesToPairs`', (t: test.TestContext) => {
     'converts a series of open and closing tags to pairs, flattening any nested pairs',
   );
 
-  t.assert.end();
 });

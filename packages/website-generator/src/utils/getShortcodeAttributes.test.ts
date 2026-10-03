@@ -57,5 +57,4 @@ test('`getShortcodeAttributes`', (t: test.TestContext) => {
     'should return an array of values for an attribute name used multiple times',
   );
 
-  t.assert.end();
 });

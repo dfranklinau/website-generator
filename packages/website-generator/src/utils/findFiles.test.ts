@@ -160,5 +160,4 @@ test('`findFiles`', (t: test.TestContext) => {
 
   readdirSync.restore();
   existsSync.restore();
-  t.assert.end();
 });
