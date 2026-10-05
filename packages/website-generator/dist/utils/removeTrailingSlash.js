@@ -7,9 +7,9 @@ exports.removeTrailingSlash = void 0;
 const path_1 = __importDefault(require("path"));
 const removeTrailingSlash = (filePath) => {
     if (filePath.charAt(filePath.length - 1) === path_1.default.sep) {
-        return filePath.slice(0, filePath.length - 1);
+        return path_1.default.normalize(filePath.slice(0, filePath.length - 1));
     }
-    return filePath;
+    return path_1.default.normalize(filePath);
 };
 exports.removeTrailingSlash = removeTrailingSlash;
 //# sourceMappingURL=removeTrailingSlash.js.map
