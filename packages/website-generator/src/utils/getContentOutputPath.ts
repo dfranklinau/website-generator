@@ -8,7 +8,7 @@ export const getContentOutputPath = (
   filePath: string,
   section?: PreparedContentType | null,
 ): string => {
-  let rewritePath = filePath;
+  let rewritePath = path.normalize(filePath);
 
   if (
     typeof section?.markdown.options.url === 'string' &&
@@ -16,15 +16,15 @@ export const getContentOutputPath = (
   ) {
     // Convert `./content/directory/page` to `directory/page`.
     const sectionPath = path
-      .parse(section.filePath)
+      .parse(path.normalize(section.filePath))
       .dir.split(path.sep)
-      .slice(2)
+      .slice(1)
       .join(path.sep);
 
     if (section.markdown.options.url === '/') {
-      rewritePath = filePath.replace(`/${sectionPath}/`, '/');
+      rewritePath = rewritePath.replace(`/${sectionPath}/`, '/');
     } else {
-      rewritePath = filePath.replace(
+      rewritePath = rewritePath.replace(
         `/${sectionPath}/`,
         `/${section.markdown.options.url}/`,
       );
@@ -32,7 +32,7 @@ export const getContentOutputPath = (
   }
 
   rewritePath = rewritePath
-    .replace(DIRECTORIES.CONTENT, DIRECTORIES.BUILD)
+    .replace(new RegExp(`^${path.normalize(DIRECTORIES.CONTENT)}`), path.normalize(DIRECTORIES.BUILD))
     .replace(/_index\.md$/, 'index.md')
     .replace(/\.md$/, '.html');
 

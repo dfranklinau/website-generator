@@ -41,7 +41,7 @@ test('`getContentOutputURL`', (t: test.TestContext) => {
 
   t.assert.equal(
     getContentOutputURL('./content/section/page.md', {
-      filePath: './content/section/_index.md',
+      filePath: 'content/section/_index.md',
       markdown: {
         content: '',
         matter: {},
@@ -52,7 +52,7 @@ test('`getContentOutputURL`', (t: test.TestContext) => {
         },
       },
       name: '_index.md',
-      outputPath: './build/index.html',
+      outputPath: 'build/index.html',
       outputURL: '/build/',
     }),
     '/section/page/',
@@ -61,7 +61,7 @@ test('`getContentOutputURL`', (t: test.TestContext) => {
 
   t.assert.equal(
     getContentOutputURL('./content/section/page.md', {
-      filePath: './content/section/_index.md',
+      filePath: 'content/section/_index.md',
       markdown: {
         content: '',
         matter: {},
@@ -72,7 +72,7 @@ test('`getContentOutputURL`', (t: test.TestContext) => {
         },
       },
       name: '_index.md',
-      outputPath: './build/index.html',
+      outputPath: 'build/index.html',
       outputURL: '/build/',
     }),
     '/page/',
@@ -81,7 +81,7 @@ test('`getContentOutputURL`', (t: test.TestContext) => {
 
   t.assert.equal(
     getContentOutputURL('./content/section/page.md', {
-      filePath: './content/section/_index.md',
+      filePath: 'content/section/_index.md',
       markdown: {
         content: '',
         matter: {},
@@ -92,11 +92,10 @@ test('`getContentOutputURL`', (t: test.TestContext) => {
         },
       },
       name: '_index.md',
-      outputPath: './build/index.html',
+      outputPath: 'build/index.html',
       outputURL: '/build/',
     }),
     '/override/page/',
     'gets the content output URL for a nested page in a section whose url is a replacement string',
   );
-
 });

@@ -1,3 +1,4 @@
+import path from 'path';
 import { DIRECTORIES } from '../config/constants';
 import { getContentOutputPath } from './getContentOutputPath';
 
@@ -9,6 +10,6 @@ export const getContentOutputURL = (
 ): string => {
   const contentOutputPath = getContentOutputPath(filePath, section);
   return contentOutputPath
-    .replace(DIRECTORIES.BUILD, '/')
+    .replace(path.normalize(DIRECTORIES.BUILD), '/')
     .replace('index.html', '');
 };
