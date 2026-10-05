@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findFiles = void 0;
 const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const findFiles = (directory, options) => {
     let results = [];
     if (!fs_1.default.existsSync(directory)) {
@@ -15,11 +16,11 @@ const findFiles = (directory, options) => {
         if (item.isFile()) {
             if ((options?.match && item.name.match(options.match)) ||
                 typeof options?.match === 'undefined') {
-                results.push(`${directory}${item.name}`);
+                results.push(path_1.default.join(directory, item.name));
             }
         }
         else if (options?.recursive && item.isDirectory()) {
-            results = results.concat((0, exports.findFiles)(`${directory}${item.name}/`, options));
+            results = results.concat((0, exports.findFiles)(path_1.default.join(directory, item.name), options));
         }
     });
     return results;

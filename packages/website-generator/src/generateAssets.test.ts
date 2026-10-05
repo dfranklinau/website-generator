@@ -27,7 +27,7 @@ test('`generateAssets`', async (t: test.TestContext) => {
     },
   ]);
 
-  readFile.withArgs('./assets/style.css').resolves('.css { color: blue; }');
+  readFile.withArgs('assets/style.css').resolves('.css { color: blue; }');
 
   await generateAssets();
 
