@@ -14,7 +14,7 @@ const stubReaddirSync = () => {
     fs.Dirent<string>[]
   >;
 
-  readdirSync.withArgs('./content/', { withFileTypes: true }).returns([
+  readdirSync.withArgs('content', { withFileTypes: true }).returns([
     // @ts-expect-error mimic a fs.Dirent type
     {
       isFile: () => true,
@@ -33,7 +33,7 @@ const stubReaddirSync = () => {
     },
   ]);
 
-  readdirSync.withArgs('./content/blog/', { withFileTypes: true }).returns([
+  readdirSync.withArgs('content/blog', { withFileTypes: true }).returns([
     // @ts-expect-error mimic a fs.Dirent type
     {
       isFile: () => true,
@@ -53,7 +53,7 @@ const stubReaddirSync = () => {
   ]);
 
   readdirSync
-    .withArgs('./content/blog/blog-post-two/', { withFileTypes: true })
+    .withArgs('content/blog/blog-post-two', { withFileTypes: true })
     .returns([
       // @ts-expect-error mimic a fs.Dirent type
       {
@@ -67,7 +67,7 @@ const stubReaddirSync = () => {
       },
     ]);
 
-  readdirSync.withArgs('./does-not-exist/', { withFileTypes: true }).throws();
+  readdirSync.withArgs('does-not-exist', { withFileTypes: true }).throws();
 
   return readdirSync;
 };
@@ -76,82 +76,82 @@ test('`findFiles`', (t: test.TestContext) => {
   const readdirSync = stubReaddirSync();
   const existsSync = sinon.stub(fs, 'existsSync');
   existsSync.returns(true);
-  existsSync.withArgs('./does-not-exist/').returns(false);
+  existsSync.withArgs('does-not-exist').returns(false);
 
   let content;
-  content = findFiles('./content/');
+  content = findFiles('content');
 
   t.assert.equal(readdirSync.callCount, 1, '`readdirSync` should not be called');
 
   t.assert.deepEqual(
     content,
-    ['./content/index.md', './content/image.jpg'],
+    ['content/index.md', 'content/image.jpg'],
     'returns an array of files',
   );
 
   readdirSync.resetHistory();
-  content = findFiles('./content/', { match: 'index.md' });
+  content = findFiles('content', { match: 'index.md' });
 
   t.assert.deepEqual(
     content,
-    ['./content/index.md'],
+    ['content/index.md'],
     'returns an array of files that match the given string',
   );
 
   readdirSync.resetHistory();
-  content = findFiles('./content/', { match: /\.md$/ });
+  content = findFiles('content', { match: /\.md$/ });
 
   t.assert.deepEqual(
     content,
-    ['./content/index.md'],
+    ['content/index.md'],
     'returns an array of files that match the given RegExp',
   );
 
   readdirSync.resetHistory();
-  content = findFiles('./content/', { recursive: true });
+  content = findFiles('content', { recursive: true });
 
   t.assert.deepEqual(
     content,
     [
-      './content/index.md',
-      './content/image.jpg',
-      './content/blog/index.md',
-      './content/blog/blog-post-one.md',
-      './content/blog/blog-post-two/index.md',
-      './content/blog/blog-post-two/image.jpg',
+      'content/index.md',
+      'content/image.jpg',
+      'content/blog/index.md',
+      'content/blog/blog-post-one.md',
+      'content/blog/blog-post-two/index.md',
+      'content/blog/blog-post-two/image.jpg',
     ],
     'returns an array of all files when `recursive` is specified',
   );
 
   readdirSync.resetHistory();
-  content = findFiles('./content/', { match: 'index.md', recursive: true });
+  content = findFiles('content', { match: 'index.md', recursive: true });
 
   t.assert.deepEqual(
     content,
     [
-      './content/index.md',
-      './content/blog/index.md',
-      './content/blog/blog-post-two/index.md',
+      'content/index.md',
+      'content/blog/index.md',
+      'content/blog/blog-post-two/index.md',
     ],
     'returns an array of all files that match the given string when `recursive` is specified',
   );
 
   readdirSync.resetHistory();
-  content = findFiles('./content/', { match: /\.md$/, recursive: true });
+  content = findFiles('content', { match: /\.md$/, recursive: true });
 
   t.assert.deepEqual(
     content,
     [
-      './content/index.md',
-      './content/blog/index.md',
-      './content/blog/blog-post-one.md',
-      './content/blog/blog-post-two/index.md',
+      'content/index.md',
+      'content/blog/index.md',
+      'content/blog/blog-post-one.md',
+      'content/blog/blog-post-two/index.md',
     ],
     'returns an array of all files that match the given RegExp when `recursive` is specified',
   );
 
   readdirSync.resetHistory();
-  content = findFiles('./does-not-exist/');
+  content = findFiles('does-not-exist');
   t.assert.equal(
     content.length,
     0,

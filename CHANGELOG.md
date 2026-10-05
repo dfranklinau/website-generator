@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Replaced the `tap-node` test runner with `node:test` and improved code
   coverage reporting.
+- Replaced path string concatenation in `findFiles` with `path.join`. 
 
 ## [1.0.0-beta.2] - 2026-09-28
 

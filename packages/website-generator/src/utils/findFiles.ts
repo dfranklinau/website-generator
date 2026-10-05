@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 export const findFiles = (
   directory: string,
@@ -18,10 +19,10 @@ export const findFiles = (
         (options?.match && item.name.match(options.match)) ||
         typeof options?.match === 'undefined'
       ) {
-        results.push(`${directory}${item.name}`);
+        results.push(path.join(directory, item.name));
       }
     } else if (options?.recursive && item.isDirectory()) {
-      results = results.concat(findFiles(`${directory}${item.name}/`, options));
+      results = results.concat(findFiles(path.join(directory, item.name), options));
     }
   });
 
