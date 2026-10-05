@@ -16,7 +16,7 @@ const mockParsedMarkdown: ParsedMarkdownType = {
 };
 
 export const mockContent: ContentFileType = {
-  filePath: './content/directory/index.md',
+  filePath: 'content/directory/index.md',
   markdown: mockParsedMarkdown,
   name: 'index',
 };
@@ -41,26 +41,26 @@ ${mockMarkdownContent}
 `;
 
 export const mockParsedContent: ParsedContentType = {
-  assets: [{ filePath: './content/asset.jpg' }],
+  assets: [{ filePath: 'content/asset.jpg' }],
   children: {
     directory: {
-      assets: [{ filePath: './content/directory/asset.jpg' }],
+      assets: [{ filePath: 'content/directory/asset.jpg' }],
       children: {
         nested: {
-          assets: [{ filePath: './content/directory/nested/asset.jpg' }],
+          assets: [{ filePath: 'content/directory/nested/asset.jpg' }],
           children: null,
           data: {
             json: { key: 'value' },
-            filePath: './content/directory/nested/_data.json',
+            filePath: 'content/directory/nested/_data.json',
           },
           pages: [
             {
-              filePath: './content/directory/nested/index.md',
+              filePath: 'content/directory/nested/index.md',
               markdown: mockParsedMarkdown,
               name: 'index.md',
             },
             {
-              filePath: './content/directory/nested/page.md',
+              filePath: 'content/directory/nested/page.md',
               markdown: mockParsedMarkdown,
               name: 'page.md',
             },
@@ -70,31 +70,31 @@ export const mockParsedContent: ParsedContentType = {
       },
       data: {
         json: { key: 'value' },
-        filePath: './content/directory/_data.json',
+        filePath: 'content/directory/_data.json',
       },
       pages: [
         {
-          filePath: './content/directory/page.md',
+          filePath: 'content/directory/page.md',
           markdown: mockParsedMarkdown,
           name: 'page.md',
         },
       ],
       section: {
-        filePath: './content/directory/_index.md',
+        filePath: 'content/directory/_index.md',
         markdown: mockParsedMarkdown,
         name: '_index.md',
       },
     },
   },
-  data: { json: { key: 'value' }, filePath: './content/_data.json' },
+  data: { json: { key: 'value' }, filePath: 'content/_data.json' },
   pages: [
     {
-      filePath: './content/index.md',
+      filePath: 'content/index.md',
       markdown: mockParsedMarkdown,
       name: 'index.md',
     },
     {
-      filePath: './content/page.md',
+      filePath: 'content/page.md',
       markdown: mockParsedMarkdown,
       name: 'page.md',
     },
@@ -108,42 +108,42 @@ export const mockPreparedContent: {
 } = {
   list: [
     {
-      filePath: './content/index.md',
+      filePath: 'content/index.md',
       markdown: mockParsedMarkdown,
       name: 'index.md',
       outputPath: 'build/index.html',
       outputURL: '/',
     },
     {
-      filePath: './content/page.md',
+      filePath: 'content/page.md',
       markdown: mockParsedMarkdown,
       name: 'page.md',
       outputPath: 'build/page/index.html',
       outputURL: '/page/',
     },
     {
-      filePath: './content/directory/_index.md',
+      filePath: 'content/directory/_index.md',
       markdown: mockParsedMarkdown,
       name: '_index.md',
       outputPath: 'build/directory/index.html',
       outputURL: '/directory/',
     },
     {
-      filePath: './content/directory/page.md',
+      filePath: 'content/directory/page.md',
       markdown: mockParsedMarkdown,
       name: 'page.md',
       outputPath: 'build/directory/page/index.html',
       outputURL: '/directory/page/',
     },
     {
-      filePath: './content/directory/nested/index.md',
+      filePath: 'content/directory/nested/index.md',
       markdown: mockParsedMarkdown,
       name: 'index.md',
       outputPath: 'build/directory/nested/index.html',
       outputURL: '/directory/nested/',
     },
     {
-      filePath: './content/directory/nested/page.md',
+      filePath: 'content/directory/nested/page.md',
       markdown: mockParsedMarkdown,
       name: 'page.md',
       outputPath: 'build/directory/nested/page/index.html',
@@ -153,7 +153,7 @@ export const mockPreparedContent: {
   tree: {
     assets: [
       {
-        filePath: './content/asset.jpg',
+        filePath: 'content/asset.jpg',
         outputPath: 'build/asset.jpg',
       },
     ],
@@ -161,7 +161,7 @@ export const mockPreparedContent: {
       directory: {
         assets: [
           {
-            filePath: './content/directory/asset.jpg',
+            filePath: 'content/directory/asset.jpg',
             outputPath: 'build/directory/asset.jpg',
           },
         ],
@@ -169,26 +169,26 @@ export const mockPreparedContent: {
           nested: {
             assets: [
               {
-                filePath: './content/directory/nested/asset.jpg',
+                filePath: 'content/directory/nested/asset.jpg',
                 outputPath: 'build/directory/nested/asset.jpg',
               },
             ],
             children: null,
             data: {
               json: { key: 'value' },
-              filePath: './content/directory/nested/_data.json',
+              filePath: 'content/directory/nested/_data.json',
             },
             section: null,
             pages: [
               {
-                filePath: './content/directory/nested/index.md',
+                filePath: 'content/directory/nested/index.md',
                 markdown: mockParsedMarkdown,
                 name: 'index.md',
                 outputPath: 'build/directory/nested/index.html',
                 outputURL: '/directory/nested/',
               },
               {
-                filePath: './content/directory/nested/page.md',
+                filePath: 'content/directory/nested/page.md',
                 markdown: mockParsedMarkdown,
                 name: 'page.md',
                 outputPath: 'build/directory/nested/page/index.html',
@@ -199,10 +199,10 @@ export const mockPreparedContent: {
         },
         data: {
           json: { key: 'value' },
-          filePath: './content/directory/_data.json',
+          filePath: 'content/directory/_data.json',
         },
         section: {
-          filePath: './content/directory/_index.md',
+          filePath: 'content/directory/_index.md',
           markdown: mockParsedMarkdown,
           name: '_index.md',
           outputPath: 'build/directory/index.html',
@@ -210,7 +210,7 @@ export const mockPreparedContent: {
         },
         pages: [
           {
-            filePath: './content/directory/page.md',
+            filePath: 'content/directory/page.md',
             markdown: mockParsedMarkdown,
             name: 'page.md',
             outputPath: 'build/directory/page/index.html',
@@ -221,19 +221,19 @@ export const mockPreparedContent: {
     },
     data: {
       json: { key: 'value' },
-      filePath: './content/_data.json',
+      filePath: 'content/_data.json',
     },
     section: null,
     pages: [
       {
-        filePath: './content/index.md',
+        filePath: 'content/index.md',
         markdown: mockParsedMarkdown,
         name: 'index.md',
         outputPath: 'build/index.html',
         outputURL: '/',
       },
       {
-        filePath: './content/page.md',
+        filePath: 'content/page.md',
         markdown: mockParsedMarkdown,
         name: 'page.md',
         outputPath: 'build/page/index.html',

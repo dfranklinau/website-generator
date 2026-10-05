@@ -35,19 +35,19 @@ test('`renderContent`', (t: test.TestContext) => {
   );
 
   t.assert.ok(
-    copyFileSyncStub.calledWith('./content/asset.jpg', './build/asset.jpg'),
+    copyFileSyncStub.calledWith('content/asset.jpg', './build/asset.jpg'),
     'copied the root asset',
   );
   t.assert.ok(
     copyFileSyncStub.calledWith(
-      './content/directory/asset.jpg',
+      'content/directory/asset.jpg',
       './build/directory/asset.jpg',
     ),
     'copied the child asset',
   );
   t.assert.ok(
     copyFileSyncStub.calledWith(
-      './content/directory/nested/asset.jpg',
+      'content/directory/nested/asset.jpg',
       './build/directory/nested/asset.jpg',
     ),
     'copied the child asset of a child',

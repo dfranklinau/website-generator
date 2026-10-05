@@ -35,7 +35,7 @@ test('`prepareContent`', (t: test.TestContext) => {
             // @ts-expect-error: `mockPreparedContent.tree.children.directory` is defined and never `null`.
             ...mockParsedContent.children.directory,
             section: {
-              filePath: './content/directory/_index.md',
+              filePath: 'content/directory/_index.md',
               markdown: {
                 ...mockParsedMarkdown,
                 options: {
@@ -95,7 +95,7 @@ test('`prepareContent`', (t: test.TestContext) => {
             // @ts-expect-error: `mockPreparedContent.tree.children.directory` is defined and never `null`.
             ...mockParsedContent.children.directory,
             section: {
-              filePath: './content/directory/_index.md',
+              filePath: 'content/directory/_index.md',
               markdown: {
                 ...mockParsedMarkdown,
                 options: {

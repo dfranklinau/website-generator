@@ -20,6 +20,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Removed
 
 - Removed trailing slashes from `DIRECTORIES` constants.
+- Removed relative file paths from fixtures.
 
 ## [1.0.0-beta.2] - 2026-09-28
 
