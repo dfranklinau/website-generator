@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 import { MarkdownParser } from './MarkdownParser';
 import { readFile } from './utils/readFile';
@@ -53,15 +54,11 @@ export const parseContent = async (
 
   await Promise.all(
     files.map(async (item: fs.Dirent) => {
-      const itemPath = `${directory}${item.name}`;
+      const itemPath = path.join(directory, item.name);
 
       if (item.isFile()) {
         if (item.name.match(/\.md$/)) {
-          const data = (await readFile(
-            `${directory}/${item.name}`,
-            '',
-          )) as string;
-
+          const data = (await readFile(itemPath, '')) as string;
           const markdown = markdownParser.parse(data);
 
           const contentItem: ContentFileType = {
@@ -79,10 +76,7 @@ export const parseContent = async (
             }
           }
         } else if (item.name === '_data.json') {
-          const data = await readFile(
-            `${directory}/${item.name}`,
-            '{}',
-          );
+          const data = await readFile(itemPath, '{}');
 
           try {
             let dataJSON: Record<string, unknown> = {};
@@ -104,7 +98,7 @@ export const parseContent = async (
         }
 
         const parsedChildContent = await parseContent({
-          directory: `${itemPath}/`,
+          directory: itemPath,
           markdownParser,
           renderer,
           shortcodes,

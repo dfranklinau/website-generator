@@ -5,15 +5,15 @@ import test from 'node:test';
 const getShortcodeTemplates = proxyquire('./getShortcodeTemplates', {
   './findFiles': {
     findFiles: sinon.fake.returns([
-      './shortcodes/shortcode.hbs',
-      './shortcodes/shortcode-with-attribute.hbs',
+      'shortcodes/shortcode.hbs',
+      'shortcodes/shortcode-with-attribute.hbs',
     ]),
   },
   './readFile': {
     readFile: sinon.fake(arg => {
-      if (arg === './shortcodes/shortcode.hbs') {
+      if (arg === 'shortcodes/shortcode.hbs') {
         return '<p>Shortcode</p>'
-      } else if (arg === './shortcodes/shortcode-with-attribute.hbs') {
+      } else if (arg === 'shortcodes/shortcode-with-attribute.hbs') {
         return '<p>Shortcode with attribute</p>';
       };
     })

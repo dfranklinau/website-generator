@@ -52,7 +52,7 @@ test('`parseContent`', async (t: test.TestContext) => {
   const readFileStub = sinon.stub(fs.promises, 'readFile');
 
   readdirStub
-    .withArgs('./content/', { withFileTypes: true })
+    .withArgs('content', { withFileTypes: true })
     .resolves([
       mockDirent({ isFile: true, name: 'index.md' }),
       mockDirent({ isFile: true, name: 'draft.md' }),
@@ -63,7 +63,7 @@ test('`parseContent`', async (t: test.TestContext) => {
     ]);
 
   readdirStub
-    .withArgs('./content/directory/', { withFileTypes: true })
+    .withArgs('content/directory', { withFileTypes: true })
     .resolves([
       mockDirent({ isFile: true, name: '_index.md' }),
       mockDirent({ isFile: true, name: 'draft.md' }),
@@ -74,7 +74,7 @@ test('`parseContent`', async (t: test.TestContext) => {
     ]);
 
   readdirStub
-    .withArgs('./content/directory/nested/', { withFileTypes: true })
+    .withArgs('content/directory/nested', { withFileTypes: true })
     .resolves([
       mockDirent({ isFile: true, name: 'index.md' }),
       mockDirent({ isFile: true, name: 'draft.md' }),
@@ -103,26 +103,26 @@ test('`parseContent`', async (t: test.TestContext) => {
   t.assert.deepEqual(
     content,
     {
-      assets: [{ filePath: './content/asset.jpg' }],
+      assets: [{ filePath: 'content/asset.jpg' }],
       children: {
         directory: {
-          assets: [{ filePath: './content/directory/asset.jpg' }],
+          assets: [{ filePath: 'content/directory/asset.jpg' }],
           children: {
             nested: {
-              assets: [{ filePath: './content/directory/nested/asset.jpg' }],
+              assets: [{ filePath: 'content/directory/nested/asset.jpg' }],
               children: null,
               data: {
                 json: { key: 'value' },
-                filePath: './content/directory/nested/_data.json',
+                filePath: 'content/directory/nested/_data.json',
               },
               pages: [
                 {
-                  filePath: './content/directory/nested/index.md',
+                  filePath: 'content/directory/nested/index.md',
                   markdown: mockParsedMarkdown,
                   name: 'index.md',
                 },
                 {
-                  filePath: './content/directory/nested/page.md',
+                  filePath: 'content/directory/nested/page.md',
                   markdown: mockParsedMarkdown,
                   name: 'page.md',
                 },
@@ -132,31 +132,31 @@ test('`parseContent`', async (t: test.TestContext) => {
           },
           data: {
             json: { key: 'value' },
-            filePath: './content/directory/_data.json',
+            filePath: 'content/directory/_data.json',
           },
           pages: [
             {
-              filePath: './content/directory/page.md',
+              filePath: 'content/directory/page.md',
               markdown: mockParsedMarkdown,
               name: 'page.md',
             },
           ],
           section: {
-            filePath: './content/directory/_index.md',
+            filePath: 'content/directory/_index.md',
             markdown: mockParsedMarkdown,
             name: '_index.md',
           },
         },
       },
-      data: { json: { key: 'value' }, filePath: './content/_data.json' },
+      data: { json: { key: 'value' }, filePath: 'content/_data.json' },
       pages: [
         {
-          filePath: './content/index.md',
+          filePath: 'content/index.md',
           markdown: mockParsedMarkdown,
           name: 'index.md',
         },
         {
-          filePath: './content/page.md',
+          filePath: 'content/page.md',
           markdown: mockParsedMarkdown,
           name: 'page.md',
         },

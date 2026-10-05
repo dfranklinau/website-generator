@@ -10,7 +10,7 @@ const getContentOutputPath_1 = require("./getContentOutputPath");
 const getContentOutputURL = (filePath, section) => {
     const contentOutputPath = (0, getContentOutputPath_1.getContentOutputPath)(filePath, section);
     return contentOutputPath
-        .replace(path_1.default.normalize(constants_1.DIRECTORIES.BUILD), '/')
+        .replace(new RegExp(`^${path_1.default.normalize(constants_1.DIRECTORIES.BUILD)}`), '')
         .replace('index.html', '');
 };
 exports.getContentOutputURL = getContentOutputURL;
