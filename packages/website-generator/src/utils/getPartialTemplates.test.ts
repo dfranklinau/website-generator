@@ -5,12 +5,12 @@ import test from 'node:test';
 const getPartialTemplates = proxyquire('./getPartialTemplates', {
   './findFiles': {
     findFiles: sinon.fake.returns([
-      './templates/_partials/partial.hbs',
+      'templates/_partials/partial.hbs',
     ]),
   },
   './readFile': {
     readFile: sinon.fake(arg => {
-      if (arg === './templates/_partials/partial.hbs') {
+      if (arg === 'templates/_partials/partial.hbs') {
         return '<p>Partial</p>'
       };
     })
