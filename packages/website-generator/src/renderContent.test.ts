@@ -67,27 +67,27 @@ test('`renderContent`', (t: test.TestContext) => {
   );
 
   t.assert.ok(
-    writeFileSyncStub.calledWith('./build/index.html'),
+    writeFileSyncStub.calledWith('build/index.html'),
     'created the index HTML file',
   );
   t.assert.ok(
-    writeFileSyncStub.calledWith('./build/page/index.html'),
+    writeFileSyncStub.calledWith('build/page/index.html'),
     'created the page HTML file',
   );
   t.assert.ok(
-    writeFileSyncStub.calledWith('./build/directory/index.html'),
+    writeFileSyncStub.calledWith('build/directory/index.html'),
     'created the child index HTML file',
   );
   t.assert.ok(
-    writeFileSyncStub.calledWith('./build/directory/page/index.html'),
+    writeFileSyncStub.calledWith('build/directory/page/index.html'),
     'created the child page HTML file',
   );
   t.assert.ok(
-    writeFileSyncStub.calledWith('./build/directory/nested/index.html'),
+    writeFileSyncStub.calledWith('build/directory/nested/index.html'),
     'created the child index HTML file of a child',
   );
   t.assert.ok(
-    writeFileSyncStub.calledWith('./build/directory/nested/page/index.html'),
+    writeFileSyncStub.calledWith('build/directory/nested/page/index.html'),
     'created the child page HTML file of a child',
   );
 

@@ -7,23 +7,23 @@ exports.getContentOutputPath = void 0;
 const path_1 = __importDefault(require("path"));
 const constants_1 = require("../config/constants");
 const getContentOutputPath = (filePath, section) => {
-    let rewritePath = filePath;
+    let rewritePath = path_1.default.normalize(filePath);
     if (typeof section?.markdown.options.url === 'string' &&
         section.markdown.options.url.length > 0) {
         const sectionPath = path_1.default
-            .parse(section.filePath)
+            .parse(path_1.default.normalize(section.filePath))
             .dir.split(path_1.default.sep)
-            .slice(2)
+            .slice(1)
             .join(path_1.default.sep);
         if (section.markdown.options.url === '/') {
-            rewritePath = filePath.replace(`/${sectionPath}/`, '/');
+            rewritePath = rewritePath.replace(`/${sectionPath}/`, '/');
         }
         else {
-            rewritePath = filePath.replace(`/${sectionPath}/`, `/${section.markdown.options.url}/`);
+            rewritePath = rewritePath.replace(`/${sectionPath}/`, `/${section.markdown.options.url}/`);
         }
     }
     rewritePath = rewritePath
-        .replace(constants_1.DIRECTORIES.CONTENT, constants_1.DIRECTORIES.BUILD)
+        .replace(new RegExp(`^${path_1.default.normalize(constants_1.DIRECTORIES.CONTENT)}`), path_1.default.normalize(constants_1.DIRECTORIES.BUILD))
         .replace(/_index\.md$/, 'index.md')
         .replace(/\.md$/, '.html');
     if (!rewritePath.endsWith('/index.html')) {
