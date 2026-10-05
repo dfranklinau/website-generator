@@ -32,12 +32,12 @@ test('`generateAssets`', async (t: test.TestContext) => {
   await generateAssets();
 
   t.assert.ok(
-    mkdirSync.calledWith('./build', { recursive: true }),
-    'makes the `./build/` directory',
+    mkdirSync.calledWith('build', { recursive: true }),
+    'makes the `build` directory',
   );
   t.assert.ok(
-    writeFileSync.calledWith('./build/style.css', '.css { color: blue; }'),
-    'creates a new file called `./build/style.css`',
+    writeFileSync.calledWith('build/style.css', '.css { color: blue; }'),
+    'creates a new file called `build/style.css`',
   );
 
   readdirSync.restore();

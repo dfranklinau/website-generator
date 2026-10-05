@@ -46,8 +46,8 @@ test('`generateStaticFiles`', (t: test.TestContext) => {
   existsSync.returns(true);
 
   generateStaticFiles();
-  t.assert.ok(copyFileSync.calledWith('static/script.js', './build/script.js'), 'copies a static file to the destination folder');
-  t.assert.ok(copyFileSync.calledWith('static/images/image.jpg', './build/images/image.jpg'), 'copies a static file to the destination folder, with nesting');
+  t.assert.ok(copyFileSync.calledWith('static/script.js', 'build/script.js'), 'copies a static file to the destination folder');
+  t.assert.ok(copyFileSync.calledWith('static/images/image.jpg', 'build/images/image.jpg'), 'copies a static file to the destination folder, with nesting');
 
   readdirSync.restore();
   existsSync.restore();
