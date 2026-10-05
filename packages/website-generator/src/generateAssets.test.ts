@@ -19,7 +19,7 @@ test('`generateAssets`', async (t: test.TestContext) => {
   const writeFileSync = sinon.stub(fs, 'writeFileSync');
   existsSync.returns(true);
 
-  readdirSync.withArgs('./assets/', { withFileTypes: true }).returns([
+  readdirSync.withArgs('assets', { withFileTypes: true }).returns([
     // @ts-expect-error mimic a fs.Dirent type
     {
       isFile: () => true,

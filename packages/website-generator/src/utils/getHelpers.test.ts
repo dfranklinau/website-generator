@@ -7,9 +7,9 @@ proxyquire.noCallThru();
 const getHelpers = proxyquire('./getHelpers', {
   './findFiles': {
     findFiles: sinon.fake.returns([
-      './helpers/helper.js',
-      './helpers/namedExport.js',
-      './helpers/hasError.js',
+      'helpers/helper.js',
+      'helpers/namedExport.js',
+      'helpers/hasError.js',
     ]),
   },
   'helpers/helper.js': function () {

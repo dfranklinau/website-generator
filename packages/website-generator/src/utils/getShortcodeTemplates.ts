@@ -20,7 +20,7 @@ export const getShortcodeTemplates = async (): Promise<
   return Promise.all(
     shortcodeTemplates.map(async (file): Promise<ShortcodeTemplateType> => {
       const name = path.parse(file).name;
-      const template = `${DIRECTORIES.SHORTCODES}${name}.hbs`;
+      const template = path.join(DIRECTORIES.SHORTCODES, `${name}.hbs`);
 
       try {
         return {

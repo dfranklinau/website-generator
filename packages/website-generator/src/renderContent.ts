@@ -42,11 +42,11 @@ const getContentOutput = (props: GetContentOutputProps): string => {
     template,
   } = props;
 
-  // Use `.slice(2)` to remove '.' and 'content' from the list.
+  // Use `.slice(1)` to remove 'content' from the list.
   const contentDirectories = path
     .parse(content.filePath)
     .dir.split(path.sep)
-    .slice(2);
+    .slice(1);
 
   // Remove the Markdown extension from the file name.
   const filename =

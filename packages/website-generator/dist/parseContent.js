@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseContent = void 0;
 const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const readFile_1 = require("./utils/readFile");
 const parseContent = async (props) => {
     const { directory, markdownParser, renderer, shortcodes } = props;
@@ -19,10 +20,10 @@ const parseContent = async (props) => {
         withFileTypes: true,
     });
     await Promise.all(files.map(async (item) => {
-        const itemPath = `${directory}${item.name}`;
+        const itemPath = path_1.default.join(directory, item.name);
         if (item.isFile()) {
             if (item.name.match(/\.md$/)) {
-                const data = (await (0, readFile_1.readFile)(`${directory}/${item.name}`, ''));
+                const data = (await (0, readFile_1.readFile)(itemPath, ''));
                 const markdown = markdownParser.parse(data);
                 const contentItem = {
                     markdown,
@@ -39,7 +40,7 @@ const parseContent = async (props) => {
                 }
             }
             else if (item.name === '_data.json') {
-                const data = await (0, readFile_1.readFile)(`${directory}/${item.name}`, '{}');
+                const data = await (0, readFile_1.readFile)(itemPath, '{}');
                 try {
                     let dataJSON = {};
                     if (data)
@@ -62,7 +63,7 @@ const parseContent = async (props) => {
                 parsedContent.children = {};
             }
             const parsedChildContent = await (0, exports.parseContent)({
-                directory: `${itemPath}/`,
+                directory: itemPath,
                 markdownParser,
                 renderer,
                 shortcodes,

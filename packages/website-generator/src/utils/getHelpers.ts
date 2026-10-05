@@ -27,7 +27,7 @@ export const getHelpers = (): HelpersType => {
        * relative to where `website-generator` was called.
        */
       const resolvedPath = path.resolve(process.cwd(), file);
-      const name = file.match(/\/helpers\/(.*)\.js$/);
+      const name = file.match(/^helpers\/(.*)\.js$/);
 
       if (Array.isArray(name) && name[1]) {
         try {

@@ -14,7 +14,7 @@ const stubReaddirSync = () => {
     fs.Dirent<string>[]
   >;
 
-  readdirSync.withArgs('./static/', { withFileTypes: true }).returns([
+  readdirSync.withArgs('static', { withFileTypes: true }).returns([
     // @ts-expect-error mimic a fs.Dirent type
     {
       isFile: () => true,

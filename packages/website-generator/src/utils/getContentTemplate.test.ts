@@ -5,39 +5,45 @@ import test from 'node:test';
 import { DIRECTORIES, EXTENSIONS } from '../config/constants';
 import { getContentTemplate } from './getContentTemplate';
 
-// @FIXME: revert hard-coded `templates/` to `${DIRECTORIES.TEMPLATES}` once the
-// constant has it's relative prefix removed.
 test('`getContentTemplate`', (t: test.TestContext) => {
   const readFileSync = sinon.stub(fs, 'readFileSync');
 
   readFileSync
-    .withArgs(`templates/page.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}/page.${EXTENSIONS.TEMPLATES}`)
     .returns('page template');
   readFileSync
-    .withArgs(`templates/section.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}/section.${EXTENSIONS.TEMPLATES}`)
     .returns('section template');
   readFileSync
-    .withArgs(`templates/_index.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}/_index.${EXTENSIONS.TEMPLATES}`)
     .returns('index template');
   readFileSync
-    .withArgs(`templates/filename.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}/filename.${EXTENSIONS.TEMPLATES}`)
     .returns('named page template');
 
   readFileSync
-    .withArgs(`templates/directory/page.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}/directory/page.${EXTENSIONS.TEMPLATES}`)
     .returns('directory page template');
   readFileSync
-    .withArgs(`templates/directory/section.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(
+      `${DIRECTORIES.TEMPLATES}/directory/section.${EXTENSIONS.TEMPLATES}`,
+    )
     .returns('directory section template');
   readFileSync
-    .withArgs(`templates/directory/filename.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(
+      `${DIRECTORIES.TEMPLATES}/directory/filename.${EXTENSIONS.TEMPLATES}`,
+    )
     .returns('named directory page template');
 
   readFileSync
-    .withArgs(`templates/non-existant/page.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(
+      `${DIRECTORIES.TEMPLATES}/non-existant/page.${EXTENSIONS.TEMPLATES}`,
+    )
     .throws();
   readFileSync
-    .withArgs(`templates/non-existant/section.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(
+      `${DIRECTORIES.TEMPLATES}/non-existant/section.${EXTENSIONS.TEMPLATES}`,
+    )
     .throws();
 
   let contentTemplate = null;
@@ -150,10 +156,18 @@ test('`getContentTemplate`', (t: test.TestContext) => {
    * Template lookup when no templates exist.
    */
   readFileSync.reset();
-  readFileSync.withArgs(`templates/page.${EXTENSIONS.TEMPLATES}`).throws();
-  readFileSync.withArgs(`templates/filename.${EXTENSIONS.TEMPLATES}`).throws();
-  readFileSync.withArgs(`templates/section.${EXTENSIONS.TEMPLATES}`).throws();
-  readFileSync.withArgs(`templates/_index.${EXTENSIONS.TEMPLATES}`).throws();
+  readFileSync
+    .withArgs(`${DIRECTORIES.TEMPLATES}/page.${EXTENSIONS.TEMPLATES}`)
+    .throws();
+  readFileSync
+    .withArgs(`${DIRECTORIES.TEMPLATES}/filename.${EXTENSIONS.TEMPLATES}`)
+    .throws();
+  readFileSync
+    .withArgs(`${DIRECTORIES.TEMPLATES}/section.${EXTENSIONS.TEMPLATES}`)
+    .throws();
+  readFileSync
+    .withArgs(`${DIRECTORIES.TEMPLATES}/_index.${EXTENSIONS.TEMPLATES}`)
+    .throws();
 
   contentTemplate = getContentTemplate('page', []);
   t.assert.equal(
@@ -188,9 +202,11 @@ test('`getContentTemplate`', (t: test.TestContext) => {
    * template does.
    */
   readFileSync.reset();
-  readFileSync.withArgs(`templates/_index.${EXTENSIONS.TEMPLATES}`).throws();
   readFileSync
-    .withArgs(`templates/section.${EXTENSIONS.TEMPLATES}`)
+    .withArgs(`${DIRECTORIES.TEMPLATES}/_index.${EXTENSIONS.TEMPLATES}`)
+    .throws();
+  readFileSync
+    .withArgs(`${DIRECTORIES.TEMPLATES}/section.${EXTENSIONS.TEMPLATES}`)
     .returns('section template');
 
   contentTemplate = getContentTemplate('index', []);

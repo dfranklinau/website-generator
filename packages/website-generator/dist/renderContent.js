@@ -15,7 +15,7 @@ const getContentOutput = (props) => {
     const contentDirectories = path_1.default
         .parse(content.filePath)
         .dir.split(path_1.default.sep)
-        .slice(2);
+        .slice(1);
     const filename = content.name.endsWith('.md')
         ? content.name.slice(0, -3)
         : null;

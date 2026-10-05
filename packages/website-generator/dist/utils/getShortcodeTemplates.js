@@ -14,7 +14,7 @@ const getShortcodeTemplates = async () => {
     });
     return Promise.all(shortcodeTemplates.map(async (file) => {
         const name = path_1.default.parse(file).name;
-        const template = `${constants_1.DIRECTORIES.SHORTCODES}${name}.hbs`;
+        const template = path_1.default.join(constants_1.DIRECTORIES.SHORTCODES, `${name}.hbs`);
         try {
             return {
                 template: (await (0, readFile_1.readFile)(template)),

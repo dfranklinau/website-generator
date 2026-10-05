@@ -16,7 +16,7 @@ const markdownParser = new MarkdownParser(renderer, []);
 
 test('`generateContent`', async (t: test.TestContext) => {
   const readdir = sinon.stub(fs.promises, 'readdir');
-  readdir.withArgs('./content/', { withFileTypes: true }).resolves([]);
+  readdir.withArgs('content', { withFileTypes: true }).resolves([]);
 
   await generateContent({
     markdownParser,

@@ -14,7 +14,7 @@ const getHelpers = () => {
     });
     const helpers = helperFiles.map((file) => {
         const resolvedPath = path_1.default.resolve(process.cwd(), file);
-        const name = file.match(/\/helpers\/(.*)\.js$/);
+        const name = file.match(/^helpers\/(.*)\.js$/);
         if (Array.isArray(name) && name[1]) {
             try {
                 const module = require(resolvedPath);

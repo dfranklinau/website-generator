@@ -10,6 +10,6 @@ export const getContentOutputURL = (
 ): string => {
   const contentOutputPath = getContentOutputPath(filePath, section);
   return contentOutputPath
-    .replace(path.normalize(DIRECTORIES.BUILD), '/')
+    .replace(new RegExp(`^${path.normalize(DIRECTORIES.BUILD)}`), '')
     .replace('index.html', '');
 };

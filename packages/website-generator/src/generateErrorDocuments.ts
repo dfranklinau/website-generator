@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import { DIRECTORIES } from './config/constants';
 import { readFile } from './utils/readFile';
 import type { Renderer } from './Renderer';
@@ -9,11 +10,11 @@ async function generateErrorDocuments(props: {
 }) {
   const { config, renderer } = props;
 
-  const templateFile = `${DIRECTORIES.TEMPLATES}_404.hbs`;
+  const templateFile = path.join(DIRECTORIES.TEMPLATES, '_404.hbs');
   const content = (await readFile(templateFile)) as string;
 
   fs.writeFileSync(
-    `${DIRECTORIES.BUILD}404.html`,
+    path.join(DIRECTORIES.BUILD, '404.html'),
     renderer.render({
       content,
       head: {
