@@ -17,19 +17,19 @@ test('`copyFiles`', (t: test.TestContext) => {
   t.assert.ok(copyFileSync.calledTwice, '`copyFileSync` should be called three times');
 
   t.assert.ok(
-    mkdirSync.calledWith('./build', { recursive: true }),
+    mkdirSync.calledWith('build', { recursive: true }),
     'creates the provided destination folder',
   );
   t.assert.ok(
-    mkdirSync.calledWith('./build/js', { recursive: true }),
+    mkdirSync.calledWith('build/js', { recursive: true }),
     'creates the provided destination folder, with nesting',
   );
   t.assert.ok(
-    copyFileSync.calledWith('./static/image.jpg', './build/image.jpg'),
+    copyFileSync.calledWith('./static/image.jpg', 'build/image.jpg'),
     'copies the supplied file to the destination folder',
   );
   t.assert.ok(
-    copyFileSync.calledWith('./static/js/main.js', './build/js/main.js'),
+    copyFileSync.calledWith('./static/js/main.js', 'build/js/main.js'),
     'copies the supplied file to the destination folder, with nesting',
   );
 

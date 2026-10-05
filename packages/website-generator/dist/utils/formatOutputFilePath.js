@@ -7,7 +7,7 @@ exports.formatOutputFilePath = void 0;
 const path_1 = __importDefault(require("path"));
 const formatOutputFilePath = (filePath, outputDir) => {
     const outputDirBase = path_1.default.parse(outputDir).base;
-    return filePath.replace(/^\.?\/?\w*\//, `./${outputDirBase}/`);
+    return path_1.default.normalize(filePath).replace(/^\w*/, outputDirBase);
 };
 exports.formatOutputFilePath = formatOutputFilePath;
 //# sourceMappingURL=formatOutputFilePath.js.map

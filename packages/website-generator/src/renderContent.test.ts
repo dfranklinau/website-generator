@@ -35,34 +35,34 @@ test('`renderContent`', (t: test.TestContext) => {
   );
 
   t.assert.ok(
-    copyFileSyncStub.calledWith('content/asset.jpg', './build/asset.jpg'),
+    copyFileSyncStub.calledWith('content/asset.jpg', 'build/asset.jpg'),
     'copied the root asset',
   );
   t.assert.ok(
     copyFileSyncStub.calledWith(
       'content/directory/asset.jpg',
-      './build/directory/asset.jpg',
+      'build/directory/asset.jpg',
     ),
     'copied the child asset',
   );
   t.assert.ok(
     copyFileSyncStub.calledWith(
       'content/directory/nested/asset.jpg',
-      './build/directory/nested/asset.jpg',
+      'build/directory/nested/asset.jpg',
     ),
     'copied the child asset of a child',
   );
 
   t.assert.ok(
-    mkdirSyncStub.calledWith('./build'),
+    mkdirSyncStub.calledWith('build'),
     'created a root directory for the content',
   );
   t.assert.ok(
-    mkdirSyncStub.calledWith('./build/directory'),
+    mkdirSyncStub.calledWith('build/directory'),
     'created a directory for child content',
   );
   t.assert.ok(
-    mkdirSyncStub.calledWith('./build/directory/nested'),
+    mkdirSyncStub.calledWith('build/directory/nested'),
     'created a directory for the child content of a child',
   );
 

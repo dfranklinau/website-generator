@@ -15,7 +15,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Replaced the `tap-node` test runner with `node:test` and improved code
   coverage reporting.
 - Replaced path string concatenation in `findFiles` with `path.join`. 
-- Added path normalization to `getContentOutputPath` and `getContentOutputURL`.
+- Added path normalization to `getContentOutputPath`, `getContentOutputURL` and
+  `formatOutputFilePath`.
 
 ### Removed
 

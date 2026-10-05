@@ -5,5 +5,5 @@ export const formatOutputFilePath = (
   outputDir: string,
 ): string => {
   const outputDirBase = path.parse(outputDir).base;
-  return filePath.replace(/^\.?\/?\w*\//, `./${outputDirBase}/`);
+  return path.normalize(filePath).replace(/^\w*/, outputDirBase);
 };
