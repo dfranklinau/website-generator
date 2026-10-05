@@ -24,6 +24,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Removed
 
 - Removed relative path usage from `getWebsiteGeneratorConfig`.
+- Removed relative file paths from fixtures.
 
 ### Fixed
 
