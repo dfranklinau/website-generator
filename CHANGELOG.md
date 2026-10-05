@@ -22,6 +22,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Removed trailing slashes from `DIRECTORIES` constants.
 - Removed relative file paths from fixtures.
+- Removed relative path usage from `getWebsiteGeneratorConfig`.
 
 ## [1.0.0-beta.2] - 2026-09-28
 
