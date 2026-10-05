@@ -123,8 +123,8 @@ detailed information about each child page within the section:
           options: {}, // Options referenced internally by website-generator.
         },
         name: "my-post.md",
-        filePath: "./content/my-section/my-post.md",
-        outputPath: "./build/my-section/my-post/index.html",
+        filePath: "content/my-section/my-post.md",
+        outputPath: "build/my-section/my-post/index.html",
         outputURL: "/my-section/my-post/"
       }
     ]
