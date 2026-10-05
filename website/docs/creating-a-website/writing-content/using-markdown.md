@@ -92,7 +92,7 @@ at a root section level but multiple, nested URL overrides may produce
 unexpected results.
 :::
 
-If the following URL override is defined in `/content/section/_index.md`:
+If the following URL override is defined in `content/section/_index.md`:
 
 ```markdown
 +++

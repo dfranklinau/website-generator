@@ -8,12 +8,12 @@ website-generator arranges content into pages and sections:
 * "pages", which are standalone pieces of content; and
 * "sections", which are used to group pages together.
 
-An example of a **page** would be `/content/blog/my-first-post.md`, which would
-generate `/build/blog/my-first-post.html`.
+An example of a **page** would be `content/blog/my-first-post.md`, which would
+generate `build/blog/my-first-post.html`.
 
-An example of a **section** would be `/content/blog/_index.md`, which would
-generate `/build/blog/index.html` and contain a listing of all pages within
-`/content/blog/`
+An example of a **section** would be `content/blog/_index.md`, which would
+generate `build/blog/index.html` and contain a listing of all pages within
+`content/blog/`
 
 ## Creating a page
 
