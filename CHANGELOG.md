@@ -17,6 +17,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Replaced path string concatenation in `findFiles` with `path.join`. 
 - Added path normalisation to `getContentOutputPath` and `getContentOutputURL`.
 - Added path normalisation to `formatOutputFilePath`.
+- Added path normalisation to `removeTrailingSlash`.
 
 ### Fixed
 
