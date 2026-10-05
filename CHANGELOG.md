@@ -21,6 +21,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Added path normalisation to `getContentTemplate`.
 - Added path normalisation to `getPartialTemplates`.
 
+### Removed
+
+- Removed relative path usage from `getWebsiteGeneratorConfig`.
+
 ### Fixed
 
 - Fixed the `switch` block in the `website-generator` bin script.
