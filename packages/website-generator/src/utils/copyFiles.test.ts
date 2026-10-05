@@ -8,9 +8,9 @@ test('`copyFiles`', (t: test.TestContext) => {
   const mkdirSync = sinon.stub(fs, 'mkdirSync');
   const copyFileSync = sinon.stub(fs, 'copyFileSync');
 
-  const files = ['./static/image.jpg', './static/js/main.js'];
+  const files = ['static/image.jpg', 'static/js/main.js'];
 
-  copyFiles(files, './build/');
+  copyFiles(files, 'build/');
 
   t.assert.ok(mkdirSync.calledTwice, '`mkdirSync` should be called three times');
 
@@ -25,11 +25,11 @@ test('`copyFiles`', (t: test.TestContext) => {
     'creates the provided destination folder, with nesting',
   );
   t.assert.ok(
-    copyFileSync.calledWith('./static/image.jpg', 'build/image.jpg'),
+    copyFileSync.calledWith('static/image.jpg', 'build/image.jpg'),
     'copies the supplied file to the destination folder',
   );
   t.assert.ok(
-    copyFileSync.calledWith('./static/js/main.js', 'build/js/main.js'),
+    copyFileSync.calledWith('static/js/main.js', 'build/js/main.js'),
     'copies the supplied file to the destination folder, with nesting',
   );
 

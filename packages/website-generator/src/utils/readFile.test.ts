@@ -7,21 +7,21 @@ import { readFile } from './readFile';
 test('`readFile`', async (t: test.TestContext) => {
   const readFileStub = sinon.stub(fs.promises, 'readFile');
 
-  readFileStub.withArgs('./file.txt').resolves('file');
-  readFileStub.withArgs('./error.txt').rejects();
+  readFileStub.withArgs('file.txt').resolves('file');
+  readFileStub.withArgs('error.txt').rejects();
 
   t.assert.ok(
-    (await readFile('./file.txt')) === 'file',
+    (await readFile('file.txt')) === 'file',
     'returns the contents of a given file',
   );
 
   t.assert.ok(
-    (await readFile('./error.txt')) === null,
+    (await readFile('error.txt')) === null,
     'returns `null` for a file that does not exist',
   );
 
   t.assert.ok(
-    (await readFile('./error.txt', 'default')) === 'default',
+    (await readFile('error.txt', 'default')) === 'default',
     'returns a supplied default value for a file that does not exist',
   );
 
