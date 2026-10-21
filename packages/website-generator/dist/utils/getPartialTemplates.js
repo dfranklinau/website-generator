@@ -1,11 +1,15 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPartialTemplates = void 0;
+const path_1 = __importDefault(require("path"));
 const findFiles_1 = require("./findFiles");
 const readFile_1 = require("./readFile");
 const constants_1 = require("../config/constants");
 const getPartialTemplates = async () => {
-    const partialTemplates = (0, findFiles_1.findFiles)(`${constants_1.DIRECTORIES.TEMPLATES}_partials/`, {
+    const partialTemplates = (0, findFiles_1.findFiles)(path_1.default.join(constants_1.DIRECTORIES.TEMPLATES, '_partials'), {
         match: /\.hbs/,
         recursive: true,
     });

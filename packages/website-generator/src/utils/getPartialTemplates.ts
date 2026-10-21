@@ -1,3 +1,4 @@
+import path from 'path';
 import { findFiles } from './findFiles';
 import { readFile } from './readFile';
 
@@ -14,7 +15,7 @@ type PartialsType = {
 
 export const getPartialTemplates = async (): Promise<PartialsType> => {
   const partialTemplates: string[] = findFiles(
-    `${DIRECTORIES.TEMPLATES}_partials/`,
+    path.join(DIRECTORIES.TEMPLATES, '_partials'),
     {
       match: /\.hbs/,
       recursive: true,
