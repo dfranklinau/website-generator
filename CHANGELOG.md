@@ -20,6 +20,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Added path normalisation to `removeTrailingSlash`.
 - Added path normalisation to `getContentTemplate`.
 - Added path normalisation to `getPartialTemplates`.
+- Used `DIRECTORIES` constants in `generate` and `serve` scripts.
 
 ### Removed
 

@@ -5,9 +5,10 @@ import path from 'path';
 import { WebSocketServer } from 'ws';
 import { Buffer } from 'node:buffer';
 import { generate } from './generate';
+import { DIRECTORIES } from './config/constants';
 
-const CONTENT = path.resolve('./content/');
-const ROOT = path.resolve('./build/');
+const CONTENT = path.resolve(DIRECTORIES.CONTENT);
+const ROOT = path.resolve(DIRECTORIES.BUILD);
 const PORT = 8000;
 const WS_PORT = 8001;
 

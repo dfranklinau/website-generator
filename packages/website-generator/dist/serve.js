@@ -11,8 +11,9 @@ const path_1 = __importDefault(require("path"));
 const ws_1 = require("ws");
 const node_buffer_1 = require("node:buffer");
 const generate_1 = require("./generate");
-const CONTENT = path_1.default.resolve('./content/');
-const ROOT = path_1.default.resolve('./build/');
+const constants_1 = require("./config/constants");
+const CONTENT = path_1.default.resolve(constants_1.DIRECTORIES.CONTENT);
+const ROOT = path_1.default.resolve(constants_1.DIRECTORIES.BUILD);
 const PORT = 8000;
 const WS_PORT = 8001;
 const fetchResource = async (resource, options = { cwd: false }) => {

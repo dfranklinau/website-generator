@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generate = void 0;
+const path_1 = __importDefault(require("path"));
 const constants_1 = require("./config/constants");
 const MarkdownParser_1 = require("./MarkdownParser");
 const Renderer_1 = require("./Renderer");
@@ -17,7 +21,7 @@ const readFile_1 = require("./utils/readFile");
 const generate = async () => {
     (0, cleanDirectory_1.cleanDirectory)(constants_1.DIRECTORIES.BUILD);
     const config = await (0, getWebsiteGeneratorConfig_1.getWebsiteGeneratorConfig)();
-    const baseTemplate = (await (0, readFile_1.readFile)('./templates/_base.hbs', ''));
+    const baseTemplate = (await (0, readFile_1.readFile)(path_1.default.join(constants_1.DIRECTORIES.TEMPLATES, `_base.${constants_1.EXTENSIONS.TEMPLATES}`), ''));
     const helpers = (0, getHelpers_1.getHelpers)();
     const partials = await (0, getPartialTemplates_1.getPartialTemplates)();
     const shortcodes = await (0, getShortcodeTemplates_1.getShortcodeTemplates)();

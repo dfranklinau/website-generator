@@ -1,4 +1,5 @@
-import { DIRECTORIES } from './config/constants';
+import path from 'path';
+import { DIRECTORIES, EXTENSIONS } from './config/constants';
 import { MarkdownParser } from './MarkdownParser';
 import { Renderer } from './Renderer';
 import { cleanDirectory } from './utils/cleanDirectory';
@@ -19,7 +20,7 @@ export const generate = async (): Promise<void> => {
   const config = await getWebsiteGeneratorConfig();
 
   const baseTemplate: string = (await readFile(
-    './templates/_base.hbs',
+    path.join(DIRECTORIES.TEMPLATES, `_base.${EXTENSIONS.TEMPLATES}`),
     '',
   )) as string;
 
