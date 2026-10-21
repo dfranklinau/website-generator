@@ -15,7 +15,7 @@ export type HelpersType = {
 };
 
 export const getHelpers = (): HelpersType => {
-  const helperFiles: string[] = findFiles(`${DIRECTORIES.HELPERS}`, {
+  const helperFiles: string[] = findFiles(DIRECTORIES.HELPERS, {
     match: /\.js$/,
     recursive: true,
   });
