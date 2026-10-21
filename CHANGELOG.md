@@ -18,6 +18,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Added path normalisation to `getContentOutputPath` and `getContentOutputURL`.
 - Added path normalisation to `formatOutputFilePath`.
 - Added path normalisation to `removeTrailingSlash`.
+- Added path normalisation to `getContentTemplate`.
 
 ### Fixed
 

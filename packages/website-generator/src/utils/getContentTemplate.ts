@@ -12,15 +12,15 @@ export const getContentTemplate = (
 
   const templatePath =
     section.length > 0
-      ? `${DIRECTORIES.TEMPLATES}${section}${path.sep}`
-      : `${DIRECTORIES.TEMPLATES}`;
+      ? path.join(DIRECTORIES.TEMPLATES, section)
+      : DIRECTORIES.TEMPLATES;
 
   let content = null;
 
   if (template === 'index' && section.length === 0) {
     try {
       content = fs.readFileSync(
-        `${templatePath}_index.${EXTENSIONS.TEMPLATES}`,
+        path.join(templatePath, `_index.${EXTENSIONS.TEMPLATES}`),
         'utf8',
       );
     } catch {
@@ -30,7 +30,7 @@ export const getContentTemplate = (
     if (!content) {
       try {
         content = fs.readFileSync(
-          `${templatePath}section.${EXTENSIONS.TEMPLATES}`,
+          path.join(templatePath, `section.${EXTENSIONS.TEMPLATES}`),
           'utf8',
         );
       } catch {
@@ -41,7 +41,7 @@ export const getContentTemplate = (
     if (template === 'page' && filename) {
       try {
         content = fs.readFileSync(
-          `${templatePath}${filename}.${EXTENSIONS.TEMPLATES}`,
+          path.join(templatePath, `${filename}.${EXTENSIONS.TEMPLATES}`),
           'utf8',
         );
       } catch {
@@ -53,7 +53,7 @@ export const getContentTemplate = (
       try {
         content =
           fs.readFileSync(
-            `${templatePath}${template}.${EXTENSIONS.TEMPLATES}`,
+            path.join(templatePath, `${template}.${EXTENSIONS.TEMPLATES}`),
             'utf8',
           ) || null;
       } catch {

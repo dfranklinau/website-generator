@@ -10,19 +10,19 @@ const constants_1 = require("../config/constants");
 const getContentTemplate = (template, directories, filename) => {
     const section = directories.join(path_1.default.sep);
     const templatePath = section.length > 0
-        ? `${constants_1.DIRECTORIES.TEMPLATES}${section}${path_1.default.sep}`
-        : `${constants_1.DIRECTORIES.TEMPLATES}`;
+        ? path_1.default.join(constants_1.DIRECTORIES.TEMPLATES, section)
+        : constants_1.DIRECTORIES.TEMPLATES;
     let content = null;
     if (template === 'index' && section.length === 0) {
         try {
-            content = fs_1.default.readFileSync(`${templatePath}_index.${constants_1.EXTENSIONS.TEMPLATES}`, 'utf8');
+            content = fs_1.default.readFileSync(path_1.default.join(templatePath, `_index.${constants_1.EXTENSIONS.TEMPLATES}`), 'utf8');
         }
         catch {
             content = null;
         }
         if (!content) {
             try {
-                content = fs_1.default.readFileSync(`${templatePath}section.${constants_1.EXTENSIONS.TEMPLATES}`, 'utf8');
+                content = fs_1.default.readFileSync(path_1.default.join(templatePath, `section.${constants_1.EXTENSIONS.TEMPLATES}`), 'utf8');
             }
             catch {
                 content = null;
@@ -32,7 +32,7 @@ const getContentTemplate = (template, directories, filename) => {
     else {
         if (template === 'page' && filename) {
             try {
-                content = fs_1.default.readFileSync(`${templatePath}${filename}.${constants_1.EXTENSIONS.TEMPLATES}`, 'utf8');
+                content = fs_1.default.readFileSync(path_1.default.join(templatePath, `${filename}.${constants_1.EXTENSIONS.TEMPLATES}`), 'utf8');
             }
             catch {
                 content = null;
@@ -41,7 +41,7 @@ const getContentTemplate = (template, directories, filename) => {
         if (!content) {
             try {
                 content =
-                    fs_1.default.readFileSync(`${templatePath}${template}.${constants_1.EXTENSIONS.TEMPLATES}`, 'utf8') || null;
+                    fs_1.default.readFileSync(path_1.default.join(templatePath, `${template}.${constants_1.EXTENSIONS.TEMPLATES}`), 'utf8') || null;
             }
             catch {
                 content = null;
