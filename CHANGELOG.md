@@ -8,6 +8,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 --------------------------------------------------------------------------------
 
+## [Unreleased]
+
+### Fixed
+
+- Fixed the `switch` block in the `website-generator` bin script.
+
 ## [1.0.0-beta.2] - 2026-09-28
 
 ### Added

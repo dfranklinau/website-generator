@@ -29,13 +29,17 @@ ${packagejson.version}
 switch (args[0]) {
   case "build":
     websiteGenerator.generate();
+    break;
   case "serve":
     websiteGenerator.serve();
+    break;
   case "init":
     websiteGenerator.init();
+    break;
   default:
     process.stdout.write(`\
 Please specify a command when using website-generator. Run \`website-generator --help\` for usage.
 `);
-    process.exit();
+
+  process.exit();
 }
