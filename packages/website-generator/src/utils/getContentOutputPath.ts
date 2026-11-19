@@ -14,7 +14,7 @@ export const getContentOutputPath = (
     typeof section?.markdown.options.url === 'string' &&
     section.markdown.options.url.length > 0
   ) {
-    // Convert `./content/directory/page` to `directory/page`.
+    // Convert `content/directory/page` to `directory/page`.
     const sectionPath = path
       .parse(path.normalize(section.filePath))
       .dir.split(path.sep)
