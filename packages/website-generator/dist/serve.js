@@ -107,7 +107,7 @@ function serve() {
         }, 1000);
     };
     chokidar_1.default
-        .watch(`${CONTENT}/**/*`, {
+        .watch(CONTENT, {
         ignoreInitial: true,
     })
         .on('all', (event, filepath) => {

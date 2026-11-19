@@ -145,7 +145,7 @@ export function serve() {
   // Start file watching and call `generate` whenever files change; then send a
   // reload event to the WebSocket server after `generate` is successful.
   chokidar
-    .watch(`${CONTENT}/**/*`, {
+    .watch(CONTENT, {
       ignoreInitial: true,
     })
     .on('all', (event, filepath) => {
