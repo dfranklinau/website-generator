@@ -85,15 +85,35 @@ function serve() {
         console.log(`WebSocket Server is running on port: ${WS_PORT}`);
     });
     wsServer.on('reload', () => {
-        console.log('reloading...');
+        console.log('Reloading...');
         wsServer.clients.forEach((client) => client.send('RELOAD'));
     });
+    let timer;
+    let files = new Set();
+    const schedule = (event, file, callback) => {
+        clearTimeout(timer);
+        switch (event) {
+            case 'add':
+            case 'change':
+                files.add(file);
+                break;
+            case 'unlink':
+                files.delete(file);
+                break;
+        }
+        timer = setTimeout(() => {
+            callback();
+            files.clear();
+        }, 1000);
+    };
     chokidar_1.default
         .watch(`${CONTENT}/**/*`, {
         ignoreInitial: true,
     })
-        .on('all', (event, path) => {
-        (0, generate_1.generate)().then(() => wsServer.emit('reload'));
+        .on('all', (event, filepath) => {
+        schedule(event, filepath, () => {
+            (0, generate_1.generate)().then(() => wsServer.emit('reload'));
+        });
     });
 }
 //# sourceMappingURL=serve.js.map

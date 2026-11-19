@@ -116,9 +116,31 @@ export function serve() {
   // Send a message to each client when the WebSocket server receives a `reload`
   // event.
   wsServer.on('reload', () => {
-    console.log('reloading...');
+    console.log('Reloading...');
     wsServer.clients.forEach((client) => client.send('RELOAD'));
   });
+
+  let timer: NodeJS.Timeout;
+  let files: Set<string> = new Set();
+
+  const schedule = (event: string, file: string, callback: () => void) => {
+    clearTimeout(timer);
+
+    switch (event) {
+      case 'add':
+      case 'change':
+        files.add(file);
+        break;
+      case 'unlink':
+        files.delete(file);
+        break;
+    }
+
+    timer = setTimeout(() => {
+      callback();
+      files.clear();
+    }, 1000);
+  };
 
   // Start file watching and call `generate` whenever files change; then send a
   // reload event to the WebSocket server after `generate` is successful.
@@ -126,7 +148,9 @@ export function serve() {
     .watch(`${CONTENT}/**/*`, {
       ignoreInitial: true,
     })
-    .on('all', (event, path) => {
-      generate().then(() => wsServer.emit('reload'))
+    .on('all', (event, filepath) => {
+      schedule(event, filepath, () => {
+        generate().then(() => wsServer.emit('reload'));
+      });
     });
 }
