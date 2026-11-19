@@ -32,7 +32,10 @@ export const getContentOutputPath = (
   }
 
   rewritePath = rewritePath
-    .replace(new RegExp(`^${path.normalize(DIRECTORIES.CONTENT)}`), path.normalize(DIRECTORIES.BUILD))
+    .replace(
+      new RegExp(`${path.normalize(DIRECTORIES.CONTENT)}`),
+      path.normalize(DIRECTORIES.BUILD),
+    )
     .replace(/_index\.md$/, 'index.md')
     .replace(/\.md$/, '.html');
 

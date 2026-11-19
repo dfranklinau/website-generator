@@ -23,7 +23,7 @@ const getContentOutputPath = (filePath, section) => {
         }
     }
     rewritePath = rewritePath
-        .replace(new RegExp(`^${path_1.default.normalize(constants_1.DIRECTORIES.CONTENT)}`), path_1.default.normalize(constants_1.DIRECTORIES.BUILD))
+        .replace(new RegExp(`${path_1.default.normalize(constants_1.DIRECTORIES.CONTENT)}`), path_1.default.normalize(constants_1.DIRECTORIES.BUILD))
         .replace(/_index\.md$/, 'index.md')
         .replace(/\.md$/, '.html');
     if (!rewritePath.endsWith('/index.html')) {

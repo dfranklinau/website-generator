@@ -99,4 +99,9 @@ test('`getContentOutputPath`', (t: test.TestContext) => {
     'gets the content output path for a nested page in a section whose url is a replacement string',
   );
 
+  t.assert.equal(
+    getContentOutputPath('/root/directory/content/index.md', null),
+    '/root/directory/build/index.html',
+    'gets the content output path for an index page with an aboslute URL',
+  );
 });
